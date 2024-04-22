@@ -38,7 +38,7 @@
             <div class="row">
                <div class="col-sm-12">
                   <div class="header_top_main">
-                     <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +256 782719493</a></div>
+                     <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +256 0200991484</a></div>
                      <div class="call_text_2"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> info.ecafug@yahoo.com</a></div>
                      <div class="col-lg-4 col-md-8">
                         <div class="header-top-right text-center text-lg-right text-md-right mt-3 mt-lg-0">
@@ -96,7 +96,7 @@
          </header>
          </div>
          <!-- banner section start -->
-      <div class="header_section">
+      <!-- <div class="header_section"> -->
          <section class="slider">
             <div class="container">
                <div class="row justify-content-center">
@@ -114,7 +114,7 @@
             </div>
          </section>
         <!-- banner section end -->
-      </div>
+      <!-- </div> -->
       <!-- header section end -->
       <!-- services section start -->
       <div class="services_section layout_padding">
@@ -172,9 +172,22 @@
             <div class="row">
                <div class="col-md-6">
                   <h1 class="about_taital">About Us</h1>
-                  <p class="about_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
-                  <div class="read_bt_1"><a href="#">Read More</a></div>
-               </div>
+                  <p class="about_text">
+                     Exodus Community Awakening Organization Ug Reg No. 80034820673224 is located 2.7km off Bujjuko Mityana Road in Magoma Village. ECAFOg seeks to provide education, Love, Hope and Care for the Orphaned and Abandoned children of Uganda. AIDS has wiped out an entire generation of parents; forcing thousands of children never receive an education, Parental Love and Care. No education. No HOPE. We currently support 25 children aged between 3 to 15 years Old at our Home. With an addition of 45kids in our outreach program. We make sure all their basic needs are met and each of them needs to be enrolled in either a local village school, day or boarding school.
+                  </p>
+                  <div class="about_text_additional" style="display: none;">
+                      <p>
+                          Orphans and abandoned children are always confronted with immense psychological and social problems as they grow older, and they are also vulnerable to maltreatment, economical, sexual, and exploitation due to lack of care and protection. HIV and AIDS scourge compounded with high poverty levels have aggravated the situation of orphans in Uganda. In most regions of the country, most orphans are acutely malnourished in a country whose economy is largely driven by agriculture.
+                      </p>
+                      <p>
+                          With an economically weakened and overstretched traditional African extended family system that can no longer work effectively to address the high burden, most children find themselves without proper social support with the incapacitation and death of their parents. The future of these children remains very unpredictable. This always denies them a chance to access their basic needs such as proper health care, education, shelter, and nutrition. Orphans suffer stigma, stress, and trauma in addition to the loss of parental love, care, and protection, and more often they are disinherited by their next of kin.
+                      </p>
+                      <p>
+                          The above situation exposes orphans to different forms of abuse and exploitation; physical abuse, defilement, sexual exploitation, child labor, and early marriages while more flock to streets to fend for themselves. Indeed cases of child abuse have become a common feature in Uganda with only a few of these being reported to the relevant authorities.
+                      </p>
+                  </div>
+                  <div class="read_bt_1"><a href="#" onclick="toggleAdditionalInfo(event)">Read More</a></div>
+              </div>
                <div class="col-md-6">
                   <div class="about_img">
                      <video controls>
@@ -481,6 +494,22 @@
             </div>
          </div>
       </div>
+      <script>
+         function toggleAdditionalInfo(event) {
+             event.preventDefault(); // Prevents the default action of navigating to the top of the page
+             
+             var additionalInfo = document.querySelector('.about_text_additional');
+             var readMoreButton = document.querySelector('.read_bt_1 a');
+             
+             if (additionalInfo.style.display === 'none') {
+                 additionalInfo.style.display = 'block';
+                 readMoreButton.textContent = 'Read Less';
+             } else {
+                 additionalInfo.style.display = 'none';
+                 readMoreButton.textContent = 'Read More';
+             }
+         }
+     </script>
       <!-- copyright section end -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
