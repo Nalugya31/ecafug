@@ -123,9 +123,72 @@ overly:before, .page-title:before, .slider:before {
     object-fit: cover; /* Ensure the entire image is visible without distortion */
 }
 
+.section {
+    padding: 100px 0;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+footer {
+    display: block;
+    unicode-bidi: isolate;
+}
 
+.form-row {
+margin-bottom: 10px;
+}
 
+.form-input {
+display: block;
+}
 
+.form-error {
+color: red;
+}
+/* Form container */
+#contact-form {
+background-color: #f9f9f9;
+padding: 20px;
+border-radius: 10px;
+}
+
+/* Form rows */
+.form-row {
+margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+display: block;
+font-weight: bold;
+}
+
+/* Input fields and textarea */
+.form-input {
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+.location_text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.location_text ul li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 20px; /* Adjust spacing between list items */
+}
+
+/* Optional: To remove underlines from links */
+.location_text ul li a {
+    text-decoration: none;
+}
 
 
 * {
@@ -264,49 +327,6 @@ a {
     transition: all .3s ease-in-out;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    letter-spacing: 0;
-    font-weight: normal;
-    position: relative;
-    padding: 0 0 10px 0;
-    font-weight: normal;
-    line-height: normal;
-    color: #111111;
-    margin: 0
-}
-
-h1 {
-    font-size: 24px
-}
-
-h2 {
-    font-size: 22px
-}
-
-h3 {
-    font-size: 18px
-}
-
-h4 {
-    font-size: 16px
-}
-
-h5 {
-    font-size: 14px
-.gallery-wrap img {
-    margin-bottom: 10px;
-}
-
-}
-
-h6 {
-    font-size: 13px
-} */
 
 *,
 *::after,

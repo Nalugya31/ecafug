@@ -72,7 +72,7 @@
                            <li class="nav-item active">
                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                            </li>
-                           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                            <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Causes<span class="ml-1">+</span></a>
                                <ul class="dropdown-menu" aria-labelledby="dropdown03">
@@ -87,7 +87,7 @@
                                    <li><a class="dropdown-item" href="volunteer.html">Be a Volunteer </a></li>
                                </ul>
                            </li>
-                           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                        </ul>
                    </div>
                </div>
@@ -124,7 +124,7 @@
                <div class="row align-items-center">
                   <div class="col-lg-6">
                      <div class="section-title">
-                        <span class="text-color ">What we can do</span>
+                        <span class="text-color " style="font-size: 50px;">What we can do</span>
                         <h2 class="mt-3 content-title">We Believe that We can <br>Save More Lifes with you</h2>
                      </div>
                   </div>
@@ -167,7 +167,7 @@
       </div>
       <!-- services section end -->
       <!-- about sectuion start -->
-      <div class="about_section layout_padding">
+      <div class="about_section layout_padding" id="about">
          <div class="container">
             <div class="row">
                <div class="col-md-6">
@@ -211,7 +211,7 @@
              <div class="row justify-content-center">
                  <div class="col-lg-8 col-md-10">
                      <div class="section-title text-center">
-                         <span class="text-color">Our Gallery</span>
+                         <span class="text-color" style="font-size: 50px;">Our Gallery</span>
                          <h2 class="mt-3 mb-4 position-relative content-title">We connect with people across different sectors. we take risks and we always keep learning.</h2>
                      </div>
                  </div>
@@ -389,11 +389,11 @@
       </div>
       <!-- testimonial section end -->
       <!-- contact section start -->
-      <div class="contact_section layout_padding">
+      <div class="contact_section layout_padding" id="contact">
          <div class="container">
-            <div class="row">
+            <div https://formspree.io/f/mnqelgaqclass="row">
                <div class="col-md-12">
-                  <h1 class="contact_taital">Contact Us</h1>
+                  <h1 class="contact_taital">Contact Us Today and Become A Volunteer</h1>
                </div>
             </div>
          </div>
@@ -401,15 +401,26 @@
             <div class="contact_section_2">
                <div class="row">
                   <div class="col-md-6">
-                     <form action="">
-                        <div class="mail_section_1">
-                           <input type="text" class="mail_text" placeholder="Name" name="Name">
-                           <input type="text" class="mail_text" placeholder="Phone Number" name="Phone Number"> 
-                           <input type="text" class="mail_text" placeholder="Email" name="Email">
-                           <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                           <div class="send_bt"><a href="#">SEND</a></div>
+                     <form id="contact-form" method="POST" action="https://formspree.io/f/mnqelgaq">
+                        <div class="form-row form-error" style="display:none;"></div>
+                        <div class="form-row">
+                          <label for="contact-form-name">Name:</label>
+                          <input id="contact-form-name" class="form-input" type="text" name="name" required>
                         </div>
-                     </form>
+                        <div class="form-row">
+                          <label for="contact-form-email">Email:</label>
+                          <input id="contact-form-email" class="form-input" type="email" name="email" required>
+                        </div>
+                        <div class="form-row">
+                          <label for="contact-form-phone">Phone:</label>
+                          <input id="contact-form-phone" class="form-input" type="tel" name="phone">
+                        </div>
+                        <div class="form-row">
+                          <label for="contact-form-message">Message:</label>
+                          <textarea id="contact-form-message" class="form-input" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                      </form>
                   </div>
                   <div class="col-md-6 padding_left_15">
                      <div class="contact_img"><img src="images/contact.jpeg" style="width: 50%;"></div>
@@ -426,14 +437,14 @@
                   <div class="location_text">
                      <ul>
                         <li>
-                           <a href="#"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +256 782 719493</a>
+                           <a href="#"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +256 0200991484</a>
                         </li>
                         <li class="active">
-                           <a href="#"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span> <br>info.ecafug@yahoo.com</a>
+                           <a href="#"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span>info.ecafug@yahoo.com</a>
                         </li>
-                        <li>
-                           <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <br>Kampala</a>
-                        </li> 
+                        <!-- <li>
+                           <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> Kampala</a>
+                        </li>  -->
                      </ul>
                   </div>
                </div>
@@ -449,36 +460,28 @@
                            <li><a href="services.html">Causes</a></li>
                            <li><a href="blog.html">Get Involved</a></li>
                            <li><a href="contact.html">Contact Us</a></li>
+                           <li><a href="">Kampala,Uganda</a></li>
+
                         </ul>
                      </div>
                   </div>
-                  <!-- <div class="col-md-4">
-                     <h2 class="useful_text">Work Portfolio</h2>
-                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem</p>
-                  </div> -->
                   <div class="col-md-4">
                      <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
-                     <div class="form-group">
-                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
-                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                     <form action="https://formspree.io/f/mnqelgaq" method="POST">
+                         <div class="form-group">
+                             <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="email" name="email"></textarea>
+                             <div class="subscribe_bt">
+                                 <button type="submit" class="btn btn-success">Subscribe</button>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+                 
             <div class="social_icon">
                <ul>
-                  <li>
-                     <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                     <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                     <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                  </li>
-                  <li>
-                     <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                  </li>
+                  <a href="" target="_blank"><i class="fab fa-facebook-f" style="color: white; padding-right: 20px;"></i></a>
+                  <a href="" target="_blank"><i class="fab fa-twitter" style="color: white;padding-right: 20px;"></i></a>
+                  <a href="#" target="_blank"><i class="fab fa-linkedin" style="color: white; padding-right: 20px;"></i></a>
                </ul>
             </div>
          </div>
