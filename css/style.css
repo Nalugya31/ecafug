@@ -109,7 +109,7 @@ overly:before, .page-title:before, .slider:before {
 }
 
 .card-body:hover {
-    background-color: #f8f9fa; /* Change background color on hover */
+    background-color:#eefbf3;; /* Change background color on hover */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
     transform: scale(1.05); /* Scale up the card on hover */
 }
@@ -460,7 +460,7 @@ button {
 .header_top_section {
     width: 100%;
     display: flex;
-    background-color: #07092f;
+    background-color: #188354;
     height: auto;
     padding: 20px 0px;
 }
@@ -1366,7 +1366,7 @@ textarea#comment.massage-bt::placeholder {
 .footer_section {
     width: 100%;
     float: left;
-    background-color: #1f1f1f;
+    background-color: #136945;
     height: auto;
     padding-bottom: 50px;
 }
