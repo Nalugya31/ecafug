@@ -1607,3 +1607,100 @@ textarea#comment.massage-bt::placeholder {
     opacity: 0.5;
     background: #000;
 } */
+
+
+
+/* Donation Section Styles */
+.donation_section {
+    padding: 50px 0;
+}
+
+.donation_section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.donation_section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.donation_option {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.donation_option img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.donation_option h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.donation_option p {
+    font-size: 16px;
+}
+
+
+
+.volunteer {
+    position: relative;
+  }
+  
+  .volunteer:before {
+    position: absolute;
+    content: "";
+    right: 0px;
+    top: 0px;
+    width: 47%;
+    height: 100%;
+    background: #863bae;
+  }
+  
+  .volunteer-content {
+    padding-right: 70px;
+  }
+  
+  .volunteer-form .form-control {
+    height: 60px;
+    padding-left: 20px;
+    background: #f7f9f3;
+    border-radius: 3px;
+  }
+  
+  .volunteer-form textarea.form-control {
+    height: auto;
+  }
+  
+  .volunteer-form .btn:hover {
+    background: transparent;
+    color: #fff;
+    border-color: #f89d35;
+  }
+
+
+  .contact-wrap .form-group {
+    padding-bottom: 15px;
+    margin: 0px;
+  }
+  
+  .contact-wrap .form-group .form-control {
+    height: 48px;
+    background: #f7f9f3;
+    border: 1px solid #EEF2F6;
+    box-shadow: none;
+    width: 100%;
+  }
+  
+  .contact-wrap .form-group textarea.form-control {
+    height: auto;
+  }
+  
+  .contact-wrap label {
+    text-transform: uppercase;
+    font-size: 13px;
+  }
