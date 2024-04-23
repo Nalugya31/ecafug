@@ -48,6 +48,16 @@ html {
     background-position: center; /* Center the background image */
   }
 
+
+body{
+    font-family: 'Bitter' serif;
+}
+
+
+.carousel-container {
+    height: auto; /* Adjust the height as needed */
+    overflow: hidden; /* Hide overflow to prevent shifting */
+}
 overly:before, .page-title:before, .slider:before {
     content: "";
     position: absolute;
@@ -78,7 +88,7 @@ overly:before, .page-title:before, .slider:before {
 
 .btn-main, .btn-small {
     background: green;
-    border-color: #f89d35;
+    border-color: green;
     color: #fff;
     transition: all 0.2s ease;
 }
@@ -584,14 +594,14 @@ avbar-expand-lg .navbar-nav .nav-link {
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #fda417;
+    color: green;
 }
 
 .navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
-    color: #fda417;
+    color: green;
 }
 
 .navbar {
@@ -617,7 +627,7 @@ avbar-expand-lg .navbar-nav .nav-link {
 }
 
 .login_text li a:hover {
-    color: #fda417;
+    color: green;
 }
 
 .quote_btn {
@@ -713,7 +723,7 @@ avbar-expand-lg .navbar-nav .nav-link {
 
 .started_text.active a {
     color: #ffffff;
-    background-color: #fda417;
+    background-color: #eefbf3;
 }
 
 #my_slider a.carousel-control-prev {
@@ -768,6 +778,7 @@ avbar-expand-lg .navbar-nav .nav-link {
     color: #3b3a3a;
     font-weight: bold;
     padding-top: 40px;
+    font-family: 'Bitter' serif;
 }
 
 .about_text {
@@ -842,7 +853,7 @@ avbar-expand-lg .navbar-nav .nav-link {
     float: left;
     font-size: 16px;
     text-align: center;
-    background-color: #282828;
+    background-color: green;
     color: #ffffff;
     padding: 10px 0px;
     border-radius: 40px;
@@ -850,7 +861,7 @@ avbar-expand-lg .navbar-nav .nav-link {
 }
 
 .read_bt_1 a:hover {
-    background-color: #fda417;
+    background-color: #188354;
     color: #ffffff;
 }
 
@@ -1155,7 +1166,7 @@ i.fa.fa-link {
 }
 
 .projects_section ul .nav-link.active {
-    background-color: #fda417;
+    background-color: #eefbf3;
     color: #fff;
 }
 
@@ -1273,10 +1284,10 @@ i.fa.fa-link {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #333333;
+    color:green;
     padding-left: 100px;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Bitter', serif;
 }
 
 .contact_section_2 {
@@ -1421,11 +1432,11 @@ textarea#comment.massage-bt::placeholder {
 }
 
 .location_text li a:hover {
-    color: #fda417;
+    color: green;
 }
 
 .location_text li.active a {
-    color: #fda417;
+    color: #eefbf3;
 }
 
 .padding_15 {
@@ -1535,11 +1546,11 @@ textarea#comment.massage-bt::placeholder {
 }
 
 .footer_menu li a:hover {
-    color: #fda417;
+    color: ;
 }
 
 .footer_menu li.active a {
-    color: #f9bc19;
+    color: #eefbf3;
 }
 
 
