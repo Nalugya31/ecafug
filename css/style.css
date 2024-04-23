@@ -52,7 +52,10 @@ html {
 body{
     font-family: 'Bitter' serif;
 }
-
+a:hover {
+    color: #eefbf3;
+    text-decoration: underline;
+  }
 
 .carousel-container {
     height: auto; /* Adjust the height as needed */
@@ -119,7 +122,7 @@ overly:before, .page-title:before, .slider:before {
 }
 
 .card-body:hover {
-    background-color:#eefbf3;; /* Change background color on hover */
+    background-color:#eefbf3; /* Change background color on hover */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
     transform: scale(1.05); /* Scale up the card on hover */
 }
@@ -1180,7 +1183,7 @@ i.fa.fa-link {
     position: relative; /* Required for positioning pseudo-element */
     width: 100%;
     float: left;
-    background-image: url('../images/goat.jpeg');
+    background-image: url('../images/boy.jpeg');
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
     padding: 100px 0;
@@ -1204,7 +1207,7 @@ i.fa.fa-link {
     color: #ffffff;
     text-align: center;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Bitter', serif;
 }
 
 .testimonial_section_2 {
