@@ -397,9 +397,10 @@ a,
 }
 
 .img-fluid{
-    max-width: 35%;
+    max-width: 40%;
     height: auto;
     margin-left: 0px;
+    border-radius: 100%;
 }
 
  :focus {
@@ -494,7 +495,7 @@ button {
 }
 
 .call_text a:hover {
-    color: #fda417;
+    color: rgb(70, 236, 70);
 }
 
 .call_text_1 {
@@ -510,7 +511,7 @@ button {
 }
 
 .call_text_1 a:hover {
-    color: #fda417;
+    color: rgb(70, 236, 70);;
 }
 
 .call_text_2 {
@@ -527,7 +528,7 @@ button {
 }
 
 .call_text_2 a:hover {
-    color: #fda417;
+    color: rgb(70, 236, 70);;
 }
 
 .padding_left_15 {
@@ -581,6 +582,7 @@ button {
 
 .logo {
     width: auto;
+    
 }
 
 .ml-auto,
@@ -958,7 +960,7 @@ avbar-expand-lg .navbar-nav .nav-link {
     width: 100%;
     text-align: center;
     font-size: 16px;
-    color: #fda51a;
+    color: rgb(70, 236, 70);;
     padding: 15px 20px;
     margin-top: 10px;
     font-weight: bold;
