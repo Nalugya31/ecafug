@@ -30,6 +30,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    </head>
    <body>
       <!-- header top section start -->
@@ -164,19 +165,30 @@
 									<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal: <span>$890</span></li>
 									<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
 								</ul>
-								<div id="waterDescription">
+								<p>
+									In this situation, 73% of the people in our community face in daily life. We have no boreholes for free water where people make long lines just to fetch 1 or 2 Jerry cans of water from a pond in a forest. This has led to poor sanitation and bad personal hygiene.
+									</p>	
+									</p>
+								<div id="waterDescription"style="display: none;" >
 									<p class="card-text mb-4">
-										In this situation, 73% of the people in our community face in daily life. We have no boreholes for free water where people make long lines just to fetch 1 or 2 Jerry cans of water from a pond in a forest. This has led to poor sanitation and bad personal hygiene.
-									</p>
-									<p>
+
 										Young children of between 3-15 years collide at dirty ponds of water just not to move so far which easily spreads diseases like cholera, dysentery, and athletes' foot. The ponds are close to 3 at a very big distance from one another. Children have to move for close to 3 km just to reach the ponds or stream to fetch water. Many people in the society have resorted to the use of dirty or no water just for the sake of avoiding moving long distances.
-									</p>
+										
 									<p>
 										What hurts most is that people with bicycles and motorcycles have resorted to selling water. They go fetch much water at the boreholes and then start moving selling water to people at a very high price like a 20-liter Jerry can is bought for close to $1-2. Let's join hands together and fundraise for the #Good_cause and make the world a better place. I request you to please join us to construct more boreholes and extend water even closer to the people so as to reduce the risks brought about by the lack of water in the community.
 									</p>
 								</div>
-								<button onclick="toggleDescription()" class="btn btn-main rounded" id="readMoreBtn">Read More</button>
-								<a href="https://www.paypal.me/ecafug256" class="btn btn-main rounded">Donate Now</a>
+								<br>
+									<button onclick="toggleDescription()" class="btn btn-main rounded" id="readMoreBtn">Read More</button>
+										<a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
+											<span class="material-symbols-outlined">
+												volunteer_activism
+												</span>
+										</a>
+										
+									
+							
+								
 							</div>
 							</div>
 							<div class="col-md-4">
@@ -191,8 +203,14 @@
 							   <div class="card-body">
 								  <h3 class="mb-3"><a href="cause-single.html">Fundraise for Education</a></h3>
 								 
-								  <p class="card-text mb-4">Save poor child by supporting text below as a natural lead-in to additional content. </p>
-								  <p>Quia vitae ab maxime cum quod neque .</p>
+								  <p class="card-text mb-4">Every child deserves access to quality education, but many orphaned and vulnerable children are denied this fundamental right.
+
+									Through our #Go Back To School program,  your donation will provide:
+									
+									- School fees and supplies for a year
+									- Access to quality education and dedicated teachers
+									- A chance for children to break the cycle of poverty and thrive</p>
+								  <!-- <p> .</p> -->
 			  
 								  <a href="https://www.paypal.me/ecafug256" class="btn btn-main rounded">Donate Now</a>
 								</div>
@@ -402,17 +420,19 @@
 
 
 <script>
-    function toggleDescription() {
-        var description = document.getElementById("waterDescription");
-        var btnText = document.getElementById("readMoreBtn");
-        if (description.style.display === "none") {
-            description.style.display = "block";
-            btnText.textContent = "Read Less";
-        } else {
-            description.style.display = "none";
-            btnText.textContent = "Read More";
-        }
+    
+	function toggleDescription() {
+    var waterDescription = document.getElementById("waterDescription");
+    var readMoreBtn = document.getElementById("readMoreBtn");
+
+    if (waterDescription.style.display === "none") {
+        waterDescription.style.display = "block";
+        readMoreBtn.innerText = "Read Less";
+    } else {
+        waterDescription.style.display = "none";
+        readMoreBtn.innerText = "Read More";
     }
+}
 </script>
 
  <!-- copyright section end -->

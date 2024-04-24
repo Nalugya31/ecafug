@@ -48,6 +48,15 @@ html {
     background-position: center; /* Center the background image */
   }
 
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
   .list-unstyled{
     font-weight: 900;
     margin-bottom: 30px;
