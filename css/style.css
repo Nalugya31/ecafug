@@ -48,6 +48,10 @@ html {
     background-position: center; /* Center the background image */
   }
 
+  .list-unstyled{
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
 
 body{
     font-family: 'Bitter' serif;
@@ -866,8 +870,9 @@ avbar-expand-lg .navbar-nav .nav-link {
 }
 
 .read_bt_1 a:hover {
-    background-color: #188354;
-    color: #ffffff;
+    background-color: #eefbf3;
+    color: green;
+    border: green 1px solid;;
 }
 
 
