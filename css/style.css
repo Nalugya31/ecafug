@@ -47,14 +47,33 @@ html {
     background-repeat: no-repeat;
     background-position: center; /* Center the background image */
   }
+  @keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
-
+.imgk {
+    animation: floatAnimation 3s infinite;
+    border-radius: 50%; /* This will make the border circular */
+    background-color: #eefbf3; /* This sets the background color to green */
+    padding: 10px; /* Optional: Adds some padding to the image */
+    width: 30%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 24
+  'opsz' 24,
+
 }
 
   .list-unstyled{
