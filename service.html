@@ -30,8 +30,67 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
       <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+	  
 	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    </head>
+
+   <style>
+	.services .icon-box {
+  padding: 60px 30px;
+  transition: all ease-in-out 0.3s;
+  background: #fefefe;
+  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
+  border-radius: 18px;
+  border-bottom: 5px solid #fff;
+}
+
+.services .icon-box .icon {
+  width: 64px;
+  height: 64px;
+  background: #009961;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+}
+
+.services .icon-box .icon i {
+  font-size: 28px;
+}
+
+.services .icon-box h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.services .icon-box h4 a {
+  color: #282828;
+  transition: ease-in-out 0.3s;
+}
+
+.services .icon-box p {
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.services .icon-box:hover {
+  transform: translateY(-10px);
+  border-color: #009961;
+}
+
+.services .icon-box:hover h4 a {
+  color: #009961;
+}
+
+.image{
+	border-radius: 8px;
+}
+   </style>
    <body>
       <!-- header top section start -->
       <div class="header_top_section">
@@ -141,17 +200,16 @@
 							   <div class="card-body">
 								  <h3 class="mb-3"><a href="cause-single.html">Fundraise for Food</a></h3>
 			  
-								   <ul class="list-inline border-bottom border-top py-3 ">
+								   <!-- <ul class="list-inline border-bottom border-top py-3 ">
 									 <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
 									 <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-								  </ul>
+								  </ul> -->
 								  <p class="card-text mb-4">The empty shelves in our pantry represent not just a lack of food, but a void in the lives of those who rely on it. Your support, regardless of the amount, can help us replenish these stores and ensure that no one goes hungry. Your contribution will not only provide nourishment but also offer hope and relief to those facing uncertainty. Together, let's make a difference by filling the empty store with the warmth of compassion and the promise of a brighter tomorrow.</p>
 			  
-								  <a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
+								  <div class="icon"><a href="https://www.paypal.me/ecafug256" style=" padding-top: 10%;">
 									<span class="material-symbols-outlined">
 										volunteer_activism
-										</span>
-								</a>
+										</span></div>
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -165,10 +223,10 @@
 							   </div>
 							   <div class="card-body">
 								<h3 class="mb-3"><a href="cause-single.html">Clean Drinking Water</a></h3>
-								<ul class="list-inline border-bottom border-top py-3">
+								<!-- <ul class="list-inline border-bottom border-top py-3">
 									<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal: <span>$890</span></li>
 									<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-								</ul>
+								</ul> -->
 								<p>
 									In this situation, 73% of the people in our community face in daily life. We have no boreholes for free water where people make long lines just to fetch 1 or 2 Jerry cans of water from a pond in a forest. This has led to poor sanitation and bad personal hygiene.
 									</p>	
@@ -184,11 +242,10 @@
 								</div>
 								<br>
 									<button onclick="toggleDescription()" class="btn btn-main rounded" id="readMoreBtn">Read More</button>
-										<a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
-											<span class="material-symbols-outlined">
-												volunteer_activism
-												</span>
-										</a>
+									<div class="icon"><a href="https://www.paypal.me/ecafug256" style=" padding-top: 10%;">
+										<span class="material-symbols-outlined">
+											volunteer_activism
+											</span></div>
 										
 									
 							
@@ -216,11 +273,10 @@
 									- A chance for children to break the cycle of poverty and thrive</p>
 								  <!-- <p> .</p> -->
 			  
-								  <a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
+								  <div class="icon"><a href="https://www.paypal.me/ecafug256" style=" padding-top: 10%;">
 									<span class="material-symbols-outlined">
 										volunteer_activism
-										</span>
-								</a>
+										</span></div>
 								</div>
 							</div>
 						 </div>
@@ -261,17 +317,16 @@
 							<div class="card-body">
 							   <h3 class="mb-3"><a href="cause-single.html">Help the eldery</a></h3>
 		   
-								<ul class="list-inline border-bottom border-top py-3 ">
+								<!-- <ul class="list-inline border-bottom border-top py-3 ">
 								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
 								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-							   </ul>
+							   </ul> -->
 							   <p class="card-text mb-4">Save poor child by supporting text below as a natural lead-in to additional content.</p>
 		   
-							   <a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
+							   <div class="icon"><a href="https://www.paypal.me/ecafug256" style=" padding-top: 10%;">
 								<span class="material-symbols-outlined">
 									volunteer_activism
-									</span>
-							</a>
+									</span></div>
 							 </div>
 						 </div>
 						 <div class="col-md-4">
@@ -285,21 +340,20 @@
 							</div>
 							<div class="card-body">
 							   <h3 class="mb-3"><a href="cause-single.html">Save Pregnant mothers</a></h3>
-								<ul class="list-inline border-bottom  border-top py-3">
+								<!-- <ul class="list-inline border-bottom  border-top py-3">
 								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal: <span>$890</span></li>
 								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-							   </ul>
+							   </ul> -->
 							   <p class="card-text mb-4">
 								Supporting pregnant youth is crucial for ensuring their well-being and that of their unborn children. 
 								
 								These young mothers face unique challenges as they navigate pregnancy and early parenthood. By offering comprehensive support services, including medical care, education, and emotional guidance, we can empower them to make informed choices and provide a nurturing environment for their children. Your support can make a meaningful difference in the lives of these young families, offering them hope for a brighter future. Let's come together to ensure that pregnant youth receive the care and support they need to thrive.
 								</p>
 		   
-							   <a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
-								<span class="material-symbols-outlined" style="font-size: 30px;">
-									volunteer_activism
-									</span>
-							</a>
+								<div class="icon"><a href="https://www.paypal.me/ecafug256" style=" padding-top: 10%;">
+									<span class="material-symbols-outlined">
+										volunteer_activism
+										</span></div>
 							 </div>
 						 </div>
 						 <div class="col-md-4">
@@ -317,11 +371,10 @@
 							   <p class="card-text mb-4">Save poor child by supporting text below as a natural lead-in to additional content. </p>
 							   <p>Quia vitae ab maxime cum quod neque .</p>
 		   
-							   <a href="https://www.paypal.me/ecafug256" style="margin-left: 40%; padding-top: 10%;">
+							   <div class="icon"><a href="https://www.paypal.me/ecafug256" style=" padding-top: 10%;">
 								<span class="material-symbols-outlined">
 									volunteer_activism
-									</span>
-							</a>
+									</span></div>
 							 </div>
 						 </div>
 					  </div>

@@ -47,6 +47,12 @@ html {
     background-repeat: no-repeat;
     background-position: center; /* Center the background image */
   }
+
+
+
+
+
+  
   @keyframes floatAnimation {
     0% {
         transform: translateY(0);
