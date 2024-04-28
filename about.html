@@ -62,42 +62,42 @@
       <!-- header section start -->
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href="index.html">
-               <img src="images/Exodus-Logo-DP.jpg" alt="" class="img-fluid">
-           </a>
-           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="ti-menu"></span>
-           </button>
-       
-           <div class="container">
-               <div class="collapse navbar-collapse text-center" id="navbarsExample09">
-                   <ul class="navbar-nav ml-auto">
-                       <li class="nav-item active">
-                           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                       </li>
-                       <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                       <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Causes<span class="ml-1">+</span></a>
-                           <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                               <li><a class="dropdown-item" href="service.html">Causes</a></li>
-                               <!-- <li><a class="dropdown-item" href="cause-single.html">Cause details</a></li> -->
-                           </ul>
-                       </li>
-                       <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved<span class="ml-1">+</span></a>
-                           <ul class="dropdown-menu" aria-labelledby="dropdown04">
-                               <li><a class="dropdown-item" href="donation.html">Donation</a></li>
-                               <li><a class="dropdown-item" href="volunteer.html">Be a Volunteer </a></li>
-                           </ul>
-                       </li>
-                       <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                   </ul>
-               </div>
-           </div>
-       </nav>
-       
+            <a class="navbar-brand" href="index.html">
+                <img src="images/Exodus-Logo-DP.jpg" alt="" class="img-fluid">
+            </a>
+            <!-- Replace the toggle button with three lines -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
     
+            <div class="container">
+                <div class="collapse navbar-collapse text-center" id="navbarsExample09">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Causes<span class="ml-1">+</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                                <li><a class="dropdown-item" href="service.html">Causes</a></li>
+                                <!-- <li><a class="dropdown-item" href="cause-single.html">Cause details</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved<span class="ml-1">+</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+                                <li><a class="dropdown-item" href="donation.html">Donation</a></li>
+                                <li><a class="dropdown-item" href="volunteer.html">Be a Volunteer </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
+    
 
 
 
@@ -510,6 +510,13 @@
             }
         }
     </script>
+          <script>
+            $(document).ready(function(){
+                $(".navbar-toggler").click(function(){
+                    $(".navbar-collapse").toggleClass("show");
+                });
+            });
+        </script>
      <!-- copyright section end -->
      <!-- Javascript files-->
 
