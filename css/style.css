@@ -519,17 +519,44 @@ button {
 /* header top section start */
 
 
-
 .header_top_section {
-    width: 100%;
-    display: flex;
     background-color: #188354;
-    height: auto;
     padding: 20px 0px;
 }
 
 .header_top_main {
     display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+.call_text,
+.call_text_2 {
+    color: white;
+    margin-right: 20px; /* Adjust spacing between items */
+}
+
+/* Adjust button styles */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+/* Adjust social media icon styles */
+.header-top-right a {
+    color: white;
+    margin-right: 10px; /* Adjust spacing between icons */
+}
+
+/* Media query for small screens */
+@media (max-width: 991.98px) {
+    .header_top_main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .call_text {
@@ -1756,7 +1783,6 @@ textarea#comment.massage-bt::placeholder {
   
   .contact-wrap .form-group .form-control {
     height: 48px;
-    background: #f7f9f3;
     border: 1px solid #EEF2F6;
     box-shadow: none;
     width: 100%;
