@@ -125,7 +125,9 @@ overly:before, .page-title:before, .slider:before {
     opacity: 0.5;
     background: #000;
 }
-
+.carousel-control-prev-icon{
+    color: #136945;
+}
 
 
   .slider{
