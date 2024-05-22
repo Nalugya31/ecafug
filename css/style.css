@@ -47,6 +47,27 @@ html {
     background-repeat: no-repeat;
     background-position: center; /* Center the background image */
   }
+
+  .my-image {
+    width: 300px; /* adjust as needed */
+    height: 300px; /* adjust as needed */
+    object-fit: cover; /* this will ensure the image covers the whole area without distortion */
+}
+
+.gallery-item {
+    margin-bottom: 50px; /* Adjust as needed */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.gallery-item h5 {
+    margin-top: 10px; /* Adjust as needed */
+}
+
 body {
     font-family: bitter,serif;
 }
