@@ -1,193 +1,167 @@
-<section class="section gallery">
-  <div class="container">
-      <div class="row justify-content-center">
-          <div class="col-lg-8 col-md-10">
-              <div class="section-title text-center">
-                  <strong><span class="text-color" style="font-size: 50px; color: green;">Our Gallery</span></strong> 
-                  <h5 class="mt-3 mb-4 position-relative content-title">
-                      Stories of Love and Resilience
-                      Each photo tells a story of love, resilience, and hope. You'll see moments of joy, laughter, and connection that showcase the beauty of our community. You'll also see the challenges we face, but most importantly, you'll see the strength and determination of our family members.
-                  </h5>
-              </div>
-          </div>
-      </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Projects Section</title>
+    <style>
+        .container_main {
+            position: relative;
+            width: 100%;
+            height: 300px; /* Set a fixed height */
+            overflow: hidden;
+        }
 
-  <div class="container">
-    <div class="row">
-        <div class="gallery-item col-md-4 col-sm-6">
-            <img src="images/boy.jpeg" class="img-fluid" alt="...">
-            <h5 class="text-center">Ssekatawa</h5>
-        </div>
-        <div class="gallery-item col-md-4 col-sm-6">
-            <img src="images/Tracy.jpeg" class="img-fluid" alt="...">
-            <h5 class="text-center">Tracy</h5>
-        </div>
+        .container_main .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the container */
+        }
 
+        .container_main .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(0,0,0,0.5);
+        }
 
-            <div class="gallery-item col-md-4 col-sm-6">
-                        <img src="images/Abaana/one.jpeg" class="img-fluid" alt="...">
-                        
-                           <h5>Tracy</h5>
-                       </div>
-                    </div>
-                    <div class="gallery-item col-md-4 col-sm-6">
-                     <img src="images/Abaana/two.jpeg" class="img-fluid" alt="...">
-                   
-                        <h5>Innocent</h5>
-                    </div>
-                     </div>
-                  <div class="gallery-item col-md-4 col-sm-6">
-                  <img src="images/Abaana/three.jpeg" class="img-fluid" alt="...">
-                  
-                     <h5>Sheila</h5>
-                 </div>
-                  </div>
-                  <div class="gallery-item col-md-4 col-sm-6">
-                     <img src="images/Abaana/four.jpeg" class="img-fluid" alt="...">
-                     
-                        <h5>Juliet</h5>
-                     </div>
-                     </div>
-                     <div class="gallery-item col-md-4 col-sm-6">
-                        <img src="images/Abaana/five.jpeg" class="img-fluid" alt="...">
-                        
-                           <h5>Jovan</h5>
-                       </div>
-                        </div>
-                        <div class="gallery-item col-md-4 col-sm-6">
-                           <img src="images/Abaana/six.jpeg" class="img-fluid" alt="...">
-                           
-                              <h5>Tracy</h5>
-                          </div>
-                           </div>
-                           <div class="gallery-item col-md-4 col-sm-6">
-                              <img src="images/Abaana/seven.jpeg" class="img-fluid" alt="...">
-                              
-                                 <h5>Joseph</h5>
-                             </div>
-                              </div>
-                              <div class="gallery-item col-md-4 col-sm-6">
-                                 <img src="images/Abaana/eight.jpeg" class="img-fluid" alt="...">
-                              
-                                    <h5>Valentina</h5>
-                                </div>
-                                 </div>
-                                 <div class="">
-                                    <img src="images/Abaana/nine.jpeg" class="img-fluid" alt="...">
-                                   
-                                       <h5>Kakande</h5>
-                                   </div>
+        .container_main:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .card-body {
+            height: 200px; /* Set a fixed height */
+            overflow-y: auto; /* Scroll if content overflows */
+        }
+
+        .icon {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="projects_section_2 layout_padding">
+    <div class="container">
+        <div class="pets_section">
+            <div class="pets_section_2">
+                <div id="main_slider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="container_main">
+                                        <img src="images/food.jpeg" alt="Food" class="image">
+                                        <div class="overlay">
+                                            <div class="text">
+                                                <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="carousel-item">
-                                       <img src="images/Abaana/ten.jpeg" class="img-fluid" alt="...">
-                                      
-                                          <h5>Tracy</h5>
-                                      </div>
-                                       </div>
-                                       <div class="carousel-item">
-                                          <img src="images/Abaana/eleven.jpeg" class="img - fluid" alt="...">
-                                          
-                                             <h5>Ssekatawa</h5>
-                                         </div>
-                                          </div>
-
-
-
-        <!-- Repeat for other images -->
+                                    <div class="card-body">
+                                        <h3 class="mb-3"><a href="">Fundraise for Food</a></h3>
+                                        <p class="card-text mb-4">The empty shelves in our pantry represent not just a lack of food, but a void in the lives of those who rely on it. Your support, regardless of the amount, can help us replenish these stores and ensure that no one goes hungry. Your contribution will not only provide nourishment but also offer hope and relief to those facing uncertainty. Together, let's make a difference by filling the empty store with the warmth of compassion and the promise of a brighter tomorrow.</p>
+                                        <div class="icon"><a href="http://paypal.me/ecaougdonate">
+                                            <span class="material-symbols-outlined" style="font-size: xx-large;">volunteer_activism</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="container_main">
+                                        <img src="images/water.jpeg" alt="Water" class="image">
+                                        <div class="overlay">
+                                            <div class="text">
+                                                <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="mb-3"><a href="">Clean Drinking Water</a></h3>
+                                        <p>In this situation, 73% of the people in our community face in daily life. We have no boreholes for free water where people make long lines just to fetch 1 or 2 Jerry cans of water from a pond in a forest. This has led to poor sanitation and bad personal hygiene.</p>
+                                        <div id="waterDescription" style="display: none;">
+                                            <p class="card-text mb-4">
+                                                Young children of between 3-15 years collide at dirty ponds of water just not to move so far which easily spreads diseases like cholera, dysentery, and athletes' foot. The ponds are close to 3 at a very big distance from one another. Children have to move for close to 3 km just to reach the ponds or stream to fetch water. Many people in the society have resorted to the use of dirty or no water just for the sake of avoiding moving long distances.
+                                            </p>
+                                            <p>
+                                                What hurts most is that people with bicycles and motorcycles have resorted to selling water. They go fetch much water at the boreholes and then start moving selling water to people at a very high price like a 20-liter Jerry can is bought for close to $1-2. Let's join hands together and fundraise for the #Good_cause and make the world a better place. I request you to please join us to construct more boreholes and extend water even closer to the people so as to reduce the risks brought about by the lack of water in the community.
+                                            </p>
+                                        </div>
+                                        <button onclick="toggleDescription()" class="btn btn-main rounded" id="readMoreBtn">Read More</button>
+                                        <div class="icon"><a href="http://paypal.me/ecaougdonate">
+                                            <span class="material-symbols-outlined" style="font-size: xx-large;">volunteer_activism</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="container_main">
+                                        <img src="images/Tracy.jpeg" alt="Education" class="image">
+                                        <div class="overlay">
+                                            <div class="text">
+                                                <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="mb-3"><a href="">Fundraise for Education</a></h3>
+                                        <p class="card-text mb-4">Every child deserves access to quality education, but many orphaned and vulnerable children are denied this fundamental right. Through our #Go Back To School program, your donation will provide:
+                                            <ul>
+                                                <li>School fees and supplies for a year</li>
+                                                <li>Access to quality education and dedicated teachers</li>
+                                                <li>A chance for children to break the cycle of poverty and thrive</li>
+                                            </ul>
+                                        </p>
+                                        <div class="icon"><a href="http://paypal.me/ecaougdonate">
+                                            <span class="material-symbols-outlined" style="font-size: xx-large;">volunteer_activism</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat similar structure for the next set of cards -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- Add script for the read more button functionality -->
+<script>
+    function toggleDescription() {
+        var desc = document.getElementById("waterDescription");
+        var btn = document.getElementById("readMoreBtn");
+        if (desc.style.display === "none") {
+            desc.style.display = "block";
+            btn.textContent = "Read Less";
+        } else {
+            desc.style.display = "none";
+            btn.textContent = "Read More";
+        }
+    }
+</script>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-</section>
-<div class="container">
-    <div class="row">
-        <div class="gallery-item col-md-4 col-sm-6">
-            <img src="images/boy.jpeg" class="img-fluid" alt="...">
-            <h5 class="text-center">Ssekatawa</h5>
-        </div>
-        <div class="gallery-item col-md-4 col-sm-6">
-            <img src="images/Tracy.jpeg" class="img-fluid" alt="...">
-            <h5 class="text-center">Tracy</h5>
-        </div>
-
-
-            <div class="gallery-item col-md-4 col-sm-6">
-                        <img src="images/Abaana/one.jpeg" class="img-fluid" alt="...">
-                        
-                           <h5>Tracy</h5>
-                       </div>
-                    </div>
-                    <div class="gallery-item col-md-4 col-sm-6">
-                     <img src="images/Abaana/two.jpeg" class="img-fluid" alt="...">
-                   
-                        <h5>Innocent</h5>
-                    </div>
-                     </div>
-                  <div class="gallery-item col-md-4 col-sm-6">
-                  <img src="images/Abaana/three.jpeg" class="img-fluid" alt="...">
-                  
-                     <h5>Sheila</h5>
-                 </div>
-                  </div>
-                  <div class="gallery-item col-md-4 col-sm-6">
-                     <img src="images/Abaana/four.jpeg" class="img-fluid" alt="...">
-                     
-                        <h5>Juliet</h5>
-                     </div>
-                     </div>
-                     <div class="gallery-item col-md-4 col-sm-6">
-                        <img src="images/Abaana/five.jpeg" class="img-fluid" alt="...">
-                        
-                           <h5>Jovan</h5>
-                       </div>
-                        </div>
-                        <div class="gallery-item col-md-4 col-sm-6">
-                           <img src="images/Abaana/six.jpeg" class="img-fluid" alt="...">
-                           
-                              <h5>Tracy</h5>
-                          </div>
-                           </div>
-                           <div class="gallery-item col-md-4 col-sm-6">
-                              <img src="images/Abaana/seven.jpeg" class="img-fluid" alt="...">
-                              
-                                 <h5>Joseph</h5>
-                             </div>
-                              </div>
-                              <div class="gallery-item col-md-4 col-sm-6">
-                                 <img src="images/Abaana/eight.jpeg" class="img-fluid" alt="...">
-                              
-                                    <h5>Valentina</h5>
-                                </div>
-                                 </div>
-                                 <div class="">
-                                    <img src="images/Abaana/nine.jpeg" class="img-fluid" alt="...">
-                                   
-                                       <h5>Kakande</h5>
-                                   </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                       <img src="images/Abaana/ten.jpeg" class="img-fluid" alt="...">
-                                      
-                                          <h5>Tracy</h5>
-                                      </div>
-                                       </div>
-                                       <div class="carousel-item">
-                                          <img src="images/Abaana/eleven.jpeg" class="img - fluid" alt="...">
-                                          
-                                             <h5>Ssekatawa</h5>
-                                         </div>
-                                          </div>
-
-
-
-        <!-- Repeat for other images -->
-    </div>
-</div>
-
-
-
-
-</section>
+</body>
+</html>
