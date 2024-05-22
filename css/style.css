@@ -54,7 +54,23 @@ html {
       padding-top: 100%; /* Aspect ratio 1:1 */
       overflow: hidden;
   }
-
+  .custom-bullets {
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 40px; /* Add padding to indent the custom bullets */
+}
+.custom-bullets li {
+    margin-bottom: 10px; /* Add space between bullet points */
+    position: relative; /* Needed for positioning the custom bullets */
+}
+.custom-bullets li::before {
+    content: '\f058'; /* Font Awesome check-circle icon */
+    font-family: 'Font Awesome 5 Free'; /* Specify Font Awesome font family */
+    font-weight: 900; /* Required for solid icons */
+    color: green; /* Icon color */
+    position: absolute; /* Position it absolutely */
+    left: -30px; /* Adjust the position to match padding */
+    font-size: 1.2em; /* Optional: Adjust icon size */
+}
   .container_main .image {
       position: absolute;
       top: 0;
@@ -618,6 +634,7 @@ button {
     color: white;
     padding: 8px 20px;
     border-radius: 4px;
+    
 }
 
 /* Adjust social media icon styles */
@@ -1846,8 +1863,9 @@ textarea#comment.massage-bt::placeholder {
   
   .volunteer-form .btn:hover {
     background: transparent;
-    color: #fff;
-    border-color: #f89d35;
+    background-color: #136945;
+    color:white;
+    border-color: green;
   }
 
 
