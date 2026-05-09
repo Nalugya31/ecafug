@@ -91,6 +91,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -216,16 +217,71 @@
 <br>
 <br>
 
+<style>
+
+                /* ── Floating Donate Button ── */
+.float-donate {
+  position: fixed;
+  top: 50%;                          /* ← was bottom: 32px */
+  right: 0;                          /* ← was right: 32px  */
+  transform: translateY(-50%);       /* ← keeps it centered vertically */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a5c2a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px 0 0 50px;     /* ← flat on right, rounded on left */
+  padding: 13px 18px 13px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: -3px 4px 18px rgba(26,92,42,.38);
+  transition: background .2s, transform .2s, box-shadow .2s, padding .2s;
+}
+.float-donate:hover {
+  background: #2d7a3e;
+  color: #fff;
+  transform: translateY(-50%) translateX(-4px); /* ← slides out slightly on hover */
+  box-shadow: -5px 8px 28px rgba(26,92,42,.45);
+}
+.float-donate .fd-icon {
+  width: 24px;
+  height: 24px;
+  background: rgba(255,255,255,.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.float-donate .fd-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  border: 2px solid rgba(26,92,42,.45);
+  animation: fd-pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes fd-pulse {
+  0%   { transform: scale(1);   opacity: .7; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+@media (max-width: 480px) {
+  .float-donate span { display: none; }
+  .float-donate { padding: 14px; border-radius: 50%; }
+}
+</style>
 
 
-
-
-
-
-
-
-
-
+   <!-- ── Floating Donate Button ── -->
+<a href="donation.html" class="float-donate">
+  <div class="fd-pulse"></div>
+  <div class="fd-icon">♥</div>
+  <span>Donate Now</span>
+</a>
 
 
 
