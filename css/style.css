@@ -1767,14 +1767,14 @@ textarea#comment.massage-bt::placeholder {
 
 
 /* service.html */
-.bg-1{
-    background: url(../images/kids2.jpeg) no-repeat 50% 50%;
+.bg-1 {
+    background: url(../images/About_back2.jpeg) no-repeat 50% 50%;
     background-size: cover;
-    
+    min-height: 500px;   /* ← add this line, increase the number to make it taller */
 }
 
 .page-title {
-    padding: 100px 0;
+    padding: 200px 0;
 }
 .overly, .page-title, .slider {
     position: relative;
