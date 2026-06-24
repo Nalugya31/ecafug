@@ -1,678 +1,841 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Exodus Community Awakening Organisation Uganda</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- fonts -->
-      <link rel="stylesheet" href="plugins/icofont/icofont.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exodus Community Awakening Organisation Uganda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-   </head>
-
-
-
-   <style>
-@media (max-width: 991.98px) {
-    .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        background-color: transparent;
-        border: 0;
-        box-shadow: none;
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --green:       #188354;
+      --green-dark:  #0f5c39;
+      --green-deeper:#0a3d25;
+      --green-light: #2aab72;
+      --green-pale:  #eefbf3;
+      --white:       #ffffff;
+      --off-white:   #f7fdf9;
+      --charcoal:    #1a1a1a;
+      --muted:       #4d6358;
+      --border:      #c8e8d8;
+      --shadow:      0 4px 24px rgba(24,131,84,.10);
+      --shadow-lg:   0 12px 48px rgba(24,131,84,.16);
+      --radius-sm:   8px;
+      --radius-md:   16px;
     }
 
-    .dropdown-menu-end {
-        left: auto;
-        right: 0;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; }
+    img, video { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 8px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-}
-.footer_heading {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
-    font-weight: bold;
-    font-size: 24px;
-}
+    .topbar a { color: var(--white); opacity: .85; transition: opacity .2s; }
+    .topbar a:hover { opacity: 1; }
+    .topbar-left { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .btn-donate-top {
+      background: var(--white);
+      color: var(--green-dark) !important;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 13px;
+      opacity: 1 !important;
+      transition: background .2s, transform .2s;
+    }
+    .btn-donate-top:hover { background: var(--green-pale); transform: scale(1.04); }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 2px solid var(--green-pale);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(24,131,84,.08);
+    }
+    .navbar-logo img { height: 102px; width: auto; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--green);
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--green); }
+
+    /* ── DROPDOWNS — click-based ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { cursor: pointer; user-select: none; }
+    .nav-dropdown > a::after { content: none !important; }
+    .dropdown-menu-custom {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      min-width: 180px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      z-index: 200;
+    }
+    .nav-dropdown.open .dropdown-menu-custom { display: block; }
+    .dropdown-menu-custom li a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      color: var(--charcoal);
+      transition: background .15s;
+      pointer-events: all;
+    }
+    .dropdown-menu-custom li a:hover { background: var(--green-pale); color: var(--green-dark); }
+    .dropdown-menu-custom li a::after { display: none !important; }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--green-dark);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,61,37,.40) 0%, rgba(15,92,57,.25) 55%, rgba(24,131,84,.15) 100%),
+        url('images/kids2.jpeg') center/cover no-repeat;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero-headline em { font-style: normal; color: var(--green-pale); }
+    .hero-scripture {
+      color: rgba(255,255,255,.80);
+      font-size: 15px;
+      font-style: italic;
+      border-left: 3px solid rgba(255,255,255,.45);
+      padding-left: 16px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--white);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { background: var(--green-pale); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,.2); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,.5);
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.10); }
+
+    .hero-video-wrapper {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid rgba(255,255,255,.18);
+      background: #000;
+    }
+    .hero-video-wrapper video { width: 100%; max-height: 420px; object-fit: cover; }
+
+    .hero-stat-strip { display: flex; gap: 12px; margin-top: 16px; }
+    .hero-stat {
+      flex: 1;
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      text-align: center;
+      color: var(--white);
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat span { font-size: 11px; opacity: .75; text-transform: uppercase; letter-spacing: .8px; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 88px 32px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-label::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--green); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-sub { color: var(--muted); font-size: 16px; max-width: 600px; line-height: 1.7; }
+    .section-header { margin-bottom: 52px; }
+
+    /* ── HELP CARDS ── */
+    .help-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+    .help-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform .25s, box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .help-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .help-card-img { width: 100%; height: 220px; object-fit: cover; }
+    .help-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .help-card-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .help-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--green-dark); margin-bottom: 10px; }
+    .help-card p { color: var(--muted); font-size: 14px; line-height: 1.7; flex: 1; }
+
+    /* ── PROBLEM / SOLUTION ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .text-block p { color: var(--muted); font-size: 15.5px; line-height: 1.8; margin-bottom: 18px; }
+    .text-block h3 { font-family: 'Playfair Display', serif; color: var(--green-dark); font-size: 1.2rem; margin: 24px 0 8px; }
+    .read-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color .2s;
+    }
+    .read-toggle:hover { color: var(--green-dark); }
+    .extra-content { display: none; }
+    .extra-content.open { display: block; }
+
+    .solution-list { margin-top: 16px; display: flex; flex-direction: column; gap: 12px; }
+    .solution-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--green);
+      box-shadow: 0 2px 8px rgba(24,131,84,.06);
+    }
+    .solution-item i { color: var(--green); margin-top: 2px; font-size: 15px; flex-shrink: 0; }
+    .solution-item span { font-size: 14.5px; color: var(--charcoal); line-height: 1.6; }
+
+    /* ── CAUSES ── */
+    .causes-section { background: var(--green-dark); }
+    .causes-section .section-label { color: rgba(255,255,255,.7); }
+    .causes-section .section-label::before { background: rgba(255,255,255,.5); }
+    .causes-section .section-title { color: var(--white); }
+    .causes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .cause-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: background .25s, transform .25s;
+    }
+    .cause-card:hover { background: rgba(255,255,255,.14); transform: translateY(-4px); }
+    .cause-card img { width: 100%; height: 210px; object-fit: cover; }
+    .cause-card-body { padding: 24px; }
+    .cause-card-body h3 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.15rem; margin-bottom: 10px; }
+    .cause-card-body p { color: rgba(255,255,255,.65); font-size: 14px; line-height: 1.7; }
+
+    /* ── SCRIPTURE BANNER ── */
+    .scripture-banner { background: var(--green); padding: 80px 32px; text-align: center; }
+    .scripture-banner blockquote {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .scripture-banner cite { font-family: 'Inter', sans-serif; font-style: normal; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.75); }
+    .btn-white {
+      margin-top: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .btn-white:hover { background: var(--green-pale); transform: translateY(-2px); }
+
+    /* ── FLOATING DONATE ── */
+    .float-donate {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50px 0 0 50px;
+      padding: 14px 18px 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: -3px 4px 18px rgba(15,92,57,.38);
+      transition: background .2s, transform .2s;
+    }
+    .float-donate:hover { background: var(--green); transform: translateY(-50%) translateX(-4px); }
+    .float-donate .fd-icon {
+      width: 26px; height: 26px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--green-deeper); color: rgba(255,255,255,.78); padding: 64px 32px 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 320px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-socials a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.7);
+      font-size: 14px;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .footer-socials a:hover { border-color: var(--green-light); color: var(--white); background: rgba(24,131,84,.3); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,.6); transition: color .2s; display: flex; align-items: center; gap: 6px; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-links a i { font-size: 10px; }
+    .footer-contact-list { display: flex; flex-direction: column; gap: 14px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.65); }
+    .footer-contact-item i { color: var(--green-light); margin-top: 2px; }
+    .footer-newsletter input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .footer-newsletter input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-newsletter input:focus { border-color: var(--green-light); }
+    .btn-subscribe { width: 100%; padding: 12px; background: var(--green); color: var(--white); border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; }
+    .btn-subscribe:hover { background: var(--green-light); }
+    .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar { justify-content: center; text-align: center; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--white); box-shadow: var(--shadow);
+        padding: 12px 0; z-index: 200;
+      }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; }
+      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero-stat-strip { flex-direction: column; }
+      .section { padding: 56px 20px; }
+      .float-donate span { display: none; }
+    }
+
+    /* ── FADE-UP ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: .1s; }
+    .fade-up:nth-child(3) { transition-delay: .2s; }
+    .fade-up:nth-child(4) { transition-delay: .3s; }
   </style>
-   <body>
-      <!-- header top section start -->
-      <div class="header_top_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="header_top_main">
-                     <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +256 200991484</a></div>
-                     <div class="call_text_2"><a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" aria-hidden="true"></i>info.ecafug@yahoo.com</a></div>
-                     <div class="col-lg-4 col-md-8">
-                        <div class="header-top-right text-center text-lg-right text-md-right mt-3 mt-lg-0">
-                            <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color: white; padding-right: 20px;"></i></a>
-                            <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color: white;padding-right: 20px;"></i></a>
-                           <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color: white; padding-right: 20px;"></i></a>
-                          <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color: white; padding-right: 20px;"></i></a>
-                     
-                            <button type="button" onclick="window.location.href='https://www.paypal.me/ecafug256'" class="btn btn-success">Donate Now</button>
+</head>
 
-                        </div>
-                    </div>
-                    
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- header top section start -->
-      <!-- header section start -->
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/Exodus-Logo-BLACK-2.png" alt="" class="img-fluid">
-            </a>
-            <!-- Replace the toggle button with three lines -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="container">
-                <div class="collapse navbar-collapse text-center" id="navbarsExample09">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Causes<span class="ml-1">+</span></a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                                <li><a class="dropdown-item" href="service.html">Causes</a></li>
-                                <!-- <li><a class="dropdown-item" href="cause-single.html">Cause details</a></li> -->
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved<span class="ml-1">+</span></a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown04">
-                                <li><a class="dropdown-item" href="donation.html">Donation</a></li>
-                                <li><a class="dropdown-item" href="volunteer.html">Be a Volunteer </a></li>
-                                <li><a class="dropdown-item" href="Sponsor.html">Sponsor a Child </a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:+256200991484"><i class="fa fa-phone-alt" style="margin-right:6px;"></i>+256 200 991 484</a>
+      <a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" style="margin-right:6px;"></i>info.ecafug@yahoo.com</a>
     </div>
+    <div class="topbar-right">
+      <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank" style="margin-right:12px;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ecaoug" target="_blank" style="margin-right:12px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank" style="margin-right:12px;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank" style="margin-right:16px;"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.paypal.me/ecafug256" target="_blank" class="btn-donate-top">Donate Now</a>
+    </div>
+  </div>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html"><img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda"></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Causes <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="service.html">All Causes</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Get Involved <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="donation.html">Donate</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="Sponsor.html">Sponsor a Child</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-         <!-- banner section start -->
-      <!-- <div class="header_section"> -->
-         <section class="slider">
-            <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-lg-9 col-md-10">
-                     <div class="block text-center">
-                        <span class="d-block mb-3 text-white text-capitalize" style="font-size: x-large;">Small help can make change</span>
-                        <h1 class="animated fadeInUp mb-4" style="font-weight: 900; font-size: 2.5rem; color: white; font-size: 56px; line-height: 70px;">
-                           Uplifting <br>Lives
-                       </h1>
-                       <b><i><p class="mb-4" style="color: white;">"Carry each other's burdens, and in this way, you will fulfill the law of Christ." — Galatians 6:2 </p> </i> </b> 
-                        <a href="donation.html" target="_blank" class="btn btn-main animated fadeInUp rounded" style="color:white;">Donate Now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-        <!-- banner section end -->
-      <!-- </div> -->
-      <!-- header section end -->
-      <!-- services section start -->
-      <div class="services_section layout_padding">
-
-         <section class="section intro">
-            <div class="container">
-               <div class="row align-items-center">
-                  <div class="col-lg-6">
-                     <div class="section-title">
-                       <strong><span class="text-color " style="font-size: 30px; color: green;">What we can do</span></strong> 
-                        <h2 class="mt-3 content-title">We Can Save More Lives with you</h2>
-                     </div>
-                  </div>
-                  <!-- <div class="col-lg-6" style="background-color:#eefbf3;">
-                     <h6>Exodus Community Awakening Organization Uganda, we promote sustainable agriculture, provide clean water and sanitation, offer education, housing to vulnerable kids, and raise awareness about reproductive health in the poor communities of Uganda.</h6>
-                  </div> -->
-               </div>
-               <div class="row justify-content-center">
-                  <div class="col-lg-3 col-md-6 col-12">
-                     <div class="intro-item mb-5 mb-lg-0"> 
-                        <img src="images/KEV_6987(1).JPG" alt="" class="img w-100 rounded my-image">
-                        <h4 class="mt-4 mb-3" style="color: #188354;">Get inspired</h4>
-                        <h6>From orphaned children finding new families to elderly individuals rediscovering purpose, our stories will inspire you to make a differences 
-                           See the impact of our work firsthand and meet the people who are changing their lives with our support.</h6>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                     <div class="intro-item mb-5 mb-lg-0">
-                        <img src="images/clothes.jpeg" alt="" class="img w-100 rounded my-image">
-                        <h4 class="mt-4 mb-3" style="color: #188354;">Give Donation</h4>
-                        <h6>Support our cause and make a difference today by contributing to our donation drive. Your generosity helps us continue our vital work in communities around the Uganda. Together, we can create positive change and empower those in need.</h6>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                     <div class="intro-item">
-                        <img src="images/volunteer.jpeg" alt="" class="imgt w-100 rounded my-image">
-                        <h4 class="mt-4 mb-3" style="color: #188354;">Become a Volunteer</h4>
-                        <h6>Join our team and make a meaningful impact by becoming a volunteer. Whether you have a few hours to spare or are looking for a long-term commitment, there are plenty of opportunities to get involved and support our cause. </h6>
-                     </div>
-                  </div> 
-                  <div class="col-lg-3 col-md-6">
-                     <div class="intro-item ">
-                        <img src="images/school.jpeg" alt="" class="imgt w-100 rounded my-image">
-                        <h4 class="mt-4 mb-3" style="color: #188354;">Help The children</h4>
-                        <h6>Your support can make a world of difference in the lives of children in need. By contributing to our cause, you're providing essential resources, education, and care to vulnerable children, giving them hope for a brighter future. </h6>
-                     </div>
-                  </div> 
-               </div>
-            </div>
-         </section>
-      </div>
-      <!-- services section end -->
-      <!-- about sectuion start -->
-      <div class="about_section layout_padding" id="about" style="background-color: #eefbf3;">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <h1 class="about_taital" style="color: #188354;">The Problem</h1>
-                  <p class="about_text">
-                     Uganda continues to face a growing crisis of vulnerable and orphaned children. According to recent Uganda Bureau of Statistics (UBOS) findings, nearly 13% of children in Uganda are orphans, representing approximately 2.9 million children who have lost one or both parents.
-                  </p>
-                  <div class="about_text_additional" style="display: none;">
-                      <p>
-                          Every child deserves a safe home, love, education, protection, and hope for the future.
-
-                           In the Mpigi District of Uganda, many children continue to face poverty, abandonment, neglect, abuse, hunger, and lack of access to healthcare and education. Rural communities are especially affected, leaving thousands of children vulnerable every day.
-                      </p>
-                      <h1 style="color: #188354;">
-                        Fatherless & Vulnerable Homes
-                      </h1>
-                      <p>
-                        Many children in Uganda grow up in single-parent households, often without the support of a father figure. Mothers and guardians work long hours trying to provide food and shelter for their families, but unemployment and low household incomes make it difficult to meet even the most basic needs.
-
-                        Uganda also has one of the youngest and fastest-growing populations in the world, increasing pressure on already struggling families and communities. In many rural areas, children are forced to drop out of school because families cannot afford school fees, uniforms, meals, or scholastic materials.
-
-                        Recent reports also show an increase in child- and youth-headed households caused by poverty, disease, and family breakdown. (ugandaonline.net)  
-
-                      </p>
-                     <h1 style="color: #188354;">
-                        Alcohol Abuse & Family Breakdown
-                      </h1>
-                      <p>
-                          Alcohol abuse remains a major challenge in many Ugandan communities. According to the World Health Organization (WHO), Uganda ranks among the countries with the highest alcohol consumption levels in Africa. WHO estimates indicate alcohol consumption levels of approximately 12.2 litres per person annually, nearly double the African regional average. (WHO | Regional Office for Africa)
-
-Cheap locally brewed alcohol, commonly known as waragi, contributes to domestic violence, unemployment, child neglect, and unstable homes. Studies also show that nearly 1 in 10 Ugandan adults suffers from an alcohol-use-related disorder. (PubMed)
-
-Many children suffer emotionally, physically, and spiritually because of unsafe and unstable living conditions.
-                      </p>
-
-                     <h1 style="color: #188354;">
-                        Lack of Medical Care & Education
-                      </h1>
-                      <p> Many vulnerable children lack access to proper healthcare, balanced nutrition, clean water, and quality education. Children born with disabilities or special medical conditions are especially at risk because many families cannot afford treatment or specialized care.
-
-UNICEF reports that child poverty continues to affect millions of children across Uganda and Africa, limiting access to health services, education, nutrition, and protection. (UNICEF DATA)
-
-Without support, many children remain trapped in cycles of poverty, neglect, and hopelessness.</p>
-                  </div>
-                  <div class="read_bt_1"><a href="#" onclick="toggleAdditionalInfo(event)" style="margin-bottom: 10%;">Read More</a></div>
-               
-              </div>
-               <div class="col-md-6">
-                  <div class="about_img">
-                     <video controls>
-                         <source src="images/children.mp4" type="video/mp4">
-                         Your browser does not support the video tag.
-                     </video>
-                 </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- about sectuion end -->
-
-
-
-<div class="about_section layout_padding" id="about" style="background-color: #eefbf3;">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-
-        <h1 class="about_taital" style="color: #188354;">The Solution</h1>
-
-        <p class="about_text">
-          Exodus Community Awakening Organization Uganda (ECAOUg) is committed to 
-          restoring hope and transforming the lives of orphaned, abandoned, and 
-          vulnerable children in Uganda.
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="hero-eyebrow"><i class="fas fa-heart"></i> Bujjuuko, Uganda</span>
+        <h1 class="hero-headline">
+          Uplifting <em>Lives,</em><br>
+          Restoring <em>Hope</em>
+        </h1>
+        <p class="hero-scripture">
+          "Carry each other's burdens, and in this way,<br>
+          you will fulfill the law of Christ." — Galatians 6:2
         </p>
-
-        <!-- Hidden extra content -->
-        <div class="about_text_additional" id="extra-content" style="display: none;">
-          <h1 style="color: #188354;">What ECAOUg Is Doing To Help</h1>
-<ol>
-  <li> - Providing shelter and daily care for vulnerable children</li>
-  <li> - Supporting education through school fees, uniforms, and scholastic materials</li>
-  <li> - Providing meals, clothing, and healthcare assistance</li>
-  <li> - Protecting children from abuse, neglect, and exploitation</li>
-  <li> - Supporting emotional healing and spiritual growth</li>
-  <li> - Empowering families and communities through outreach programs</li>
-</ol>
+        <div class="hero-actions">
+          <a href="donation.html" class="btn-primary"><i class="fas fa-heart"></i> Donate Now</a>
+          <a href="about.html" class="btn-outline"><i class="fas fa-play-circle"></i> Our Story</a>
         </div>
+      </div>
+      <div class="hero-media">
+        <div class="hero-video-wrapper">
+          <video controls poster="images/kids2.jpeg">
+            <source src="images/children.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="hero-stat-strip">
+          <div class="hero-stat"><strong>2.9M</strong><span>Orphans in Uganda</span></div>
+          <div class="hero-stat"><strong>13%</strong><span>Children are orphaned</span></div>
+          <div class="hero-stat"><strong>100%</strong><span>Community driven</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Read More button -->
-        <button 
-          id="read-more-btn"
-          onclick="toggleContent()"
-          style="
-            margin-top: 16px;
-            background: green;
-            color: #fff;
-            border: none;
-            padding: 10px 0px;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 30%;
-          float: left;
-          ">
-          Read More
-        </button>
+  <!-- WAYS TO HELP -->
+  <section class="section" style="background: var(--off-white);">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">Together, We Can Save More Lives</h2>
+        <p class="section-sub">Every act of generosity has a ripple effect. Here's how your support makes a real difference in the lives of Uganda's most vulnerable children.</p>
+      </div>
+      <div class="help-grid">
+        <div class="help-card fade-up">
+          <img src="images/KEV_6987(1).JPG" alt="Get Inspired" class="help-card-img">
+          <div class="help-card-body">
+            <div class="help-card-icon"><i class="fas fa-star"></i></div>
+            <h3>Get Inspired</h3>
+            <p>From orphaned children finding new families to elderly individuals rediscovering purpose — meet the people changing their lives with our support.</p>
+          </div>
+        </div>
+        <div class="help-card fade-up">
+          <img src="images/clothes.jpeg" alt="Give Donation" class="help-card-img">
+          <div class="help-card-body">
+            <div class="help-card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+            <h3>Give a Donation</h3>
+            <p>Your generosity helps us continue vital work across Uganda. Together, we create positive change and empower those who need it most.</p>
+          </div>
+        </div>
+        <div class="help-card fade-up">
+          <img src="images/volunteer.jpeg" alt="Volunteer" class="help-card-img">
+          <div class="help-card-body">
+            <div class="help-card-icon"><i class="fas fa-hands-helping"></i></div>
+            <h3>Become a Volunteer</h3>
+            <p>Whether you have a few hours or are looking for a long-term commitment, there are plenty of opportunities to get involved and make a lasting impact.</p>
+          </div>
+        </div>
+        <div class="help-card fade-up">
+          <img src="images/school.jpeg" alt="Help Children" class="help-card-img">
+          <div class="help-card-body">
+            <div class="help-card-icon"><i class="fas fa-child"></i></div>
+            <h3>Help the Children</h3>
+            <p>By contributing, you provide essential resources, education, and care to vulnerable children — giving them hope for a brighter future.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      </div><!-- /.col-md-6 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</div><!-- /.about_section -->
+  <!-- PROBLEM + SOLUTION -->
+  <section class="section" style="background: var(--green-pale);">
+    <div class="section-inner">
+      <div class="two-col">
+        <div>
+          <p class="section-label">The Challenge</p>
+          <h2 class="section-title">The Crisis Facing Uganda's Children</h2>
+          <div class="text-block">
+            <p>Uganda continues to face a growing crisis of vulnerable and orphaned children. According to Uganda Bureau of Statistics (UBOS) findings, nearly <strong>13% of children in Uganda are orphans</strong> — approximately 2.9 million children who have lost one or both parents.</p>
+            <div id="problem-extra" class="extra-content">
+              <p>Every child deserves a safe home, love, education, protection, and hope for the future. In the Mpigi District of Uganda, many children continue to face poverty, abandonment, neglect, abuse, hunger, and lack of access to healthcare and education.</p>
+              <h3>Fatherless &amp; Vulnerable Homes</h3>
+              <p>Many children grow up in single-parent households without the support of a father figure. Uganda has one of the youngest and fastest-growing populations in the world, increasing pressure on already struggling families. In many rural areas, children are forced to drop out of school because families cannot afford fees, uniforms, or meals.</p>
+              <h3>Alcohol Abuse &amp; Family Breakdown</h3>
+              <p>According to the WHO, Uganda ranks among the countries with the highest alcohol consumption in Africa — approximately 12.2 litres per person annually, nearly double the African regional average. Cheap locally brewed alcohol contributes to domestic violence, child neglect, and unstable homes.</p>
+              <h3>Lack of Medical Care &amp; Education</h3>
+              <p>Many vulnerable children lack proper healthcare, balanced nutrition, clean water, and quality education. UNICEF reports that child poverty continues to affect millions across Uganda. Without support, children remain trapped in cycles of poverty and hopelessness.</p>
+            </div>
+            <button class="read-toggle" onclick="toggleBlock('problem-extra', this)">
+              Read More <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">Our Response</p>
+          <h2 class="section-title">What ECAOUg Is Doing to Help</h2>
+          <div class="text-block">
+            <p>Exodus Community Awakening Organization Uganda (ECAOUg) is committed to restoring hope and transforming the lives of orphaned, abandoned, and vulnerable children across Uganda.</p>
+          </div>
+          <div class="solution-list">
+            <div class="solution-item"><i class="fas fa-home"></i><span>Providing shelter and daily care for vulnerable children</span></div>
+            <div class="solution-item"><i class="fas fa-graduation-cap"></i><span>Supporting education through school fees, uniforms, and scholastic materials</span></div>
+            <div class="solution-item"><i class="fas fa-utensils"></i><span>Providing meals, clothing, and healthcare assistance</span></div>
+            <div class="solution-item"><i class="fas fa-shield-alt"></i><span>Protecting children from abuse, neglect, and exploitation</span></div>
+            <div class="solution-item"><i class="fas fa-heart"></i><span>Supporting emotional healing and spiritual growth</span></div>
+            <div class="solution-item"><i class="fas fa-users"></i><span>Empowering families and communities through outreach programs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  function toggleContent() {
-    var content = document.getElementById('extra-content');
-    var btn     = document.getElementById('read-more-btn');
+  <!-- CAUSES -->
+  <section class="section causes-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-label">Latest Causes</p>
+        <h2 class="section-title">Our Active Causes</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,.65);">We promote sustainable agriculture, provide clean water and sanitation, offer education, and raise awareness about reproductive health in Uganda's poorest communities.</p>
+      </div>
+      <div class="causes-grid">
+        <div class="cause-card fade-up">
+          <img src="images/food.jpeg" alt="Fundraise for Food">
+          <div class="cause-card-body">
+            <h3>Fundraise for Food</h3>
+            <p>Rally together to raise funds so individuals and families have access to nutritious meals. Your contribution offers hope and sustenance to those in need.</p>
+          </div>
+        </div>
+        <div class="cause-card fade-up">
+          <img src="images/water.jpeg" alt="Clean Drinking Water">
+          <div class="cause-card-body">
+            <h3>Clean Drinking Water</h3>
+            <p>Many individuals opt to use dirty water simply to avoid the inconvenience of traveling long distances. Together, let's make clean water a reality for every community.</p>
+          </div>
+        </div>
+        <div class="cause-card fade-up">
+          <img src="images/school.jpeg" alt="Back to School Program">
+          <div class="cause-card-body">
+            <h3>Back to School Program</h3>
+            <p>Every child deserves access to quality education, but many orphaned and vulnerable children are denied this fundamental right. This must change — and it starts with you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    if (content.style.display === 'none') {
-      content.style.display = 'block';
-      btn.textContent = 'Read Less';
-    } else {
-      content.style.display = 'none';
-      btn.textContent = 'Read More';
+  <!-- SCRIPTURE BANNER -->
+  <div class="scripture-banner">
+    <blockquote>
+      "Speak up for those who cannot speak for themselves,<br>
+      for the rights of all who are destitute."
+    </blockquote>
+    <cite>— Proverbs 31:8</cite><br>
+    <a href="donation.html" class="btn-white"><i class="fas fa-heart"></i> Make a Donation</a>
+  </div>
+
+  <!-- FLOATING DONATE -->
+  <a href="donation.html" class="float-donate">
+    <div class="fd-icon"><i class="fas fa-heart"></i></div>
+    <span>Donate Now</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda" style="height:48px; filter:brightness(0) invert(1); opacity:.85;">
+          <p>Restoring hope and transforming the lives of orphaned, abandoned, and vulnerable children in Uganda — one family at a time.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ecaoug" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="service.html"><i class="fas fa-chevron-right"></i> Our Causes</a>
+            <a href="donation.html"><i class="fas fa-chevron-right"></i> Donate</a>
+            <a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a>
+            <a href="Sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a>
+            <a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a>
+            <a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+256200991484" style="color:inherit;">+256 200 991 484</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:info.ecafug@yahoo.com" style="color:inherit;">info.ecafug@yahoo.com</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bujjuuko, Uganda</span>
+            </div>
+          </div>
+          <div class="footer-newsletter" style="margin-top:24px;">
+            <h4 style="margin-bottom:12px;">Newsletter</h4>
+            <form action="https://formspree.io/f/mnqelgaq" method="POST">
+              <input type="email" name="email" placeholder="Enter your email address">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Exodus Community Awakening Organisation Uganda. Designed by Vanessa Suzan Nalugya.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Click-based dropdowns
+    document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parent = this.closest('.nav-dropdown');
+        const isOpen = parent.classList.contains('open');
+        // Close all open dropdowns
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+        // Open this one if it was closed
+        if (!isOpen) parent.classList.add('open');
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    // Read more toggle
+    function toggleBlock(id, btn) {
+      const el = document.getElementById(id);
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        btn.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+      } else {
+        el.classList.add('open');
+        btn.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
+      }
     }
-  }
-</script>
 
+    // Scroll fade-up
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 
-<style>
-  .carousel-item img {
-    height: auto; /* Equal height */
-    object-fit: cover;
-    width: 90%;
-    border-radius: 10px;
-  }
-  .carousel-caption h5 {
-    background-color: rgba(0, 0, 0, 0.6);
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-
-    /* ── Floating Donate Button ── */
-.float-donate {
-  position: fixed;
-  top: 50%;                          /* ← was bottom: 32px */
-  right: 0;                          /* ← was right: 32px  */
-  transform: translateY(-50%);       /* ← keeps it centered vertically */
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #1a5c2a;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 50px 0 0 50px;     /* ← flat on right, rounded on left */
-  padding: 13px 18px 13px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
-  box-shadow: -3px 4px 18px rgba(26,92,42,.38);
-  transition: background .2s, transform .2s, box-shadow .2s, padding .2s;
-}
-.float-donate:hover {
-  background: #2d7a3e;
-  color: #fff;
-  transform: translateY(-50%) translateX(-4px); /* ← slides out slightly on hover */
-  box-shadow: -5px 8px 28px rgba(26,92,42,.45);
-}
-.float-donate .fd-icon {
-  width: 24px;
-  height: 24px;
-  background: rgba(255,255,255,.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  flex-shrink: 0;
-}
-.float-donate .fd-pulse {
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  border: 2px solid rgba(26,92,42,.45);
-  animation: fd-pulse 2.2s ease-out infinite;
-  pointer-events: none;
-}
-@keyframes fd-pulse {
-  0%   { transform: scale(1);   opacity: .7; }
-  100% { transform: scale(1.18); opacity: 0; }
-}
-@media (max-width: 480px) {
-  .float-donate span { display: none; }
-  .float-donate { padding: 14px; border-radius: 50%; }
-}
-</style>
-
-
-   <!-- ── Floating Donate Button ── -->
-<a href="donation.html" class="float-donate">
-  <div class="fd-pulse"></div>
-  <div class="fd-icon">♥</div>
-  <span>Donate Now</span>
-</a>
-
-
-
-     
-     
-      <!-- end of gallery  -->
-      <!-- projects section start -->
-      <div class="section-title text-center" ">
-         <strong> <span class="text-color" style="color: green; font-size: x-large;" >Latest Events</span>
-         <h2 class="mt-3 mb-4 position-relative content-title">Our Recent Causes to serve better</h2> </strong>
-         <h6 class="mb-5">At Exodus Community Awakening Organization Ug, we promote sustainable agriculture,provide clean water and sanitation, offer education, and raise awareness about reproductive health.</h6>
-
-      </div >
-         <div class="projects_section_2 layout_padding">
-            <div class="container">
-               <div class="pets_section">
-                  <div class="pets_section_2">
-                     <div id="main_slider" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                           <div class="carousel-item active">
-                              <div class="row">
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/food.jpeg" alt="" class="image rounded">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                       <h3 class="mb-3"><a href="cause-single.html">Fundraise for Food</a></h3>
-<!--                    
-                                        <ul class="list-inline border-bottom border-top py-3 ">
-                                          <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
-                                          <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-                                       </ul> -->
-                                       <p class="card-text mb-4">Let's rally together to raise funds for an essential cause: Food. Your contribution can make a significant difference in ensuring that individuals and families have access to nutritious meals. By donating, you're not just providing sustenance; you're offering hope and support to those in need. </p>
-                   
-                                       <!-- <a href="donation.html" class="btn btn-main rounded">Donate Now</a> -->
-                                     </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/water.jpeg" alt="" class="image rounded">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="card-body">
-                                       <h3 class="mb-3"><a href="cause-single.html">Clean Drinking Water</a></h3>
-                                        <!-- <ul class="list-inline border-bottom  border-top py-3">
-                                          <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal: <span>$890</span></li>
-                                          <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-                                       </ul> -->
-                                       <p class="card-text mb-4">
-                                          Many individuals in the community opt to use dirty or no water simply to avoid the inconvenience of traveling long distances."
-
-Together, let's unite and raise funds for the #Good_cause to contribute to making the world a better place.
-                                          
- </p>
-                   
-                                       <!-- <a href="donation.html" class="btn btn-main rounded">Donate Now</a> -->
-                                     </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="container_main">
-                                       <img src="images/school.jpeg" alt="" class="image rounded">
-                                       <div class="overlay">
-                                          <div class="text">
-                                             <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="card-body">
-                                       <h3 class="mb-3"><a href="cause-single.html"> Our go Back To School program</a></h3>
-                                      
-                                       <p class="card-text mb-4">Every child deserves access to quality education, but many orphaned and vulnerable children are denied this fundamental right. </p>
-                                       <P>And this must change</P>
-                   
-                                       <!-- <a href="donation.html" class="btn btn-main rounded">Donate Now</a> -->
-                                     </div>
-                                 </div>
-                              </div>
-                           </div>
-                           </div>
-                        </div>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- projects section end -->
-      <!-- testimonial section start -->
-      <div class="testimonial_section layout_padding">
-         <div class="cta-block section">
-            <div class="container">
-               <div class="row justify-content-center ">
-                  <div class="col-lg-7 col-md-12">
-                     <div class="cta-content text-center">
-                        <i class="icofont-diamond text-lg text-color"></i>
-                       <i><h2 class="text-white text-lg mb-5 mt-3">"Speak up for those who cannot speak for themselves, for the rights of all who are destitute" - Prov 31:8</h2> </i> 
-                        <a href="donation.html" class="btn btn-main rounded">Make a donation</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-      </div>
-      <!-- testimonial section end -->
-      <!-- contact section start -->
-      <!-- <div class="contact_section layout_padding" id="contact">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="contact_taital" style="color: green; ">Contact Us Today and Become A Volunteer</h1>
-               </div>
-            </div>
-         </div>
-         <div class="container-fluid">
-            <div class="contact_section_2">
-               <div class="row">
-                  <div class="col-md-6" >
-                     <form id="contact-form" method="POST" action="https://formspree.io/f/mnqelgaq" style="background-color:#eefbf3;" >
-                        <div class="form-row form-error" style="display:none;"></div>
-                        <div class="form-row">
-                          <label for="contact-form-name">Name:</label>
-                          <input id="contact-form-name" class="form-input" type="text" name="name" required>
-                        </div>
-                        <div class="form-row">
-                          <label for="contact-form-email">Email:</label>
-                          <input id="contact-form-email" class="form-input" type="email" name="email" required>
-                        </div>
-                        <div class="form-row">
-                          <label for="contact-form-phone">Phone:</label>
-                          <input id="contact-form-phone" class="form-input" type="tel" name="phone">
-                        </div>
-                        <div class="form-row">
-                          <label for="contact-form-message">Message:</label>
-                          <textarea id="contact-form-message" class="form-input" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                      </form>
-                  </div>
-                  <div class="col-md-6 padding_left_15">
-                     <div class="contact_img"><img src="images/contact.jpeg" style="width: 50%;"></div>
-                  </div>
-               </div>
-            </div>
-         </div> -->
-      <!-- contact section end -->
-      <!-- footer section start -->
-      <div class="footer_section layout_padding">
-           <!--<h2 class="text-white text-lg mb-5 mt-3">"Speak up for those who cannot speak for themselves, for the rights of all who are destitute" - Prov 31:8</h2>-->
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="location_text">
-                     <ul>
-                        <li>
-                           <a href="tel:+256 200991484"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +256 200991484</a>
-                        </li>
-                        <li class="active">
-                           <a href="mailto:info.ecafug@yahoo.com"> <span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span> info.ecafug@yahoo.com</a>
-                        </li>
-                        <!-- <li>
-                           <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> Kampala</a>
-                        </li>  -->
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <div class="footer_section_2">
-               <div class="row">
-                  <div class="col-md-4">
-                     <h2 class="useful_text">QUICK LINKS</h2>
-                     <div class="footer_menu">
-                        <ul>
-                           <li><a href="index.html">Home</a></li>
-                           <li><a href="about.html">About</a></li>
-                           <li><a href="service.html">Causes</a></li>
-                           <li><a href="donation.html">Get Involved</a></li>
-                           <li><a href="contact.html">Contact Us</a></li>
-                           <li><a href="">Kampala,Uganda</a></li>
-
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
-                     <form action="https://formspree.io/f/mnqelgaq" method="POST">
-                         <div class="form-group">
-                             <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="email" name="email"></textarea>
-                             <div class="subscribe_bt">
-                                 <button type="submit" class="btn btn-success">Subscribe</button>
-                             </div>
-                         </div>
-                     </form>
-                 </div>
-                 
-            <div class="social_icon">
-               <ul>
-                  <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color: white; padding-right: 20px;"></i></a>
-                  <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color: white; padding-right: 20px;"></i></a>
-                  <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp" style="color: white; padding-right: 20px;"></i></a>
-                  <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color: white;padding-right: 20px;"></i></a>
-                  <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color: white; padding-right: 20px;"></i></a>
-               </ul>
-            </div>
-         </div>
-      </div>
-      <!-- footer section end -->
-      <!-- copyright section start -->
-		<div class="footer-btm py-4" >
-			<div class="row justify-content-center">
-				<div class="col-lg-6">
-					<div class="copyright text-center" style="color: white;">
-						&copy; Designed by Vanessa Suzan Nalugya 2026
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-      
-      <script>
-         function toggleAdditionalInfo(event) {
-             event.preventDefault(); // Prevents the default action of navigating to the top of the page
-             
-             var additionalInfo = document.querySelector('.about_text_additional');
-             var readMoreButton = document.querySelector('.read_bt_1 a');
-             
-             if (additionalInfo.style.display === 'none') {
-                 additionalInfo.style.display = 'block';
-                 readMoreButton.textContent = 'Read Less';
-             } else {
-                 additionalInfo.style.display = 'none';
-                 readMoreButton.textContent = 'Read More';
-             }
-         }
-     </script>
-      <!-- copyright section end -->
-      <!-- Javascript files-->
-      <script>
-         $(document).ready(function(){
-             $(".navbar-toggler").click(function(){
-                 $(".navbar-collapse").toggleClass("show");
-             });
-         });
-     </script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-   </body>
+</body>
 </html>

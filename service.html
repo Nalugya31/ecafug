@@ -1,603 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Exodus Community Awakening Organisation Uganda</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- fonts -->
-      <link rel="stylesheet" href="plugins/icofont/icofont.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Causes — Exodus Community Awakening Organisation Uganda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="images/fevicon.png" type="image/gif">
 
-      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-	  
-	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-   </head>
+  <style>
+    /* ── TOKENS (identical to index.html) ── */
+    :root {
+      --green:       #188354;
+      --green-dark:  #0f5c39;
+      --green-deeper:#0a3d25;
+      --green-light: #2aab72;
+      --green-pale:  #eefbf3;
+      --white:       #ffffff;
+      --off-white:   #f7fdf9;
+      --charcoal:    #1a1a1a;
+      --muted:       #4d6358;
+      --border:      #c8e8d8;
+      --shadow:      0 4px 24px rgba(24,131,84,.10);
+      --shadow-lg:   0 12px 48px rgba(24,131,84,.16);
+      --radius-sm:   8px;
+      --radius-md:   16px;
+    }
 
-   <style>
-	.services .icon-box {
-  padding: 60px 30px;
-  transition: all ease-in-out 0.3s;
-  background: #fefefe;
-  box-shadow: 0px 5px 90px 0px rgba(110, 123, 131, 0.1);
-  border-radius: 18px;
-  border-bottom: 5px solid #fff;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
 
-.services .icon-box .icon {
-  width: 64px;
-  height: 64px;
-  background: #009961;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: ease-in-out 0.3s;
-  color: #fff;
-}
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 8px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topbar a { color: var(--white); opacity: .85; transition: opacity .2s; }
+    .topbar a:hover { opacity: 1; }
+    .topbar-left { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .btn-donate-top {
+      background: var(--white);
+      color: var(--green-dark) !important;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 13px;
+      opacity: 1 !important;
+      transition: background .2s, transform .2s;
+    }
+    .btn-donate-top:hover { background: var(--green-pale); transform: scale(1.04); }
 
-.services .icon-box .icon i {
-  font-size: 28px;
-}
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 2px solid var(--green-pale);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(24,131,84,.08);
+    }
+    .navbar-logo img { height: 102px; width: auto; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--green);
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--green); }
 
-.services .icon-box h4 {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 24px;
-}
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { cursor: pointer; user-select: none; }
+    .nav-dropdown > a::after { content: none !important; }
+    .dropdown-menu-custom {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      min-width: 180px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      z-index: 200;
+    }
+    .nav-dropdown.open .dropdown-menu-custom { display: block; }
+    .dropdown-menu-custom li a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      color: var(--charcoal);
+      transition: background .15s;
+    }
+    .dropdown-menu-custom li a:hover { background: var(--green-pale); color: var(--green-dark); }
+    .dropdown-menu-custom li a::after { display: none !important; }
 
-.services .icon-box h4 a {
-  color: #282828;
-  transition: ease-in-out 0.3s;
-}
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; }
 
-.services .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--green-deeper) 0%, var(--green-dark) 60%, var(--green) 100%);
+      padding: 80px 32px;
+      text-align: center;
+    }
+    .page-hero .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 14px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      max-width: 560px;
+      margin: 16px auto 0;
+      line-height: 1.7;
+    }
 
-.services .icon-box:hover {
-  transform: translateY(-10px);
-  border-color: #009961;
-}
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 80px 32px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-label::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--green); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 48px;
+    }
 
-.services .icon-box:hover h4 a {
-  color: #009961;
-}
+    /* ── CAUSE CARDS ── */
+    .causes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .cause-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform .25s, box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cause-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .cause-card-img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+    .cause-card:hover .cause-card-img { transform: scale(1.04); }
+    .cause-card-img-wrap { overflow: hidden; }
+    .cause-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .cause-tag {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 40px;
+      margin-bottom: 14px;
+    }
+    .cause-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+    .cause-card-body p { color: var(--muted); font-size: 14px; line-height: 1.75; flex: 1; margin-bottom: 20px; }
 
-.image{
-	border-radius: 8px;
-}
+    .extra-content { display: none; }
+    .extra-content.open { display: block; }
+    .read-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-bottom: 16px;
+      transition: color .2s;
+    }
+    .read-toggle:hover { color: var(--green-dark); }
 
+    .donate-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 24px;
+      border-radius: 40px;
+      margin-top: auto;
+      transition: background .2s, transform .2s;
+      align-self: flex-start;
+    }
+    .donate-link:hover { background: var(--green-dark); transform: translateY(-2px); }
 
-  /* ── Floating Donate Button ── */
-.float-donate {
-  position: fixed;
-  top: 50%;                          /* ← was bottom: 32px */
-  right: 0;                          /* ← was right: 32px  */
-  transform: translateY(-50%);       /* ← keeps it centered vertically */
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #1a5c2a;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 50px 0 0 50px;     /* ← flat on right, rounded on left */
-  padding: 13px 18px 13px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
-  box-shadow: -3px 4px 18px rgba(26,92,42,.38);
-  transition: background .2s, transform .2s, box-shadow .2s, padding .2s;
-}
-.float-donate:hover {
-  background: #2d7a3e;
-  color: #fff;
-  transform: translateY(-50%) translateX(-4px); /* ← slides out slightly on hover */
-  box-shadow: -5px 8px 28px rgba(26,92,42,.45);
-}
-.float-donate .fd-icon {
-  width: 24px;
-  height: 24px;
-  background: rgba(255,255,255,.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  flex-shrink: 0;
-}
-.float-donate .fd-pulse {
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  border: 2px solid rgba(26,92,42,.45);
-  animation: fd-pulse 2.2s ease-out infinite;
-  pointer-events: none;
-}
-@keyframes fd-pulse {
-  0%   { transform: scale(1);   opacity: .7; }
-  100% { transform: scale(1.18); opacity: 0; }
-}
-@media (max-width: 480px) {
-  .float-donate span { display: none; }
-  .float-donate { padding: 14px; border-radius: 50%; }
-}
-   </style>
-   <body>
-      <!-- header top section start -->
-      <div class="header_top_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="header_top_main">
-                     <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +256 0200991484</a></div>
-                     <div class="call_text_2"><a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" aria-hidden="true"></i> info.ecafug@yahoo.com</a></div>
-                     <div class="col-lg-4 col-md-8">
-                        <div class="header-top-right text-center text-lg-right text-md-right mt-3 mt-lg-0">
-                            <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color: white; padding-right: 20px;"></i></a>
-                            <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color: white;padding-right: 20px;"></i></a>
-                           <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color: white; padding-right: 20px;"></i></a>
-                          <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color: white; padding-right: 20px;"></i></a>
-					 
-                            <button type="button" onclick="window.location.href='https://www.paypal.me/ecafug256'" class="btn btn-success">Donate Now</button>
+    /* ── DIVIDER BANNER ── */
+    .divider-banner {
+      background: var(--green-pale);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .divider-banner strong { color: var(--green-dark); font-style: normal; }
 
-                        </div>
-                    </div>
-                    
-                  </div>
-               </div>
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(120deg, var(--green-dark) 0%, var(--green) 100%);
+      padding: 80px 32px;
+      text-align: center;
+    }
+    .cta-banner blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-style: italic;
+      color: var(--white);
+      max-width: 700px;
+      margin: 0 auto 28px;
+      line-height: 1.5;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 36px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .btn-white:hover { background: var(--green-pale); transform: translateY(-2px); }
+
+    /* ── FLOATING DONATE ── */
+    .float-donate {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50px 0 0 50px;
+      padding: 14px 18px 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: -3px 4px 18px rgba(15,92,57,.38);
+      transition: background .2s, transform .2s;
+    }
+    .float-donate:hover { background: var(--green); transform: translateY(-50%) translateX(-4px); }
+    .float-donate .fd-icon {
+      width: 26px; height: 26px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--green-deeper); color: rgba(255,255,255,.78); padding: 64px 32px 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 320px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-socials a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.7);
+      font-size: 14px;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .footer-socials a:hover { border-color: var(--green-light); color: var(--white); background: rgba(24,131,84,.3); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,.6); transition: color .2s; display: flex; align-items: center; gap: 6px; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-links a i { font-size: 10px; }
+    .footer-contact-list { display: flex; flex-direction: column; gap: 14px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.65); }
+    .footer-contact-item i { color: var(--green-light); margin-top: 2px; }
+    .footer-newsletter input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .footer-newsletter input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-newsletter input:focus { border-color: var(--green-light); }
+    .btn-subscribe { width: 100%; padding: 12px; background: var(--green); color: var(--white); border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; }
+    .btn-subscribe:hover { background: var(--green-light); }
+    .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .causes-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar { justify-content: center; text-align: center; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--white); box-shadow: var(--shadow);
+        padding: 12px 0; z-index: 200;
+      }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; }
+      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .causes-grid { grid-template-columns: 1fr; }
+      .section { padding: 56px 20px; }
+      .float-donate span { display: none; }
+    }
+
+    /* ── FADE-UP ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: .1s; }
+    .fade-up:nth-child(3) { transition-delay: .2s; }
+    .fade-up:nth-child(4) { transition-delay: .3s; }
+    .fade-up:nth-child(5) { transition-delay: .15s; }
+    .fade-up:nth-child(6) { transition-delay: .25s; }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:+256200991484"><i class="fa fa-phone-alt" style="margin-right:6px;"></i>+256 200 991 484</a>
+      <a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" style="margin-right:6px;"></i>info.ecafug@yahoo.com</a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank" style="margin-right:12px;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ecaoug" target="_blank" style="margin-right:12px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank" style="margin-right:12px;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank" style="margin-right:16px;"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.paypal.me/ecafug256" target="_blank" class="btn-donate-top">Donate Now</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html"><img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda"></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Causes <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="service.html" class="active">All Causes</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Get Involved <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="donation.html">Donate</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="Sponsor.html">Sponsor a Child</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="eyebrow">What We Do</span>
+    <h1>Our Recent Causes</h1>
+    <p>Serving the most vulnerable in our community — through food, water, education, shelter, and love.</p>
+  </div>
+
+  <!-- ── CAUSES BATCH 1 ── -->
+  <section class="section" style="background: var(--off-white);">
+    <div class="section-inner">
+      <p class="section-label">Community Needs</p>
+      <h2 class="section-title">Active Causes We're Fundraising For</h2>
+      <div class="causes-grid">
+
+        <!-- Food -->
+        <div class="cause-card fade-up">
+          <div class="cause-card-img-wrap">
+            <img src="images/food.jpeg" alt="Fundraise for Food" class="cause-card-img">
+          </div>
+          <div class="cause-card-body">
+            <span class="cause-tag">Food Security</span>
+            <h3>Fundraise for Food</h3>
+            <p>The empty shelves in our pantry represent not just a lack of food, but a void in the lives of those who rely on it. Your support can help us replenish these stores and ensure that no one goes hungry.</p>
+            <p>Your contribution will not only provide nourishment but also offer hope and relief to those facing uncertainty. Together, let's make a difference by filling the empty store with the warmth of compassion and the promise of a brighter tomorrow.</p>
+            <a href="https://www.paypal.me/ecafug256" target="_blank" class="donate-link">
+              <i class="fas fa-heart"></i> Donate to This Cause
+            </a>
+          </div>
+        </div>
+
+        <!-- Water -->
+        <div class="cause-card fade-up">
+          <div class="cause-card-img-wrap">
+            <img src="images/water.jpeg" alt="Clean Drinking Water" class="cause-card-img">
+          </div>
+          <div class="cause-card-body">
+            <span class="cause-tag">Clean Water</span>
+            <h3>Clean Drinking Water</h3>
+            <p>73% of the people in our community face this daily. There are no nearby boreholes — people make long lines just to fetch 1 or 2 jerry cans from a distant pond, leading to poor sanitation and hygiene.</p>
+            <div id="water-extra" class="extra-content">
+              <p style="margin-bottom:12px;">Young children aged 3–15 collect water from dirty ponds that easily spread diseases like cholera, dysentery, and athlete's foot. Children walk close to 3 km just to reach these water sources. Many people have resorted to dirty water simply to avoid the long journey.</p>
+              <p>What hurts most is that people with bicycles and motorcycles sell water at high prices — a 20-litre jerry can costs $1–2. Let's join hands and fundraise to construct more boreholes and bring water closer to the community.</p>
             </div>
-         </div>
+            <button class="read-toggle" onclick="toggleBlock('water-extra', this)">
+              Read More <i class="fas fa-chevron-down"></i>
+            </button>
+            <a href="https://www.paypal.me/ecafug256" target="_blank" class="donate-link">
+              <i class="fas fa-heart"></i> Donate to This Cause
+            </a>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cause-card fade-up">
+          <div class="cause-card-img-wrap">
+            <img src="images/Tracy.jpeg" alt="Fundraise for Education" class="cause-card-img">
+          </div>
+          <div class="cause-card-body">
+            <span class="cause-tag">Education</span>
+            <h3>Fundraise for Education</h3>
+            <p>Every child deserves access to quality education, but many orphaned and vulnerable children are denied this fundamental right.</p>
+            <p>Through our <strong>#Go Back To School</strong> program, your donation provides school fees and supplies for a year, access to quality education and dedicated teachers, and a chance for children to break the cycle of poverty and thrive.</p>
+            <a href="https://www.paypal.me/ecafug256" target="_blank" class="donate-link">
+              <i class="fas fa-heart"></i> Donate to This Cause
+            </a>
+          </div>
+        </div>
+
       </div>
-      <!-- header top section start -->
-      <!-- header section start -->
-	  <div class="container-fluid">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="index.html">
-				<img src="images/Exodus-Logo-BLACK-2.png" alt="" class="img-fluid">
-			</a>
-			<!-- Replace the toggle button with three lines -->
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-	
-			<div class="container">
-				<div class="collapse navbar-collapse text-center" id="navbarsExample09">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Causes<span class="ml-1">+</span></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href="service.html">Causes</a></li>
-								<!-- <li><a class="dropdown-item" href="cause-single.html">Cause details</a></li> -->
-							</ul>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Get Involved<span class="ml-1">+</span></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown04">
-								<li><a class="dropdown-item" href="donation.html">Donation</a></li>
-								<li><a class="dropdown-item" href="volunteer.html">Be a Volunteer </a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-						<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</div>
-	
-
-<!-- Header Close --> 
-
-
-<section class="page-title bg-1">
-	<div class="container">
-	  <div class="row">
-		<div class="col-md-12">
-		  <div class="block text-center">
-			<strong><span class="text-white" style="font-size: x-large;">What we do</span></strong>
-			<strong><h1 class="text-capitalize mb-4 text-lg" style="color: white; font-weight: 900;">Our Recent Causes</h1></strong>
-		  </div>
-		</div>
-	  </div>
-	</div>
+    </div>
   </section>
 
+  <!-- DIVIDER -->
+  <div class="divider-banner">
+    <strong>"Speak up for those who cannot speak for themselves"</strong> — Proverbs 31:8
+  </div>
 
-  <!-- end of section -->
+  <!-- ── CAUSES BATCH 2 ── -->
+  <section class="section" style="background: var(--green-pale);">
+    <div class="section-inner">
+      <p class="section-label">More Ways to Help</p>
+      <h2 class="section-title">Further Causes Close to Our Hearts</h2>
+      <div class="causes-grid">
 
+        <!-- Elderly -->
+        <div class="cause-card fade-up">
+          <div class="cause-card-img-wrap">
+            <img src="images/old.jpeg" alt="Help the Elderly" class="cause-card-img">
+          </div>
+          <div class="cause-card-body">
+            <span class="cause-tag">Elderly Care</span>
+            <h3>Help the Elderly</h3>
+            <p>Our dedicated team members are passionate about fostering connections, promoting independence, and ensuring that every individual receives the care and support they deserve.</p>
+            <p>With a focus on empathy and respect, we aim to make a positive difference in the lives of the elderly, enriching their daily experiences and fostering a sense of belonging within our community.</p>
+            <a href="https://www.paypal.me/ecafug256" target="_blank" class="donate-link">
+              <i class="fas fa-heart"></i> Donate to This Cause
+            </a>
+          </div>
+        </div>
 
-  <!-- beginning of causes -->
+        <!-- Pregnant Mothers -->
+        <div class="cause-card fade-up">
+          <div class="cause-card-img-wrap">
+            <img src="images/sister.jpeg" alt="Save Pregnant Mothers" class="cause-card-img">
+          </div>
+          <div class="cause-card-body">
+            <span class="cause-tag">Maternal Health</span>
+            <h3>Save Pregnant Mothers</h3>
+            <p>Supporting pregnant youth is crucial for ensuring their well-being and that of their unborn children. These young mothers face unique challenges as they navigate pregnancy and early parenthood.</p>
+            <p>By offering comprehensive support services, including medical care, education, and emotional guidance, we can empower them to make informed choices and provide a nurturing environment for their children.</p>
+            <a href="https://www.paypal.me/ecafug256" target="_blank" class="donate-link">
+              <i class="fas fa-heart"></i> Donate to This Cause
+            </a>
+          </div>
+        </div>
 
-	<div class="projects_section_2 layout_padding">
-	   <div class="container">
-		  <div class="pets_section">
-			 <div class="pets_section_2">
-				<div id="main_slider" class="carousel slide" data-ride="carousel">
-				   <div class="carousel-inner">
-					  <div class="carousel-item active">
-						 <div class="row">
-							<div class="col-md-4">
-							   <div class="container_main">
-								  <img src="images/food.jpeg" alt="" class="image">
-								  <div class="overlay">
-									 <div class="text">
-										<h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-									 </div>
-								  </div>
-							   </div>
+        <!-- Shelter -->
+        <div class="cause-card fade-up">
+          <div class="cause-card-img-wrap">
+            <img src="images/shelter.jpeg" alt="Build Shelter for Children" class="cause-card-img">
+          </div>
+          <div class="cause-card-body">
+            <span class="cause-tag">Shelter</span>
+            <h3>Build Shelter for the Children</h3>
+            <p>With your support, we aim to construct shelters that offer refuge, stability, and a sense of belonging for vulnerable children.</p>
+            <p>Together, we can create spaces where they can grow, learn, and dream without fear, laying the foundation for a brighter future. Join us in building a world where every child has a place to call home.</p>
+            <a href="https://www.paypal.me/ecafug256" target="_blank" class="donate-link">
+              <i class="fas fa-heart"></i> Donate to This Cause
+            </a>
+          </div>
+        </div>
 
-							   <div class="card-body">
-								  <h3 class="mb-3"><a href="">Fundraise for Food</a></h3>
-			  
-								   <!-- <ul class="list-inline border-bottom border-top py-3 ">
-									 <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
-									 <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-								  </ul> -->
-								  <p class="card-text mb-4">The empty shelves in our pantry represent not just a lack of food, but a void in the lives of those who rely on it. Your support, regardless of the amount, can help us replenish these stores and ensure that no one goes hungry. Your contribution will not only provide nourishment but also offer hope and relief to those facing uncertainty. Together, let's make a difference by filling the empty store with the warmth of compassion and the promise of a brighter tomorrow.</p>
-			  
-								  <div class="icon"><a href="http://paypal.me/ecaougdonate" style=" padding-top: 10%;">
-									<span class="material-symbols-outlined" style="font-size: xx-large;" >
-										volunteer_activism
-										</span></div>
-								</div>
-							</div>
-							<div class="col-md-4">
-							   <div class="container_main">
-								  <img src="images/water.jpeg" alt="" class="image">
-								  <div class="overlay">
-									 <div class="text">
-										<h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-									 </div>
-								  </div>
-							   </div>
-							   <div class="card-body">
-								<h3 class="mb-3"><a href="">Clean Drinking Water</a></h3>
-								<!-- <ul class="list-inline border-bottom border-top py-3">
-									<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal: <span>$890</span></li>
-									<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-								</ul> -->
-								<p>
-									In this situation, 73% of the people in our community face in daily life. We have no boreholes for free water where people make long lines just to fetch 1 or 2 Jerry cans of water from a pond in a forest. This has led to poor sanitation and bad personal hygiene.
-									</p>	
-									</p>
-								<div id="waterDescription"style="display: none;" >
-									<p class="card-text mb-4">
+      </div>
+    </div>
+  </section>
 
-										Young children of between 3-15 years collide at dirty ponds of water just not to move so far which easily spreads diseases like cholera, dysentery, and athletes' foot. The ponds are close to 3 at a very big distance from one another. Children have to move for close to 3 km just to reach the ponds or stream to fetch water. Many people in the society have resorted to the use of dirty or no water just for the sake of avoiding moving long distances.
-										
-									<p>
-										What hurts most is that people with bicycles and motorcycles have resorted to selling water. They go fetch much water at the boreholes and then start moving selling water to people at a very high price like a 20-liter Jerry can is bought for close to $1-2. Let's join hands together and fundraise for the #Good_cause and make the world a better place. I request you to please join us to construct more boreholes and extend water even closer to the people so as to reduce the risks brought about by the lack of water in the community.
-									</p>
-								</div>
-								<br>
-									<button onclick="toggleDescription()" class="btn btn-main rounded" id="readMoreBtn">Read More</button>
-									<br>
-									<br>
-									<div class="icon"><a href="http://paypal.me/ecaougdonate" style=" padding-top: 10%;">
-										<span class="material-symbols-outlined" style="font-size: xx-large;">
-											volunteer_activism
-											</span></div>
-										
-									
-							
-								
-							</div>
-							</div>
-							<div class="col-md-4">
-							   <div class="container_main">
-								  <img src="images/Tracy.jpeg" alt="" class="image">
-								  <div class="overlay">
-									 <div class="text">
-										<h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-									 </div>
-								  </div>
-							   </div>
-							   <div class="card-body">
-								  <h3 class="mb-3"><a href="">Fundraise for Education</a></h3>
-								 
-								  <p class="card-text mb-4">Every child deserves access to quality education, but many orphaned and vulnerable children are denied this fundamental right.
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <blockquote>"We can't help everyone, but everyone can help someone."</blockquote>
+    <a href="https://www.paypal.me/ecafug256" target="_blank" class="btn-white">
+      <i class="fas fa-heart"></i> Make a Donation
+    </a>
+  </div>
 
-									Through our #Go Back To School program,  your donation will provide:
-									
-									- School fees and supplies for a year
-									- Access to quality education and dedicated teachers
-									- A chance for children to break the cycle of poverty and thrive</p>
-								  <!-- <p> .</p> -->
-			  
-								  <div class="icon"><a href="http://paypal.me/ecaougdonate" style=" padding-top: 10%;">
-									<span class="material-symbols-outlined"style="font-size: xx-large;" >
-										volunteer_activism
-										</span></div>
-								</div>
-							</div>
-						 </div>
-					  </div>
-					  </div>
-				   </div>
-				   </a>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</div>
- </div>
+  <!-- FLOATING DONATE -->
+  <a href="donation.html" class="float-donate">
+    <div class="fd-icon"><i class="fas fa-heart"></i></div>
+    <span>Donate Now</span>
+  </a>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda" style="height:48px; filter:brightness(0) invert(1); opacity:.85;">
+          <p>Restoring hope and transforming the lives of orphaned, abandoned, and vulnerable children in Uganda — one family at a time.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ecaoug" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="service.html"><i class="fas fa-chevron-right"></i> Our Causes</a>
+            <a href="donation.html"><i class="fas fa-chevron-right"></i> Donate</a>
+            <a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a>
+            <a href="Sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a>
+            <a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a>
+            <a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+256200991484" style="color:inherit;">+256 200 991 484</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:info.ecafug@yahoo.com" style="color:inherit;">info.ecafug@yahoo.com</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bujjuuko, Uganda</span>
+            </div>
+          </div>
+          <div class="footer-newsletter" style="margin-top:24px;">
+            <h4 style="margin-bottom:12px;">Newsletter</h4>
+            <form action="https://formspree.io/f/mnqelgaq" method="POST">
+              <input type="email" name="email" placeholder="Enter your email address">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Exodus Community Awakening Organisation Uganda. Designed by Vanessa Suzan Nalugya.
+      </div>
+    </div>
+  </footer>
 
+  <script>
+    // Mobile hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
+    // Click-based dropdowns
+    document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parent = this.closest('.nav-dropdown');
+        const isOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+        if (!isOpen) parent.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
 
-
-
- <div class="projects_section_2 layout_padding">
-	<div class="container">
-	   <div class="pets_section">
-		  <div class="pets_section_2">
-			 <div id="main_slider" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner">
-				   <div class="carousel-item active">
-					  <div class="row">
-						 <div class="col-md-4">
-							<div class="container_main">
-							   <img src="images/old.jpeg" alt="" class="image">
-							   <div class="overlay">
-								  <div class="text">
-									 <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-								  </div>
-							   </div>
-							</div>
-
-							<div class="card-body">
-							   <h3 class="mb-3"><a href="">Help the eldery</a></h3>
-		   
-								<!-- <ul class="list-inline border-bottom border-top py-3 ">
-								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
-								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-							   </ul> -->
-							   <p class="card-text mb-4">Our dedicated team members are passionate about fostering connections, promoting independence, and ensuring that every individual receives the care and support they deserve. With a focus on empathy and respect, we aim to make a positive difference in the lives of the elderly, enriching their daily experiences and fostering a sense of belonging within our community.</p>
-		   
-							   <div class="icon"><a href="http://paypal.me/ecaougdonate" style=" padding-top: 10%;">
-								<span class="material-symbols-outlined" style="font-size: xx-large;">
-									volunteer_activism
-									</span></div>
-							 </div>
-						 </div>
-						 <div class="col-md-4">
-							<div class="container_main">
-							   <img src="images/sister.jpeg" alt="" class="image">
-							   <div class="overlay">
-								  <div class="text">
-									 <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-								  </div>
-							   </div>
-							</div>
-							<div class="card-body">
-							   <h3 class="mb-3"><a href="">Save Pregnant mothers</a></h3>
-								<!-- <ul class="list-inline border-bottom  border-top py-3">
-								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal: <span>$890</span></li>
-								  <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-							   </ul> -->
-							   <p class="card-text mb-4">
-								Supporting pregnant youth is crucial for ensuring their well-being and that of their unborn children. 
-								
-								These young mothers face unique challenges as they navigate pregnancy and early parenthood. By offering comprehensive support services, including medical care, education, and emotional guidance, we can empower them to make informed choices and provide a nurturing environment for their children. Your support can make a meaningful difference in the lives of these young families, offering them hope for a brighter future. Let's come together to ensure that pregnant youth receive the care and support they need to thrive.
-								</p>
-		   
-								<div class="icon"><a href="http://paypal.me/ecaougdonate" style=" padding-top: 10%;">
-									<span class="material-symbols-outlined"style="font-size: xx-large;" >
-										volunteer_activism
-										</span></div>
-							 </div>
-						 </div>
-						 <div class="col-md-4">
-							<div class="container_main">
-							   <img src="images/shelter.jpeg" alt="" class="image">
-							   <div class="overlay">
-								  <div class="text">
-									 <h4 class="some_text"><i class="fa fa-link" aria-hidden="true"></i></h4>
-								  </div>
-							   </div>
-							</div>
-							<div class="card-body">
-							   <h3 class="mb-3"><a href="">Build Shelter for the children</a></h3>
-							  
-							   <p class="card-text mb-4">With your support, we aim to construct shelters that offer refuge, stability, and a sense of belonging for vulnerable children. Together, we can create spaces where they can grow, learn, and dream without fear, laying the foundation for a brighter future. Join us in building a world where every child has a place to call home. </p>
-							  
-							   <div class="icon"><a href="http://paypal.me/ecaougdonate" style=" padding-top: 10%;">
-								<span class="material-symbols-outlined"style="font-size: xx-large;" >
-									volunteer_activism
-									</span></div>
-							 </div>
-						 </div>
-					  </div>
-				   </div>
-				   </div>
-				</div>
-				</a>
-			 </div>
-		  </div>
-	   </div>
-	</div>
- </div>
-</div>
- <!-- projects section end -->
- <!-- testimonial section start -->
- <div class="testimonial_section layout_padding">
-	<div class="cta-block section">
-	   <div class="container">
-		  <div class="row justify-content-center ">
-			 <div class="col-lg-7 col-md-12">
-				<div class="cta-content text-center">
-				   <i class="icofont-diamond text-lg text-color"></i>
-				   <h2 class="text-white text-lg mb-5 mt-3">We can’t help everyone, but everyone can help someone</h2>
-				   <a href="http://paypal.me/ecaougdonate" class="btn btn-main rounded">Make a donation</a>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</div>
-	
- </div>
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-
-
-   <!-- ── Floating Donate Button ── -->
-<a href="donation.html" class="float-donate">
-  <div class="fd-pulse"></div>
-  <div class="fd-icon">♥</div>
-  <span>Donate Now</span>
-</a>
-
-
-
-
-
-<div class="footer_section layout_padding">
-	<div class="container">
-	   <div class="row">
-		  <div class="col-md-12">
-			 <div class="location_text">
-				<ul>
-				   <li>
-					  <a href="tel:+256 200991484"><span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span> <br>Call +256 200991484</a>
-				   </li>
-				   <li class="active">
-					  <a href="mailto:info.ecafug@yahoo.com"><span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span>info.ecafug@yahoo.com</a>
-				   </li>
-				   <!-- <li>
-					  <a href="#"><span class="padding_15"><i class="fa fa-map-marker" aria-hidden="true"></i></span> Kampala</a>
-				   </li>  -->
-				</ul>
-			 </div>
-		  </div>
-	   </div>
-	   <div class="footer_section_2">
-		  <div class="row">
-			 <div class="col-md-4">
-				<h2 class="useful_text">QUICK LINKS</h2>
-				<div class="footer_menu">
-				   <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About</a></li>
-					  <li><a href="service.html">Causes</a></li>
-					  <li><a href="donation.html">Get Involved</a></li>
-					  <li><a href="contact.html">Contact Us</a></li>
-					  <li><a href="">Kampala,Uganda</a></li>
-
-				   </ul>
-				</div>
-			 </div>
-			 <div class="col-md-4">
-				<h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
-				<form action="https://formspree.io/f/mnqelgaq" method="POST">
-					<div class="form-group">
-						<textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="email" name="email"></textarea>
-						<div class="subscribe_bt">
-							<button type="submit" class="btn btn-success">Subscribe</button>
-						</div>
-					</div>
-				</form>
-			</div>
-			
-	   <div class="social_icon">
-		  <ul>
-                <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color: white; padding-right: 20px;"></i></a>
-                <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color: white; padding-right: 20px;"></i></a>
-                <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp" style="color: white; padding-right: 20px;"></i></a>
-                <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color: white;padding-right: 20px;"></i></a>
-                <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color: white; padding-right: 20px;"></i></a>
-
-		  </ul>
-	   </div>
-	</div>
- </div>
- <!-- footer section end -->
- <!-- copyright section start -->
-   <div class="footer-btm py-4" >
-	   <div class="row justify-content-center">
-		   <div class="col-lg-6">
-			   <div class="copyright text-center" style="color: white;">
-				   &copy; Designed by Vanessa Suzan Nalugya 2025
-			   </div>
-		   </div>
-	   </div>
-   </div>
-</div>
-
-
-<script>
-    
-	function toggleDescription() {
-    var waterDescription = document.getElementById("waterDescription");
-    var readMoreBtn = document.getElementById("readMoreBtn");
-
-    if (waterDescription.style.display === "none") {
-        waterDescription.style.display = "block";
-        readMoreBtn.innerText = "Read Less";
-    } else {
-        waterDescription.style.display = "none";
-        readMoreBtn.innerText = "Read More";
+    // Read more toggle
+    function toggleBlock(id, btn) {
+      const el = document.getElementById(id);
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        btn.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+      } else {
+        el.classList.add('open');
+        btn.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
+      }
     }
-}
-</script>
 
-<script>
-	$(document).ready(function(){
-		$(".navbar-toggler").click(function(){
-			$(".navbar-collapse").toggleClass("show");
-		});
-	});
-</script>
- <!-- copyright section end -->
- <!-- Javascript files-->
+    // Scroll fade-up
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
- <script src="js/jquery.min.js"></script>
- <script src="js/popper.min.js"></script>
- <script src="js/bootstrap.bundle.min.js"></script>
- <script src="js/jquery-3.0.0.min.js"></script>
- <script src="js/plugin.js"></script>
 </body>
 </html>

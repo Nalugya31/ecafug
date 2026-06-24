@@ -1010,249 +1010,303 @@
        needs: array of short strings e.g.
               ["School fees","Food","Medication","Clothing"]
     ══════════════════════════════════════════════════════════ */
-    const children = [
-      {
-        id: 1,
-        name: "Tracy N",
-        age: 4,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Middle Class",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Tracy_Nansanga.jpeg",
-        emoji: "👦",
-        story: `We will never forget the evening Tarcy came to our care. She arrived on 29/ June/ 2023, silent and trembling, carrying a story that made our hearts ache. We learned that her mother  had passed away in a domestic violence case , and the weight of that reality hit us like a wave. Tracy is an orphan , but to us - and to God , that label means nothing compared to the truth: this child is chosen. We have wept over her, prayed , and held her through the darkest nights. And now, by God's grace, we are watching her bloom. She prays with us, smiles more each day, and is beginning to understand that they are not forgotten—they are fiercely loved by a Father who never leaves. We are not just caregivers; we are witnesses to a miracle unfolding.`,
-        needs: ["Wheelchair", "School fees", "Food", "Medication", "Clothing"]
-      },
-      {
-        id: 2,
-        name: "Jackline N",
-        age: 4,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Middle Class",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Jackline_Namuyomba.jpeg",
-        emoji: "👧",
-        story: `When Jackie was referredto us , we were nervous. She had lost parents to HIV, she was so malnourished by then and we knew the road ahead would be hard. But something miraculous happened. Our other children didn't see a stranger. They saw a sibling. They wrapped her in hugs, shared their toys, and whispered, "You're safe now." We couldn’t believe . Because that's the Kingdom - where orphans find brothers and sisters, where the lonely are given a tribe. We didn't just gain a child that day; our whole family grew by one more heart. And we thank God every night for the holy chaos Jackie has brought into our home.`,
-        needs: ["School fees", "Food", "Clothing", "Healthcare"]
-      },
-      {
-        id: 3,
-        name: "Jovan K",
-        age: 6,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Top Class",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Jovan_katana.jpeg",
-        emoji: "👦",
-        story: `We first met Jovan in January 2022. They came to us from the local authority when they said his family could no longer be a safe place for him due to alcoholism. After learning their story we knew we could offer them a safe home. Today, Jovan is growing, learning, and healing with us and looks forward to being a pilot . Support his studies through our sponsor a child program`,
-        needs: ["School fees", "Food", "School supplies", "Clothing"]
-      },
-      {
-        id: 4,
-        name: "Ann Marie N",
-        age: 5,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Top Class",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Ann_Marie.jpeg",
-        emoji: "👧",
-        story: `Annet was admitted to our program in February 2024. The child was identified through village chairperson . Following a thorough assessment, it was determined that Annet is an orphan , as one parent is living but unable to provide care because of illness and was abandoned . We are currently providing education, medical and emotional support through our residents program`,
-        needs: ["Food", "Clothing", "Healthcare"]
-      },
-      {
-        id: 5,
-        name: "Wiilliam S",
-        age: 4,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Middlie Claas",
-        status: "needs-sponsor",
-        image: "/images/Abaana/William.jpeg",
-        emoji: "👦",
-        story: `This resilient 4 year-old lost his biological parents at a young age and was brought to our center by a local community worker. Today, he is thriving in a stable foster family environment, but she needs a sponsor to help cover his  upcoming school tuition and school requirement costs.`,
-        needs: ["School fees", "Food", "Healthcare", "School supplies"]
-      },
-      {
-        id: 6,
-        name: "Valentine N",
-        age: 7,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Primary 1",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Valentine.jpeg",
-        emoji: "👧",
-        story: `Meet valentine , Age 9
+const children = [
+  {
+    id: 1,
+    name: "Tracy N",
+    age: 4,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Middle Class",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Tracy_Nansanga.jpeg",
+    emoji: "👧",
+    story: `We will never forget the evening Tracy came to our care. She arrived on 29th June 2023, silent and trembling, carrying a story that made our hearts ache.
 
-Valentine joined our care program after losing both of her parents at a young age. She was living with her vulnerable grandmother, who struggled to provide for the family’s daily needs. Despite these challenges, Sarah is a bright and determined student who dreams of becoming a teacher.
+We learned that her mother had passed away in a domestic violence case, and the weight of that reality hit us like a wave. Tracy is an orphan, but to us — and to God — that label means nothing compared to the truth: this child is chosen.
 
-Your support helps provide her with education, healthcare, and the opportunity for a brighter future.`,
-        needs: ["Medication", "School fees", "Food", "Healthcare", "Clothing"]
-      },
-      {
-        id: 7,
-        name: "Israel K",
-        age: 6,
-        gender: "Boy",
-        location: "orphanage",
-        school: "Top",
-        status: "needs-sponsor",
-        image: "/images/Abaana/israel2.jpeg",
-        emoji: "👦",
-        story: `Israel came into our care a year ago after his grandmother told her she couldn’t care for him anymore since he was abandoned at 1day. With no extended family able to take him in, our local community center became his safe haven.
+We have wept over her, prayed, and held her through the darkest nights. And now, by God's grace, we are watching her bloom. She prays with us, smiles more each day, and is beginning to understand that she is not forgotten — she is fiercely loved by a Father who never leaves.
 
-Today, Daniel lives in our group home environment where he is surrounded by a supportive community. Your sponsorship will ensure he can start his education, receive regular medical checkups, and have the tools he needs to fulfill his dream of becoming a better person`,
-        needs: ["Secondary school fees", "School supplies", "Food", "Clothing"]
-      },
-      {
-        id: 8,
-        name: "Kauthara N",
-        age: 6,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Primary 1",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Kauthra.jpeg",
-        emoji: "👧",
-        story: `Dear Kauthara,
+We are not just caregivers; we are witnesses to a miracle unfolding.`,
+    needs: ["Wheelchair", "School fees", "Food", "Medication", "Clothing"]
+  },
+  {
+    id: 2,
+    name: "Jackline N",
+    age: 4,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Middle Class",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Jackline_Namuyomba.jpeg",
+    emoji: "👧",
+    story: `When Jackie was referred to us, we were nervous. She had lost both parents to HIV and was severely malnourished by then — we knew the road ahead would be hard.
 
-You came to us , carrying a story we could barely hear without weeping. We learned that your guardian couldn't care for you, and that you are an orphan . But here's what we want you to know: that label has no power over you. The God who knit you together in the dark knows your name. When you cried, He heard. When you felt invisible, He saw. And when you walked through our door, He was already there, whispering, "This one is mine." We are not your rescuers - we are your witnesses. We are here to remind you every single day that you were never abandoned. You were always being carried toward love.`,
-        needs: ["School fees", "Food", "Clothing", "Healthcare"]
-      },
-      {
-        id: 9,
-        name: "Stuart W",
-        age: 11,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Primary 5",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Walusimbi.jpeg",
-        emoji: "👦",
-        story: `Stuart came into our care five  years ago after our director found him wandering on the street and he said he had lost both of his parents to an accident and didn’t have anyone left. He currently lives in our community home, where his bright smile and love for art bring joy to everyone. He is a good footballer and likes gardening and looks forward having a big garden to provide food for the homeless. Support his journey to become a well trained agriculturalists here`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-         {
-        id: 10,
-        name: "Sheila N",
-        age: 9,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Primary 2",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Sheila.jpeg",
-        emoji: "👦",
-        story: `Some children come to us through tragedy. Sheila came to us through divine intervention. When we learned that she had lost the care of their family, our team was touched by this news . But our faith rose like the sun. Sheila is an orphan by the world's standards, but in God's eyes, they are a daughter of the King. We don't just support this child, we hold her, we pray over her, and we thank God every morning for the miracle of her presence in our lives.
-She is a caring and friendly girl who likes cooking and taking care of the youngest at the orphanage. Your support will help her achieve more in her journey towards success`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-      {
-        id: 11,
-        name: "Trevor S",
-        age: 10,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Primary 5",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Ssekatawa.jpeg",
-        emoji: "👦",
-        story: `Trevor came to us in 2020 with a past that could have defined him. He is not an orphan, having lost one of his parents, he was left with no one because his dad had abandoned the family . But we refuse to let that be his identity. Trevor is a good footballer and caring. We see something else. We see a future leader, a footballer, A healer through his story. A storyteller of God's goodness. We see a child who will one day look back and say, "I should have been broken, but I wasn't - because God placed me in a home that believed in me." We are not just giving Trevor support today. We are investing in a destiny. And we cannot wait to watch God finish what He started. You can be part of his story by investing in his education and talent of soccer  ⚽`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-      {
-        id: 12,
-        name: "Umar K",
-        age: 13,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Senior 1",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Umar.jpeg",
-        emoji: "👦",
-        story: `Umar was placed in our support program after his  single mother became too ill to provide full-time care. Through your support, Umar receives daily nutritious meals, medical checkups, and a safe space to attend school while his  family receives community assistance.`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-            {
-        id: 13,
-        name: "Christine N ",
-        age: 13,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Senior 1",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Nakayaga.jpeg",
-        emoji: "👦",
-        story: `Every child is a seed. But some seeds are planted in rocky soil. When Christine came to us, she had been through a season of drought. We learned that her parents were unable to care for them, and she was out of school by then. But God is the Gardener, and we are simply the soil. We have watered her with consistency, sunlit her with affection, and pulled out the weeds of fear with prayer. Slowly—so slowly at first we saw new growth. A shy smile. A trusting glance. A whispered "thank you." Today, Christine is blooming. Not perfectly. Not quickly. But beautifully - because God's timing is always right, you can sponsor her by pressing the button below`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-      {
-        id: 14,
-        name: "Joseph K",
-        age: 9,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Primary 2",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Kisaakye.jpeg",
-        emoji: "👦",
-        story: `Meet Joseph , Age 9
+But something miraculous happened. Our other children didn't see a stranger. They saw a sibling. They wrapped her in hugs, shared their toys, and whispered, "You're safe now."
 
-Joseph joined our care program after being abandoned at a young age by his father who went missing . He then lived with his vulnerable mother together with his 4 siblings , his mother struggled to provide for the family’s daily needs. We decided to bring in Joseph into our family at 5years, 
-Despite of neighbors under our care, he lacks school requirements and tuition. Joseph is a bright and determined student who dreams of becoming an engineer 
+We couldn't believe it — because that's the Kingdom, where orphans find brothers and sisters, where the lonely are given a tribe. We didn't just gain a child that day; our whole family grew by one more heart.
+
+We thank God every night for the holy chaos Jackie has brought into our home.`,
+    needs: ["School fees", "Food", "Clothing", "Healthcare"]
+  },
+  {
+    id: 3,
+    name: "Jovan K",
+    age: 6,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Top Class",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Jovan_katana.jpeg",
+    emoji: "👦",
+    story: `We first met Jovan in January 2022. He came to us from the local authority after they determined his family could no longer provide a safe environment for him due to alcoholism.
+
+After learning his story, we knew we could offer him a safe home. Today, Jovan is growing, learning, and healing with us — and he looks forward to becoming a pilot one day.
+
+Support his studies through our sponsor a child program.`,
+    needs: ["School fees", "Food", "School supplies", "Clothing"]
+  },
+  {
+    id: 4,
+    name: "Ann Marie N",
+    age: 5,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Top Class",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Ann_Marie.jpeg",
+    emoji: "👧",
+    story: `Annet was admitted to our program in February 2024. She was identified through the village chairperson.
+
+Following a thorough assessment, it was determined that Annet is an orphan — one parent is living but unable to provide care due to illness, and she had been abandoned.
+
+We are currently providing education, medical, and emotional support through our residents program.`,
+    needs: ["Food", "Clothing", "Healthcare"]
+  },
+  {
+    id: 5,
+    name: "William S",
+    age: 4,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Middle Class",
+    status: "needs-sponsor",
+    image: "/images/Abaana/William.jpeg",
+    emoji: "👦",
+    story: `This resilient 4-year-old lost his biological parents at a young age and was brought to our center by a local community worker.
+
+Today, he is thriving in a stable foster family environment, but he needs a sponsor to help cover his upcoming school tuition and school requirement costs.`,
+    needs: ["School fees", "Food", "Healthcare", "School supplies"]
+  },
+  {
+    id: 6,
+    name: "Valentine N",
+    age: 7,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Primary 1",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Valentine.jpeg",
+    emoji: "👧",
+    story: `Valentine joined our care program after losing both of her parents at a young age. She was living with her vulnerable grandmother, who struggled to provide for the family's daily needs.
+
+Despite these challenges, Valentine is a bright and determined student who dreams of becoming a teacher.
 
 Your support helps provide her with education, healthcare, and the opportunity for a brighter future.`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-            {
-        id: 15,
-        name: "Maria N",
-        age: 2,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Not in school",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Nakamatte.jpeg",
-        emoji: "👦",
-        story: `Maria came to us in March 2025 after being brought to us by her mother who couldn’t take care of her . Her father passed away from illness, and her mother is living but unable to care for her due to financial difficulties. Maria is not an orphan, but she needed a safe place to grow. Since arriving, she has enrolled in our programs and is making new friends. We are so proud of her resilience.
-She is starting school soon after making 3yrs and you can support her journey through this program`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-      {
-        id: 16,
-        name: "Hilary S",
-        age: 12,
-        gender: "Boy",
-        location: "Orphanage",
-        school: "Primary 6",
-        status: "sponsored",
-        image: "/images/Abaana/Hilary.jpeg",
-        emoji: "👦",
-        story: `Hillary lived with his mother and three older siblings. His mother worked  incredibly hard selling vegetables at a local market, but after Hillary’s father left, the family's income became too stretched to cover basic necessities like school fees and daily nutritious meals.
-Hillary is not an orphan but in our home , but his family needs a helping hand to break the cycle of poverty. By sponsoring Hillary, you take the financial burden off her mother's shoulders, ensuring Hillary stays in school, receives daily meals at our center, and gets a fair shot at a bright future.`,
-        needs: ["Food", "Art supplies", "School fees"]
-      },
-      {
-        id: 17,
-        name: "Juliet N",
-        age: 12,
-        gender: "Girl",
-        location: "Orphanage",
-        school: "Primary 5",
-        status: "needs-sponsor",
-        image: "/images/Abaana/Juliet2.jpeg",
-        emoji: "👦",
-        story: `Meet Julie, Age 13
+    needs: ["Medication", "School fees", "Food", "Healthcare", "Clothing"]
+  },
+  {
+    id: 7,
+    name: "Israel K",
+    age: 6,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Top Class",
+    status: "needs-sponsor",
+    image: "/images/Abaana/israel2.jpeg",
+    emoji: "👦",
+    story: `Israel came into our care a year ago after his grandmother said she could no longer care for him — he had been abandoned at just one day old. With no extended family able to take him in, our local community center became his safe haven.
 
-Julie is a jolly and a caring young girl that comes from a vulnerable family facing significant financial hardship due to more than five siblings . Although she was living with her single mother, limited resources have made it difficult for her to access education and other basic necessities.
+Today, Israel lives in our group home environment where he is surrounded by a supportive community.
+
+Your sponsorship will ensure he can start his education, receive regular medical checkups, and have the tools he needs to fulfill his dream of becoming a better person.`,
+    needs: ["Secondary school fees", "School supplies", "Food", "Clothing"]
+  },
+  {
+    id: 8,
+    name: "Kauthara N",
+    age: 6,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Primary 1",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Kauthra.jpeg",
+    emoji: "👧",
+    story: `Dear Kauthara,
+
+You came to us carrying a story we could barely hear without weeping. We learned that your guardian couldn't care for you, and that you are an orphan.
+
+But here's what we want you to know: that label has no power over you. The God who knit you together in the dark knows your name. When you cried, He heard. When you felt invisible, He saw. And when you walked through our door, He was already there, whispering, "This one is mine."
+
+We are not your rescuers — we are your witnesses. We are here to remind you every single day that you were never abandoned. You were always being carried toward love.`,
+    needs: ["School fees", "Food", "Clothing", "Healthcare"]
+  },
+  {
+    id: 9,
+    name: "Stuart W",
+    age: 11,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Primary 5",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Walusimbi.jpeg",
+    emoji: "👦",
+    story: `Stuart came into our care five years ago after our director found him wandering on the street. He shared that he had lost both of his parents in an accident and had no one left.
+
+He currently lives in our community home, where his bright smile and love for art bring joy to everyone around him. He is a talented footballer who also loves gardening, and dreams of one day having a big garden to provide food for the homeless.
+
+Support his journey to become a well-trained agriculturalist.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 10,
+    name: "Sheila N",
+    age: 9,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Primary 2",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Sheila.jpeg",
+    emoji: "👧",
+    story: `Some children come to us through tragedy. Sheila came to us through divine intervention. When we learned that she had lost the care of her family, our team was deeply moved — but our faith rose like the sun.
+
+Sheila is an orphan by the world's standards, but in God's eyes, she is a daughter of the King. We don't just support this child — we hold her, we pray over her, and we thank God every morning for the miracle of her presence in our lives.
+
+She is a caring and friendly girl who loves cooking and looking after the youngest children at the orphanage. Your support will help her achieve more in her journey towards success.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 11,
+    name: "Trevor S",
+    age: 10,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Primary 5",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Ssekatawa.jpeg",
+    emoji: "👦",
+    story: `Trevor came to us in 2020 with a past that could have defined him. He is not a full orphan, but after losing one parent and being abandoned by his father, he was left with no one.
+
+We refuse to let that be his identity. Trevor is a gifted footballer and a caring soul. We see something greater — a future leader, a healer through his story, a storyteller of God's goodness.
+
+We see a child who will one day look back and say, "I should have been broken, but I wasn't — because God placed me in a home that believed in me."
+
+We are not just giving Trevor support today. We are investing in a destiny. You can be part of his story by investing in his education and his talent for soccer ⚽`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 12,
+    name: "Umar K",
+    age: 13,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Senior 1",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Umar.jpeg",
+    emoji: "👦",
+    story: `Umar was placed in our support program after his single mother became too ill to provide full-time care.
+
+Through your support, Umar receives daily nutritious meals, medical checkups, and a safe space to attend school — while his family also receives community assistance.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 13,
+    name: "Christine N",
+    age: 13,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Senior 1",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Nakayaga.jpeg",
+    emoji: "👧",
+    story: `Every child is a seed. But some seeds are planted in rocky soil. When Christine came to us, she had been through a season of drought. Her parents were unable to care for her, and she was out of school by then.
+
+But God is the Gardener, and we are simply the soil. We have watered her with consistency, sunlit her with affection, and pulled out the weeds of fear with prayer.
+
+Slowly — so slowly at first — we saw new growth. A shy smile. A trusting glance. A whispered "thank you."
+
+Today, Christine is blooming. Not perfectly. Not quickly. But beautifully — because God's timing is always right.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 14,
+    name: "Joseph K",
+    age: 9,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Primary 2",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Kisaakye.jpeg",
+    emoji: "👦",
+    story: `Joseph joined our care program after being abandoned at a young age by his father who went missing. He was then left with his vulnerable mother and four siblings, with the family struggling to meet their daily needs.
+
+We decided to welcome Joseph into our family when he was just 5 years old. Despite living among others in our care, he lacks school requirements and tuition support.
+
+Joseph is a bright and determined student who dreams of becoming an engineer. Your support helps provide him with education, healthcare, and the opportunity for a brighter future.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 15,
+    name: "Maria N",
+    age: 2,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Not in school",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Nakamatte.jpeg",
+    emoji: "👧",
+    story: `Maria came to us in March 2025, brought by her mother who was unable to care for her. Her father had passed away from illness, and her mother, though living, faces severe financial difficulties.
+
+Maria is not an orphan, but she needed a safe place to grow. Since arriving, she has joined our programs and is making new friends every day. We are so proud of her resilience.
+
+She will be starting school soon after turning 3, and you can support her journey through this program.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 16,
+    name: "Hilary S",
+    age: 12,
+    gender: "Boy",
+    location: "Orphanage",
+    school: "Primary 6",
+    status: "sponsored",
+    image: "/images/Abaana/Hilary.jpeg",
+    emoji: "👦",
+    story: `Hilary lived with his mother and three older siblings. His mother worked incredibly hard selling vegetables at a local market, but after Hilary's father left, the family's income became too stretched to cover basic necessities like school fees and daily nutritious meals.
+
+Hilary is not an orphan, but his family needs a helping hand to break the cycle of poverty.
+
+By sponsoring Hilary, you take the financial burden off his mother's shoulders — ensuring he stays in school, receives daily meals at our center, and gets a fair shot at a bright future.`,
+    needs: ["Food", "Art supplies", "School fees"]
+  },
+  {
+    id: 17,
+    name: "Juliet N",
+    age: 12,
+    gender: "Girl",
+    location: "Orphanage",
+    school: "Primary 5",
+    status: "needs-sponsor",
+    image: "/images/Abaana/Juliet2.jpeg",
+    emoji: "👧",
+    story: `Juliet is a jolly and caring young girl who comes from a vulnerable family facing significant financial hardship with more than five siblings in the home.
+
+Although she was living with her single mother, limited resources have made it difficult for her to access education and other basic necessities.
 
 Through our program, Juliet receives support that helps her stay in school and work toward her goals.`,
-        needs: ["Food", "Art supplies", "School fees"]
-      }
-    ];
+    needs: ["Food", "Art supplies", "School fees"]
+  }
+];
 
     /* ── State ── */
     let activeFilter = 'all';
