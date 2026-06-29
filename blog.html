@@ -1,372 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog – ECAOUG</title>
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Site CSS (existing) -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Exodus Community Awakening Organisation Uganda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="images/fevicon.png" type="image/gif">
 
   <style>
-    /* ── Variables ── */
+    /* ── TOKENS ── */
     :root {
-      --green:       #1a5c2a;
-      --green-mid:   #2d7a3e;
-      --green-light: #d6ede0;
-      --green-pale:  #eef7f1;
-      --text:        #1a2e1e;
-      --muted:       #506058;
-      --border:      #d0e4d6;
-      --card-r:      12px;
-      --font-head:   'DM Serif Display', Georgia, serif;
-      --font-body:   'DM Sans', sans-serif;
+      --green:       #188354;
+      --green-dark:  #0f5c39;
+      --green-deeper:#0a3d25;
+      --green-light: #2aab72;
+      --green-pale:  #eefbf3;
+      --white:       #ffffff;
+      --off-white:   #f7fdf9;
+      --charcoal:    #1a1a1a;
+      --muted:       #4d6358;
+      --border:      #c8e8d8;
+      --shadow:      0 4px 24px rgba(24,131,84,.10);
+      --shadow-lg:   0 12px 48px rgba(24,131,84,.16);
+      --radius-sm:   8px;
+      --radius-md:   16px;
+      --card-r:      14px;
       --ease:        cubic-bezier(.22,.68,0,1.2);
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--text); background: #f4f9f5; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; -webkit-font-smoothing: antialiased; }
     img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
 
-    /* ── Top bar ── */
-    .header_top_main {
-      display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: nowrap;
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--green-dark); color: var(--white);
+      padding: 8px 32px; display: flex;
+      justify-content: space-between; align-items: center;
+      font-size: 13px; flex-wrap: wrap; gap: 8px;
     }
-    .call_text a, .call_text_2 a {
-      color: rgba(255,255,255,.88); font-size: 13px; display: inline-flex; align-items: center; gap: 6px; transition: color .2s;
+    .topbar a { color: var(--white); opacity: .85; transition: opacity .2s; }
+    .topbar a:hover { opacity: 1; }
+    .topbar-left { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .btn-donate-top {
+      background: var(--white); color: var(--green-dark) !important;
+      font-weight: 700; padding: 6px 18px; border-radius: 40px;
+      font-size: 13px; opacity: 1 !important;
+      transition: background .2s, transform .2s;
     }
-    .call_text a:hover, .call_text_2 a:hover { color: #fff; }
+    .btn-donate-top:hover { background: var(--green-pale); transform: scale(1.04); }
 
-    /* ── Navbar ── */
-    .navbar { padding: 6px 0; border-bottom: 1px solid var(--border); background: #fff !important; }
-    .navbar-brand img { height: 58px; width: auto; }
-    .navbar-nav .nav-link {
-      font-family: var(--font-body); font-size: 14px; font-weight: 500;
-      color: #1a2e1e !important; padding: 8px 14px !important; transition: color .2s; position: relative;
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--white); border-bottom: 2px solid var(--green-pale);
+      padding: 14px 32px; display: flex; align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(24,131,84,.08);
     }
-    .navbar-nav .nav-link:hover { color: var(--green) !important; }
-    .navbar-nav .nav-link.blog-active { color: var(--green) !important; }
-    .navbar-nav .nav-link.blog-active::after {
-      content: ''; position: absolute; bottom: 0; left: 14px; right: 14px;
-      height: 2px; background: var(--green); border-radius: 2px;
+    .navbar-logo img { height: 102px; width: auto; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--charcoal);
+      position: relative; padding-bottom: 3px; transition: color .2s;
     }
-    .dropdown-item { font-size: 13px; }
-    .dropdown-item:hover { background: var(--green-pale); color: var(--green); }
-    .btn-success { background: var(--green) !important; border-color: var(--green) !important; }
-    .btn-success:hover { background: var(--green-mid) !important; border-color: var(--green-mid) !important; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--green); transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--green); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { cursor: pointer; user-select: none; }
+    .nav-dropdown > a::after { content: none !important; }
+    .dropdown-menu-custom {
+      display: none; position: absolute;
+      top: calc(100% + 10px); left: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); min-width: 180px;
+      box-shadow: var(--shadow); overflow: hidden; z-index: 200;
+    }
+    .nav-dropdown.open .dropdown-menu-custom { display: block; }
+    .dropdown-menu-custom li a {
+      display: block; padding: 10px 18px; font-size: 13.5px;
+      color: var(--charcoal); transition: background .15s;
+    }
+    .dropdown-menu-custom li a:hover { background: var(--green-pale); color: var(--green-dark); }
+    .dropdown-menu-custom li a::after { display: none !important; }
+    .hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; }
 
-    /* ── Page header ── */
-    .page-header {
-      background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2a 100%);
-      color: #fff; padding: 52px 32px 48px; position: relative; overflow: hidden;
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--green-deeper) 0%, var(--green-dark) 60%, var(--green) 100%);
+      padding: 88px 32px 72px; position: relative; overflow: hidden;
     }
-    .page-header::before { content:''; position:absolute; right:-60px; top:-80px; width:400px; height:400px; border-radius:50%; background:rgba(255,255,255,.04); }
-    .page-header::after  { content:''; position:absolute; right:80px; bottom:-120px; width:260px; height:260px; border-radius:50%; background:rgba(255,255,255,.03); }
-    .header-inner { max-width: 900px; position: relative; z-index: 1; }
-    .header-label { display:inline-block; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:12px; }
-    .page-header h1 { font-family:var(--font-head); font-size:clamp(28px,5vw,42px); font-weight:400; line-height:1.15; margin-bottom:12px; }
-    .page-header h1 em { font-style:italic; color:rgba(255,255,255,.75); }
-    .page-header p { font-size:15px; color:rgba(255,255,255,.7); max-width:480px; line-height:1.65; }
+    .page-hero::before {
+      content: ''; position: absolute; right: -60px; top: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(255,255,255,.04);
+    }
+    .page-hero::after {
+      content: ''; position: absolute; right: 80px; bottom: -120px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: rgba(255,255,255,.03);
+    }
+    .hero-inner { max-width: 900px; position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.65); margin-bottom: 14px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 12px;
+    }
+    .page-hero h1 em { font-style: italic; color: rgba(255,255,255,.78); }
+    .page-hero p { font-size: 15px; color: rgba(255,255,255,.7); max-width: 480px; line-height: 1.65; }
 
-    /* ── Filter bar ── */
+    /* ── FILTER BAR ── */
     .filter-bar {
-      background:#fff; border-bottom:1px solid var(--border); padding:0 32px;
-      display:flex; align-items:center; gap:4px; overflow-x:auto; scrollbar-width:none;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 0 32px; display: flex; align-items: center; gap: 4px;
+      overflow-x: auto; scrollbar-width: none; position: sticky; top: 130px; z-index: 900;
+      box-shadow: 0 2px 8px rgba(24,131,84,.05);
     }
-    .filter-bar::-webkit-scrollbar { display:none; }
+    .filter-bar::-webkit-scrollbar { display: none; }
     .filter-btn {
-      flex-shrink:0; padding:12px 18px; font-family:var(--font-body); font-size:13px;
-      color:var(--muted); background:none; border:none; border-bottom:2px solid transparent; cursor:pointer; transition:all .18s;
+      flex-shrink: 0; padding: 14px 20px; font-family: 'Inter', sans-serif;
+      font-size: 13px; color: var(--muted); background: none;
+      border: none; border-bottom: 2px solid transparent;
+      cursor: pointer; transition: all .18s; white-space: nowrap;
     }
-    .filter-btn:hover { color:var(--green); }
-    .filter-btn.active { color:var(--green); font-weight:500; border-bottom-color:var(--green); }
+    .filter-btn:hover { color: var(--green); }
+    .filter-btn.active { color: var(--green); font-weight: 600; border-bottom-color: var(--green); }
 
-    /* ── Layout ── */
-    .content { max-width: 1060px; margin: 0 auto; padding: 40px 24px 80px; }
+    /* ── MAIN CONTENT ── */
+    .content { max-width: 1200px; margin: 0 auto; padding: 48px 32px 100px; }
 
-    /* ═══════════════════════════════════════════════════════
-       POST DETAIL VIEW — slides in over the blog list
-    ═══════════════════════════════════════════════════════ */
+    /* ── DETAIL PANEL ── */
     .detail-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10,30,15,.55);
-      z-index: 500;
+      display: none; position: fixed; inset: 0;
+      background: rgba(10,30,15,.55); z-index: 1500;
       backdrop-filter: blur(3px);
-      animation: fadeIn .25s ease forwards;
     }
+    .detail-overlay.open { display: block; }
     .detail-panel {
-      position: fixed;
-      top: 0; right: 0; bottom: 0;
-      width: min(780px, 100vw);
-      background: #fff;
-      z-index: 501;
-      overflow-y: auto;
-      transform: translateX(100%);
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(800px, 100vw);
+      background: var(--white); z-index: 1501;
+      overflow-y: auto; transform: translateX(100%);
       transition: transform .38s var(--ease);
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
     }
     .detail-panel.open { transform: translateX(0); }
-    .detail-overlay.open { display: block; }
-
-    /* Detail hero image / video */
-    .detail-hero {
-      width: 100%;
-      position: relative;
-      background: var(--green);
-      flex-shrink: 0;
-    }
-    .detail-hero img {
-      width: 100%; max-height: 800px; object-fit: cover; display: block;
-    }
-    .detail-hero iframe {
-      width: 100%; height: 380px; border: none; display: block;
-    }
+    .detail-hero { width: 100%; position: relative; background: var(--green-dark); flex-shrink: 0; }
+    .detail-hero img { width: 100%; max-height: 480px; object-fit: cover; display: block; }
+    .detail-hero iframe { width: 100%; height: 380px; border: none; display: block; }
     .detail-hero-placeholder {
-      height: 280px;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg,#1a5c2a,#2d7a3e);
+      height: 280px; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--green-deeper), var(--green));
     }
-
-    /* Detail close button */
     .detail-close {
-      position: absolute;
-      top: 14px; right: 14px;
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      background: rgba(0,0,0,.55);
-      border: none;
-      color: #fff;
-      font-size: 18px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      backdrop-filter: blur(4px);
+      position: absolute; top: 14px; right: 14px;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(0,0,0,.55); border: none; color: var(--white);
+      font-size: 18px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 10; backdrop-filter: blur(4px);
       transition: background .2s, transform .2s;
     }
     .detail-close:hover { background: rgba(0,0,0,.78); transform: scale(1.08); }
-
-    /* Detail body */
-    .detail-body {
-      padding: 32px 36px 48px;
-      flex: 1;
-    }
-    .detail-tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+    .detail-body { padding: 32px 36px 48px; flex: 1; }
+    .detail-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
     .detail-body h1 {
-      font-family: var(--font-head);
-      font-size: clamp(22px, 3vw, 30px);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--text);
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700; line-height: 1.2; color: var(--green-dark); margin-bottom: 10px;
     }
     .detail-meta {
       display: flex; align-items: center; gap: 12px;
-      font-size: 12px; color: #8a92a4; margin-bottom: 24px;
+      font-size: 12px; color: var(--muted); margin-bottom: 24px;
       padding-bottom: 20px; border-bottom: 1px solid var(--border);
     }
-    .detail-meta .meta-dot { width:3px; height:3px; background:currentColor; border-radius:50%; display:inline-block; }
-    .detail-content {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.85;
-      white-space: pre-line; /* respects line breaks in description */
-    }
-    .detail-content p { margin-bottom: 16px; }
+    .detail-meta .meta-dot { width: 3px; height: 3px; background: currentColor; border-radius: 50%; display: inline-block; }
+    .detail-content { font-size: 15px; color: var(--muted); line-height: 1.85; }
+    .detail-content p { margin-bottom: 14px; }
 
-    /* Watch on YouTube button inside detail */
+    /* YT button + donate CTA */
     .yt-btn {
       display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 24px;
-      background: #ff0000; color: #fff;
-      font-family: var(--font-body); font-size: 14px; font-weight: 500;
-      padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer;
-      text-decoration: none;
-      transition: background .2s, transform .15s var(--ease);
+      margin-top: 24px; background: #ff0000; color: var(--white);
+      font-size: 14px; font-weight: 600; padding: 12px 24px;
+      border-radius: var(--radius-sm); border: none; cursor: pointer;
+      transition: background .2s, transform .15s;
     }
-    .yt-btn:hover { background: #cc0000; transform: translateY(-1px); color:#fff; }
-    .yt-btn i { font-size: 18px; }
-
-    /* Donate CTA inside detail */
+    .yt-btn:hover { background: #cc0000; color: var(--white); transform: translateY(-1px); }
     .donate-cta {
-      margin-top: 28px;
-      padding: 20px 24px;
-      background: var(--green-pale);
-      border: 1px solid var(--green-light);
-      border-radius: var(--card-r);
+      margin-top: 28px; padding: 20px 24px;
+      background: var(--green-pale); border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
       display: flex; align-items: center; gap: 16px;
     }
     .donate-cta-icon { font-size: 28px; flex-shrink: 0; }
     .donate-cta-text { flex: 1; }
-    .donate-cta-text strong { display:block; font-size:14px; color:var(--green); margin-bottom:3px; }
-    .donate-cta-text span { font-size:13px; color:var(--muted); }
+    .donate-cta-text strong { display: block; font-size: 14px; color: var(--green); margin-bottom: 3px; }
+    .donate-cta-text span { font-size: 13px; color: var(--muted); }
     .donate-cta-btn {
-      background: var(--green); color: #fff; border: none; border-radius: 8px;
-      font-family: var(--font-body); font-size: 13px; font-weight: 500;
-      padding: 10px 20px; cursor: pointer; flex-shrink: 0; white-space: nowrap;
+      background: var(--green); color: var(--white); border: none;
+      border-radius: var(--radius-sm); font-size: 13px; font-weight: 600;
+      padding: 10px 20px; cursor: pointer; flex-shrink: 0;
       transition: background .2s;
     }
-    .donate-cta-btn:hover { background: var(--green-mid); }
+    .donate-cta-btn:hover { background: var(--green-dark); }
 
-    /* ═══════════════════════════════════════════════════════
-       FEATURED CARD
-    ═══════════════════════════════════════════════════════ */
-    .featured-wrap { margin-bottom:40px; opacity:0; transform:translateY(18px); animation:fadeUp .55s var(--ease) .1s forwards; }
+    /* ── TAG CHIPS ── */
+    .tag { display: inline-block; font-size: 11px; letter-spacing: .3px; padding: 3px 10px; border-radius: 20px; }
+    .tag-green  { background: var(--green-pale); color: var(--green); }
+    .tag-orange { background: #fdeee7; color: #c24b1a; }
+    .tag-lime   { background: #e6f4ed; color: #1a7a44; }
+    .tag-gray   { background: #eef0f4; color: #4a5068; }
+
+    /* ── FEATURED CARD ── */
+    .featured-wrap { margin-bottom: 48px; opacity: 0; transform: translateY(18px); animation: fadeUp .55s var(--ease) .1s forwards; }
     .featured-card {
-      display:grid; grid-template-columns:1.1fr .9fr;
-      border-radius:var(--card-r); overflow:hidden; background:#fff;
-      border:1px solid var(--border); min-height:360px; cursor: pointer;
+      display: grid; grid-template-columns: 1.1fr .9fr;
+      border-radius: var(--radius-md); overflow: hidden; background: var(--white);
+      border: 1px solid var(--border); min-height: 380px; cursor: pointer;
+      box-shadow: var(--shadow); transition: box-shadow .25s, transform .25s;
     }
-    .featured-media { position:relative; overflow:hidden; background:var(--green); min-height:300px; }
-    .featured-media img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
-    .featured-card:hover .featured-media img { transform:scale(1.04); }
+    .featured-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .featured-media { position: relative; overflow: hidden; background: var(--green-dark); min-height: 300px; }
+    .featured-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .featured-card:hover .featured-media img { transform: scale(1.04); }
     .featured-media-placeholder {
-      width:100%; height:100%; display:flex; align-items:center; justify-content:center;
-      background:linear-gradient(135deg,#1a5c2a 0%,#2d7a3e 100%);
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--green-deeper) 0%, var(--green) 100%);
     }
-    /* YouTube thumbnail on featured */
-    .featured-yt-thumb {
-      width:100%; height:100%; position:relative;
-    }
-    .featured-yt-thumb img { width:100%; height:100%; object-fit:cover; }
+    .featured-yt-thumb { width: 100%; height: 100%; position: relative; }
+    .featured-yt-thumb img { width: 100%; height: 100%; object-fit: cover; }
     .featured-yt-thumb .yt-play-overlay {
-      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-      background:rgba(0,0,0,.25); transition:background .2s;
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.25); transition: background .2s;
     }
-    .featured-card:hover .yt-play-overlay { background:rgba(0,0,0,.38); }
-
+    .featured-card:hover .yt-play-overlay { background: rgba(0,0,0,.38); }
     .play-btn {
-      width:64px; height:64px; background:rgba(255,255,255,.18); backdrop-filter:blur(6px);
-      border-radius:50%; border:1.5px solid rgba(255,255,255,.4);
-      display:flex; align-items:center; justify-content:center;
-      transition:background .2s, transform .2s var(--ease);
+      width: 64px; height: 64px; background: rgba(255,255,255,.18);
+      backdrop-filter: blur(6px); border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.4);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .2s var(--ease);
     }
-    .featured-card:hover .play-btn { background:rgba(255,255,255,.28); transform:scale(1.08); }
-    .play-arrow { width:0; height:0; border-top:11px solid transparent; border-bottom:11px solid transparent; border-left:19px solid white; margin-left:4px; }
+    .featured-card:hover .play-btn { background: rgba(255,255,255,.28); transform: scale(1.08); }
+    .play-arrow { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 19px solid white; margin-left: 4px; }
     .media-badge {
-      position:absolute; top:16px; left:16px; background:rgba(0,0,0,.55);
-      color:#fff; font-size:11px; letter-spacing:.5px; padding:4px 10px; border-radius:20px; backdrop-filter:blur(4px);
+      position: absolute; top: 16px; left: 16px; background: rgba(0,0,0,.55);
+      color: var(--white); font-size: 11px; letter-spacing: .5px;
+      padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px);
     }
-
-    .featured-body { padding:36px 32px; display:flex; flex-direction:column; justify-content:center; }
-    .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
-    .tag { display:inline-block; font-size:11px; letter-spacing:.3px; padding:3px 10px; border-radius:20px; }
-    .tag-green  { background:var(--green-light); color:var(--green); }
-    .tag-orange { background:#fdeee7; color:#c24b1a; }
-    .tag-lime   { background:#e6f4ed; color:#1a7a44; }
-    .tag-gray   { background:#eef0f4; color:#4a5068; }
-
-    .featured-body h2 { font-family:var(--font-head); font-size:clamp(20px,2.5vw,26px); font-weight:400; line-height:1.25; margin-bottom:12px; color:var(--text); }
+    .featured-body { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .featured-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 700;
+      line-height: 1.25; margin-bottom: 12px; color: var(--green-dark);
+    }
     .featured-body p.excerpt {
-      font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:20px;
-      display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
+      font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 20px;
+      display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
     }
-    .post-meta { display:flex; align-items:center; gap:12px; font-size:12px; color:#8a92a4; margin-bottom:20px; }
-    .meta-dot { width:3px; height:3px; background:currentColor; border-radius:50%; display:inline-block; }
-
+    .post-meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+    .meta-dot { width: 3px; height: 3px; background: currentColor; border-radius: 50%; display: inline-block; }
     .read-more-btn {
-      display:inline-flex; align-items:center; gap:8px; background:var(--green); color:#fff;
-      font-family:var(--font-body); font-size:13px; font-weight:500; padding:10px 20px;
-      border-radius:8px; border:none; align-self:flex-start; cursor:pointer;
-      transition:background .2s, transform .15s var(--ease);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      font-size: 13px; font-weight: 600; padding: 11px 22px;
+      border-radius: 40px; border: none; align-self: flex-start; cursor: pointer;
+      transition: background .2s, transform .15s var(--ease);
     }
-    .read-more-btn:hover { background:var(--green-mid); transform:translateY(-1px); }
-    .read-more-btn svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
-    .read-more-btn:hover svg { transform:translateX(3px); }
+    .read-more-btn:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .read-more-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+    .read-more-btn:hover svg { transform: translateX(3px); }
 
-    /* ═══════════════════════════════════════════════════════
-       POST GRID CARDS
-    ═══════════════════════════════════════════════════════ */
-    .section-title { font-family:var(--font-head); font-size:20px; font-weight:400; color:var(--text); margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
-    .post-count { font-family:var(--font-body); font-size:13px; font-weight:400; color:var(--muted); }
+    /* ── SECTION HEADING ── */
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+      color: var(--green-dark); margin-bottom: 24px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;
+    }
+    .post-count { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; color: var(--muted); }
 
-    .posts-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+    /* ── POST GRID ── */
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
     .post-card {
-      background:#fff; border:1px solid var(--border); border-radius:var(--card-r);
-      overflow:hidden; display:flex; flex-direction:column; opacity:0; transform:translateY(14px);
-      transition:border-color .2s, box-shadow .2s, transform .2s var(--ease); cursor:pointer;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--card-r); overflow: hidden;
+      display: flex; flex-direction: column;
+      opacity: 0; transform: translateY(14px);
+      transition: border-color .2s, box-shadow .2s, transform .2s var(--ease);
+      cursor: pointer;
     }
-    .post-card.visible { animation:fadeUp .45s var(--ease) forwards; }
-    .post-card:hover { border-color:#9dc9a8; box-shadow:0 6px 24px rgba(26,92,42,.08); transform:translateY(-3px); }
-
-    /* Card media — images & YT thumbs */
-    .card-media { position:relative; height:400px; overflow:hidden; background:var(--green-light); flex-shrink:0; }
-    .card-media img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-    .post-card:hover .card-media img { transform:scale(1.05); }
-    .card-media-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
-
-    /* YouTube thumbnail wrapper */
-    .card-yt-thumb { width:100%; height:100%; position:relative; }
-    .card-yt-thumb img { width:100%; height:100%; object-fit:cover; }
+    .post-card.visible { animation: fadeUp .45s var(--ease) forwards; }
+    .post-card:hover { border-color: var(--border); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .card-media { position: relative; height: 280px; overflow: hidden; background: var(--green-pale); flex-shrink: 0; }
+    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .post-card:hover .card-media img { transform: scale(1.05); }
+    .card-media-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .card-yt-thumb { width: 100%; height: 100%; position: relative; }
+    .card-yt-thumb img { width: 100%; height: 100%; object-fit: cover; }
     .card-yt-thumb .yt-play-overlay {
-      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-      background:rgba(0,0,0,.22); transition:background .2s;
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.22); transition: background .2s;
     }
-    .post-card:hover .yt-play-overlay { background:rgba(0,0,0,.38); }
-
+    .post-card:hover .yt-play-overlay { background: rgba(0,0,0,.38); }
     .card-play {
-      width:46px; height:46px; background:rgba(255,0,0,.85); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      border:2px solid rgba(255,255,255,.7); transition:transform .2s var(--ease), background .2s;
+      width: 46px; height: 46px; background: rgba(255,0,0,.85); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(255,255,255,.7);
+      transition: transform .2s var(--ease), background .2s;
     }
-    .post-card:hover .card-play { transform:scale(1.12); background:#ff0000; }
-    .card-play-arrow { width:0; height:0; border-top:8px solid transparent; border-bottom:8px solid transparent; border-left:14px solid white; margin-left:3px; }
-
-    .card-badge { position:absolute; top:10px; right:10px; background:rgba(0,0,0,.5); color:#fff; font-size:10px; letter-spacing:.5px; padding:3px 8px; border-radius:20px; backdrop-filter:blur(4px); }
-    .card-body { padding:18px 18px 20px; flex:1; display:flex; flex-direction:column; }
-    .card-body .tag-row { margin-bottom:8px; }
-    .card-body h3 { font-family:var(--font-head); font-size:17px; font-weight:400; line-height:1.35; margin-bottom:8px; color:var(--text); transition:color .2s; }
-    .post-card:hover .card-body h3 { color:var(--green); }
-    .card-body p { font-size:13px; color:var(--muted); line-height:1.65; flex:1; margin-bottom:14px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-    .card-footer-row { display:flex; align-items:center; justify-content:space-between; font-size:11px; color:#8a92a4; padding-top:12px; border-top:1px solid var(--border); margin-top:auto; }
-    .card-footer-link { color:var(--green); font-size:12px; font-weight:500; display:flex; align-items:center; gap:4px; transition:gap .15s; }
-    .card-footer-link:hover { gap:7px; }
-    .card-footer-link svg { width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
-
-    /* ── Empty state ── */
-    .empty-state { text-align:center; padding:60px 24px; color:var(--muted); }
-    .empty-state svg { width:48px; height:48px; margin:0 auto 16px; stroke:var(--border); fill:none; stroke-width:1.5; }
-    .empty-state p { font-size:14px; }
-
-    /* ── Footer ── */
-    .footer_heading { text-align:center; color:white; margin-bottom:30px; font-weight:bold; font-size:24px; }
-
-    /* ── Animations ── */
-    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-    @keyframes fadeIn { to { opacity:1; } }
-
-    /* ── Responsive ── */
-    @media (max-width: 720px) {
-      .featured-card { grid-template-columns:1fr; }
-      .featured-media { min-height:220px; }
-      .featured-body { padding:24px 20px; }
-      .page-header { padding:36px 20px 32px; }
-      .filter-bar { padding:0 16px; }
-      .content { padding:28px 16px 60px; }
-      .detail-body { padding:24px 20px 40px; }
-      .detail-hero iframe, .detail-hero img { height:220px; }
-      .donate-cta { flex-wrap:wrap; }
+    .post-card:hover .card-play { transform: scale(1.12); background: #ff0000; }
+    .card-play-arrow { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid white; margin-left: 3px; }
+    .card-badge { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,.5); color: var(--white); font-size: 10px; letter-spacing: .5px; padding: 3px 8px; border-radius: 20px; backdrop-filter: blur(4px); }
+    .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-body .tag-row { margin-bottom: 8px; }
+    .card-body h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
+      line-height: 1.35; margin-bottom: 8px; color: var(--green-dark); transition: color .2s;
     }
+    .post-card:hover .card-body h3 { color: var(--green); }
+    .card-body p { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-footer-row { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--border); margin-top: auto; }
+    .card-footer-link { color: var(--green); font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px; transition: gap .15s; }
+    .card-footer-link:hover { gap: 7px; }
+    .card-footer-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state { text-align: center; padding: 80px 24px; color: var(--muted); display: none; }
+    .empty-state i { font-size: 48px; color: var(--border); margin-bottom: 16px; }
+    .empty-state p { font-size: 15px; }
+
+    /* ── FLOATING DONATE ── */
+    .float-donate {
+      position: fixed; top: 50%; right: 0;
+      transform: translateY(-50%); z-index: 1200;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--green-dark); color: var(--white);
+      border-radius: 50px 0 0 50px; padding: 14px 18px 14px 16px;
+      font-size: 14px; font-weight: 600;
+      box-shadow: -3px 4px 18px rgba(15,92,57,.38);
+      transition: background .2s, transform .2s;
+    }
+    .float-donate:hover { background: var(--green); transform: translateY(-50%) translateX(-4px); }
+    .float-donate .fd-icon {
+      width: 26px; height: 26px; background: rgba(255,255,255,.2);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;
+    }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--green-deeper); color: rgba(255,255,255,.78); padding: 64px 32px 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 320px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-socials a {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.7); font-size: 14px;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .footer-socials a:hover { border-color: var(--green-light); color: var(--white); background: rgba(24,131,84,.3); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,.6); transition: color .2s; display: flex; align-items: center; gap: 6px; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-links a i { font-size: 10px; }
+    .footer-contact-list { display: flex; flex-direction: column; gap: 14px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.65); }
+    .footer-contact-item i { color: var(--green-light); margin-top: 2px; }
+    .footer-newsletter input {
+      width: 100%; padding: 12px 16px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm); color: var(--white);
+      font-size: 14px; margin-bottom: 10px; outline: none; font-family: 'Inter', sans-serif;
+    }
+    .footer-newsletter input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-newsletter input:focus { border-color: var(--green-light); }
+    .btn-subscribe { width: 100%; padding: 12px; background: var(--green); color: var(--white); border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; }
+    .btn-subscribe:hover { background: var(--green-light); }
+    .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-media { min-height: 240px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar { justify-content: center; text-align: center; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--white); box-shadow: var(--shadow);
+        padding: 12px 0; z-index: 200;
+      }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; }
+      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .content { padding: 28px 16px 80px; }
+      .detail-body { padding: 24px 20px 40px; }
+      .donate-cta { flex-wrap: wrap; }
+      .float-donate span { display: none; }
+      .filter-bar { top: 80px; padding: 0 16px; }
+    }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
 
-  <!-- ════════════════════════════════════════════
-       POST DETAIL PANEL (hidden by default)
-  ════════════════════════════════════════════ -->
+  <!-- DETAIL PANEL -->
   <div class="detail-overlay" id="detail-overlay" onclick="closeDetail()"></div>
   <div class="detail-panel" id="detail-panel">
     <div class="detail-hero" id="detail-hero"></div>
@@ -379,90 +449,63 @@
     </div>
   </div>
 
-  <!-- ── Top contact bar ── -->
-  <div class="header_top_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="header_top_main">
-            <div style="display:flex;align-items:center;gap:20px;">
-              <div class="call_text">
-                <a href="tel:+256200991484"><i class="fa fa-phone"></i> +256 200991484</a>
-              </div>
-              <div class="call_text_2">
-                <a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope"></i> info.ecafug@yahoo.com</a>
-              </div>
-            </div>
-            <div>
-              <div class="text-end" style="display:flex;align-items:center;gap:14px;">
-                <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color:white;"></i></a>
-                <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color:white;"></i></a>
-                <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color:white;"></i></a>
-                <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color:white;"></i></a>
-                <button type="button" onclick="window.location.href='donation.html'" class="btn btn-success btn-sm">Donate Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:+256200991484"><i class="fa fa-phone-alt" style="margin-right:6px;"></i>+256 200 991 484</a>
+      <a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" style="margin-right:6px;"></i>info.ecafug@yahoo.com</a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank" style="margin-right:12px;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ecaoug" target="_blank" style="margin-right:12px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank" style="margin-right:12px;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank" style="margin-right:16px;"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.paypal.me/ecafug256" target="_blank" class="btn-donate-top">Donate Now</a>
     </div>
   </div>
 
-  <!-- ── Navbar ── -->
-  <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">
-        <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAOUG" class="img-fluid" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarsExample09" aria-controls="navbarsExample09"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="container">
-        <div class="collapse navbar-collapse text-center" id="navbarsExample09">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown03" role="button"
-                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Causes<span class="ms-1">+</span>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                <li><a class="dropdown-item" href="service.html">Causes</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" role="button"
-                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Get Involved<span class="ms-1">+</span>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdown04">
-                <li><a class="dropdown-item" href="donation.html">Donation</a></li>
-                <li><a class="dropdown-item" href="volunteer.html">Be a Volunteer</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            <li class="nav-item"><a class="nav-link blog-active" href="blog.html">Blog</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html"><img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda"></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Causes <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="service.html">All Causes</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Get Involved <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="donation.html">Donate</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="Sponsor.html">Sponsor a Child</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-  <!-- ── Page header ── -->
-  <header class="page-header">
-    <div class="header-inner">
-      <div class="header-label">ECAOUG · Exodus Community Awakening Organisation</div>
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">ECAOUg · Exodus Community Awakening Organisation</span>
       <h1>News, stories &amp; <em>community updates</em></h1>
-      <p>Events, videos, and insights from the ECAOUG community across Uganda.</p>
+      <p>Events, videos, and insights from the ECAOUg community across Uganda.</p>
     </div>
   </header>
 
-  <!-- ── Filter bar ── -->
+  <!-- FILTER BAR -->
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterPosts('all', this)">All posts</button>
+    <button class="filter-btn active" onclick="filterPosts('all', this)">All Posts</button>
     <button class="filter-btn" onclick="filterPosts('Events', this)">Events</button>
     <button class="filter-btn" onclick="filterPosts('News', this)">News</button>
     <button class="filter-btn" onclick="filterPosts('Video', this)">Videos</button>
@@ -470,346 +513,237 @@
     <button class="filter-btn" onclick="filterPosts('Training', this)">Training</button>
   </div>
 
-  <!-- ── Main content ── -->
+  <!-- MAIN CONTENT -->
   <main class="content">
     <div id="featured-section" class="featured-wrap"></div>
-    <div id="section-heading" class="section-title" style="display:none">
-      More posts <span class="post-count" id="post-count"></span>
+    <div id="section-heading" class="section-title" style="display:none;">
+      More Posts <span class="post-count" id="post-count"></span>
     </div>
     <div id="posts-grid" class="posts-grid"></div>
-    <div id="empty-state" class="empty-state" style="display:none">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+    <div id="empty-state" class="empty-state">
+      <i class="fas fa-newspaper"></i>
       <p>No posts found in this category yet.</p>
     </div>
   </main>
 
-  <!-- ── Footer ── -->
-  <div class="footer_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="location_text">
-            <ul>
-              <li><a href="tel:+256200991484"><span class="padding_15"><i class="fa fa-mobile"></i></span><br>Call +256 200991484</a></li>
-              <li class="active"><a href="mailto:info.ecafug@yahoo.com"><span class="padding_15"><i class="fa fa-envelope"></i></span> info.ecafug@yahoo.com</a></li>
-            </ul>
+  <!-- FLOATING DONATE -->
+  <a href="donation.html" class="float-donate">
+    <div class="fd-icon"><i class="fas fa-heart"></i></div>
+    <span>Donate Now</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda" style="height:48px; filter:brightness(0) invert(1); opacity:.85;">
+          <p>Restoring hope and transforming the lives of orphaned, abandoned, and vulnerable children in Uganda — one family at a time.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ecaoug" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
-      </div>
-      <div class="footer_section_2">
-        <div class="row">
-          <div class="col-md-4">
-            <h2 class="useful_text">QUICK LINKS</h2>
-            <div class="footer_menu">
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="service.html">Causes</a></li>
-                <li><a href="donation.html">Get Involved</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="">Kampala, Uganda</a></li>
-              </ul>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="service.html"><i class="fas fa-chevron-right"></i> Our Causes</a>
+            <a href="donation.html"><i class="fas fa-chevron-right"></i> Donate</a>
+            <a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a>
+            <a href="Sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a>
+            <a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a>
+            <a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+256200991484" style="color:inherit;">+256 200 991 484</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:info.ecafug@yahoo.com" style="color:inherit;">info.ecafug@yahoo.com</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bujjuuko, Uganda</span>
             </div>
           </div>
-          <div class="col-md-4">
-            <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
+          <div class="footer-newsletter" style="margin-top:24px;">
+            <h4 style="margin-bottom:12px;">Newsletter</h4>
             <form action="https://formspree.io/f/mnqelgaq" method="POST">
-              <div class="form-group">
-                <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="email" name="email"></textarea>
-                <div class="subscribe_bt">
-                  <button type="submit" class="btn btn-success">Subscribe</button>
-                </div>
-              </div>
+              <input type="email" name="email" placeholder="Enter your email address">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
             </form>
           </div>
-          <div class="social_icon">
-            <ul>
-              <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color:white;padding-right:20px;"></i></a>
-              <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color:white;padding-right:20px;"></i></a>
-              <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp" style="color:white;padding-right:20px;"></i></a>
-              <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color:white;padding-right:20px;"></i></a>
-              <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color:white;padding-right:20px;"></i></a>
-            </ul>
-          </div>
         </div>
       </div>
-      <div class="footer-btm py-4">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <div class="copyright text-center" style="color:white;">
-              &copy; Designed by Vanessa Suzan Nalugya 2026
-            </div>
-          </div>
-        </div>
+      <div class="footer-bottom">
+        &copy; 2026 Exodus Community Awakening Organisation Uganda. Designed by Vanessa Suzan Nalugya.
       </div>
     </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </footer>
 
   <script>
-    /* ═══════════════════════════════════════════════════════════════
-       BLOG DATA
-       ─────────────────────────────────────────────────────────────
-       HOW TO ADD A POST:
-       1. Copy one { ... } block below and paste it at the TOP of the list
-       2. Fill in: title, description (use \n for line breaks), date, tags,
-                   type ("photo" or "video"), image (URL or ""), link,
-                   featured (true/false), duration, body (full story text)
-       3. For YouTube videos: paste the full YouTube URL in "link"
-          — thumbnails are pulled automatically, no image needed
-       4. Save and upload blog.html to your server — done!
+    /* ── NAVBAR ── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parent = this.closest('.nav-dropdown');
+        const isOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+        if (!isOpen) parent.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown') && !e.target.closest('.detail-panel')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
 
-       TAGS: Events · News · Training · Community · Video
-    ═══════════════════════════════════════════════════════════════ */
+    /* ── BLOG DATA — all original posts preserved ── */
     const posts = [
       {
         id: 1,
         title: "The day we met Alex",
         description: `Help us support Alex's life in order to break his cycle of pain, poverty, and hunger. We want to buy him a wheelchair, food, clothes, and medication support through our website donations link.\n\nThanks for your support. "Whoever is kind to the poor lends to the Lord, and He will reward them for what they have done." – Proverbs 19:17`,
         body: `The day we met Alex changed everything for our team at Exodus Community Awakening Organisation.\n\nAlex was found living in extreme poverty — without a wheelchair, without proper nutrition, and without access to medication. His daily reality was one of pain and isolation.\n\nWe believe every human life has dignity and worth. That belief is what drives us every day to go into the community and find people like Alex who have been forgotten.\n\n"Whoever is kind to the poor lends to the Lord, and He will reward them for what they have done." – Proverbs 19:17\n\nWith your support, we want to:\n• Buy Alex a wheelchair so he can move freely\n• Provide consistent food and nutritional support\n• Cover his medication costs\n• Surround him with a community that cares\n\nEvery shilling donated goes directly to people like Alex. Will you help us today?`,
-        date: "March 16, 2025",
-        tags: ["Events", "Video"],
-        type: "video",
-        image: "",
-        link: "https://youtu.be/rJxnbwxZVTU?si=nUVMWgtJPVsQWBHr",
-        featured: true,
-        duration: "1:37 min watch"
+        date: "March 16, 2025", tags: ["Events", "Video"], type: "video", image: "",
+        link: "https://youtu.be/rJxnbwxZVTU?si=nUVMWgtJPVsQWBHr", featured: true, duration: "1:37 min watch"
       },
       {
         id: 2,
         title: "Community Outreach",
         description: "Through the community outreach by ECAOUg, we had the opportunity to visit Alex and offer support during a challenging time. The visit was filled with compassion, encouragement, and a strong sense of community as we shared clothes, diapers, food, medicine, and other daily necessities to help meet basic needs.",
-        body: `What made the day special was not only the items we delivered, but the connection and care that were shared. Seeing the appreciation and relief on mom Alex’s face reminded us that even small acts of kindness can make a meaningful difference in someone’s life.\n\nThe day was filled with practical sessions on:\n• Identifying vulnerable individuals in your community\n• How to connect people with the right resources\n• Building sustainable support networks\n• Documenting stories for advocacy\n\nThe outreach reflected the mission of ECAOUg standing with communities, supporting those in need, and spreading hope through action. Moments like these remind us that together, we can bring comfort, restore dignity, and strengthen the spirit of unity within our communities.\n\nEvery visit matters. Every act of giving matters. And through compassion and teamwork, ECAOUg continues to make a positive impact, one life at a time.`,
-        date: "March 22, 2025",
-        tags: ["Events", "Training"],
-        type: "photo",
-        image: "images/community clothes.jpeg",
-        link: "#",
-        featured: false,
-        duration: "3 min read"
+        body: `What made the day special was not only the items we delivered, but the connection and care that were shared. Seeing the appreciation and relief on mom Alex's face reminded us that even small acts of kindness can make a meaningful difference in someone's life.\n\nThe day was filled with practical sessions on:\n• Identifying vulnerable individuals in your community\n• How to connect people with the right resources\n• Building sustainable support networks\n• Documenting stories for advocacy\n\nThe outreach reflected the mission of ECAOUg — standing with communities, supporting those in need, and spreading hope through action. Every visit matters. Every act of giving matters.`,
+        date: "March 22, 2025", tags: ["Events", "Training"], type: "photo",
+        image: "images/community clothes.jpeg", link: "#", featured: false, duration: "3 min read"
       },
       {
         id: 3,
         title: "Hair Trimming Day – Promoting Hygiene at Our Orphanage ✂️",
         description: `Good hygiene saves lives and builds dignity. At ECAOUg, we regularly trim the children's hair to prevent lice, boost confidence, and teach children to care for the bodies God gave them.`,
-        body: `Good hygiene saves lives and builds dignity.\n\nAt Exodus Community Awakening Organization (ECAOUg), we regularly trim the children's hair as part of our holistic care programme. This simple act carries deep meaning.\n\nWhy hair trimming matters:\n✅ Prevents lice and scalp infections\n✅ Promotes cleanliness and good health\n✅ Boosts confidence and self-esteem\n✅ Teaches children to care for the bodies God gave them\n\nEvery child at our orphanage deserves to feel clean, cared for, and loved. These small acts of service add up to a childhood filled with dignity.\n\nWatch as we lovingly care for each child, one haircut at a time. This is what hope looks like.\n\nIf you would like to support our hygiene programme or sponsor a child, please visit our donations page.`,
-        date: "April 26, 2026",
-        tags: ["News", "Community"],
-        type: "video",
-        image: "",
-        link: "https://youtube.com/shorts/uRmIZACOu6g?si=pc0Mowi95Bj0pjYh",
-        featured: false,
-        duration: "1 min watch"
+        body: `Good hygiene saves lives and builds dignity.\n\nAt Exodus Community Awakening Organization (ECAOUg), we regularly trim the children's hair as part of our holistic care programme. This simple act carries deep meaning.\n\nWhy hair trimming matters:\n✅ Prevents lice and scalp infections\n✅ Promotes cleanliness and good health\n✅ Boosts confidence and self-esteem\n✅ Teaches children to care for the bodies God gave them\n\nEvery child at our orphanage deserves to feel clean, cared for, and loved. These small acts of service add up to a childhood filled with dignity.\n\nIf you would like to support our hygiene programme or sponsor a child, please visit our donations page.`,
+        date: "April 26, 2026", tags: ["News", "Community"], type: "video", image: "",
+        link: "https://youtube.com/shorts/uRmIZACOu6g?si=pc0Mowi95Bj0pjYh", featured: false, duration: "1 min watch"
       },
       {
         id: 4,
         title: "Meet the 2025 ECAOUG Board Members",
         description: "Introducing the newly elected board who will guide our community this year. Learn about their backgrounds, goals, and vision for ECAOUG.",
-        body: `We are proud to introduce the newly elected ECAOUG Board of Directors for 2025.\n\nThese men and women have dedicated themselves to serving the most vulnerable in our communities. They bring a wealth of experience in community development, healthcare, education, and advocacy.\n\nThe board's priorities for 2025 include:\n• Expanding our orphanage capacity\n• Launching a new skills training programme for youth\n• Strengthening partnerships with international donors\n• Improving transparency and reporting\n\nWe thank the outgoing board for their years of faithful service and welcome the new leadership with excitement for what lies ahead.\n\nFull profiles of each board member will be published on our website shortly.`,
-        date: "January 5, 2025",
-        tags: ["News", "Community"],
-        type: "photo",
-        image: "images/food.jpeg",
-        link: "#",
-        featured: false,
-        duration: "2 min read"
+        body: `We are proud to introduce the newly elected ECAOUG Board of Directors for 2025.\n\nThese men and women have dedicated themselves to serving the most vulnerable in our communities. They bring a wealth of experience in community development, healthcare, education, and advocacy.\n\nThe board's priorities for 2025 include:\n• Expanding our orphanage capacity\n• Launching a new skills training programme for youth\n• Strengthening partnerships with international donors\n• Improving transparency and reporting\n\nWe thank the outgoing board for their years of faithful service and welcome the new leadership with excitement for what lies ahead.`,
+        date: "January 5, 2025", tags: ["News", "Community"], type: "photo",
+        image: "images/food.jpeg", link: "#", featured: false, duration: "2 min read"
       },
       {
         id: 5,
         title: "Recap: Community Day Kampala",
         description: "Over 200 people gathered in Kampala for a full day of activities, community programs, and inspiring stories of change from across the region.",
-        body: `What a day it was!\n\nOver 200 community members, volunteers, and partner organisations came together in Kampala for our annual Community Day — a celebration of impact, resilience, and hope.\n\nHighlights from the day:\n🎤 Testimonies from families whose lives have been transformed\n🍱 A shared community meal for over 150 children\n🎶 Performances from our youth music group\n📸 A photo exhibition documenting our work since 2019\n\nThe energy in the room was electric. Stories were shared, tears were shed, and commitments were made to keep serving those who need us most.\n\nWe want to thank every volunteer, donor, and community partner who made this day possible. You are the reason we keep going.\n\nSave the date — our next Community Day will be announced soon!`,
-        date: "December 12, 2024",
-        tags: ["Events"],
-        type: "photo",
-        image: "",
-        link: "#",
-        featured: false,
-        duration: "4 min read"
+        body: `What a day it was!\n\nOver 200 community members, volunteers, and partner organisations came together in Kampala for our annual Community Day — a celebration of impact, resilience, and hope.\n\nHighlights from the day:\n🎤 Testimonies from families whose lives have been transformed\n🍱 A shared community meal for over 150 children\n🎶 Performances from our youth music group\n📸 A photo exhibition documenting our work since 2019\n\nWe want to thank every volunteer, donor, and community partner who made this day possible. You are the reason we keep going.\n\nSave the date — our next Community Day will be announced soon!`,
+        date: "December 12, 2024", tags: ["Events"], type: "photo",
+        image: "", link: "#", featured: false, duration: "4 min read"
       },
       {
         id: 6,
         title: "Volunteer Training Program – Free Webinar Recording",
         description: "Missed our free volunteer training webinar? Watch the full recording covering onboarding, community guidelines, and how to make the most impact.",
-        body: `Couldn't make it to our live volunteer training webinar? No problem — we've got you covered.\n\nThe full recording is now available. In this session we cover:\n\n📌 How to register and onboard as an ECAOUG volunteer\n📌 Our community guidelines and code of conduct\n📌 Practical tips for working with vulnerable populations\n📌 How to document and report your activities\n📌 Q&A with our programme coordinators\n\nWhether you are a first-time volunteer or an experienced community worker, there is something valuable in this session for you.\n\nTo join our volunteer network, visit the Get Involved section of our website or reach us directly at info.ecafug@yahoo.com.`,
-        date: "November 28, 2024",
-        tags: ["Training", "Video"],
-        type: "video",
-        image: "",
-        link: "#",
-        featured: false,
-        duration: "45 min watch"
+        body: `Couldn't make it to our live volunteer training webinar? No problem — we've got you covered.\n\nThe full recording is now available. In this session we cover:\n\n📌 How to register and onboard as an ECAOUG volunteer\n📌 Our community guidelines and code of conduct\n📌 Practical tips for working with vulnerable populations\n📌 How to document and report your activities\n📌 Q&A with our programme coordinators\n\nWhether you are a first-time volunteer or an experienced community worker, there is something valuable in this session for you.\n\nTo join our volunteer network, visit the Get Involved section or reach us at info.ecafug@yahoo.com.`,
+        date: "November 28, 2024", tags: ["Training", "Video"], type: "video",
+        image: "", link: "#", featured: false, duration: "45 min watch"
       }
     ];
 
-    /* ══════════════════════════════════════════
-       YOUTUBE HELPERS
-    ══════════════════════════════════════════ */
+    /* ── HELPERS ── */
     function getYouTubeId(url) {
       if (!url) return null;
-      // Handles: youtu.be/ID, youtube.com/watch?v=ID, youtube.com/shorts/ID
-      const patterns = [
-        /youtu\.be\/([^?&\s]+)/,
-        /[?&]v=([^&\s]+)/,
-        /\/shorts\/([^?&\s]+)/,
-        /\/embed\/([^?&\s]+)/
-      ];
-      for (const p of patterns) {
-        const m = url.match(p);
-        if (m) return m[1];
-      }
+      const patterns = [/youtu\.be\/([^?&\s]+)/, /[?&]v=([^&\s]+)/, /\/shorts\/([^?&\s]+)/, /\/embed\/([^?&\s]+)/];
+      for (const p of patterns) { const m = url.match(p); if (m) return m[1]; }
       return null;
     }
+    const ytThumbUrl = id => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+    const ytEmbedUrl = id => `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 
-    function ytThumbUrl(videoId) {
-      // hqdefault is available for all videos; maxresdefault only for HD videos
-      return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-    }
-
-    function ytEmbedUrl(videoId, isShort) {
-      return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-    }
-
-    /* ══════════════════════════════════════════
-       TAG COLOURS
-    ══════════════════════════════════════════ */
     const tagColor = { Events:"tag-green", Training:"tag-green", News:"tag-orange", Community:"tag-lime", Video:"tag-gray" };
     const getTagClass = t => tagColor[t] || "tag-gray";
     const formatTags  = tags => tags.map(t => `<span class="tag ${getTagClass(t)}">${t}</span>`).join('');
-
-    /* ══════════════════════════════════════════
-       MEDIA HTML — CARDS
-    ══════════════════════════════════════════ */
-    function cardMedia(post) {
-      const ytId = getYouTubeId(post.link);
-
-      // Photo post with custom image
-      if (post.type === 'photo' && post.image) {
-        return `<img src="${post.image}" alt="${post.title}" loading="lazy" />`;
-      }
-
-      // Video with YouTube thumbnail
-      if (post.type === 'video' && ytId) {
-        return `
-          <div class="card-yt-thumb">
-            <img src="${ytThumbUrl(ytId)}" alt="${post.title}" loading="lazy" />
-            <div class="yt-play-overlay">
-              <div class="card-play"><div class="card-play-arrow"></div></div>
-            </div>
-          </div>
-          <span class="card-badge"><i class="fab fa-youtube"></i> VIDEO</span>`;
-      }
-
-      // Video without YouTube link — green placeholder
-      if (post.type === 'video') {
-        return `
-          <div class="card-media-placeholder" style="background:linear-gradient(135deg,#1a5c2a,#2d7a3e)">
-            <div class="card-play"><div class="card-play-arrow"></div></div>
-          </div>
-          <span class="card-badge">▶ VIDEO</span>`;
-      }
-
-      // Photo placeholder
-      const g = [
-        'linear-gradient(135deg,#b8dfc6,#d6ede0)',
-        'linear-gradient(135deg,#d5e8d4,#e6f4e5)',
-        'linear-gradient(135deg,#c8e8d2,#ddf5e7)',
-        'linear-gradient(135deg,#d0ead8,#e8f5ed)',
-        'linear-gradient(135deg,#fde8d8,#fef5e7)',
-        'linear-gradient(135deg,#e8f0d8,#f2f8e8)'
-      ];
-      return `<div class="card-media-placeholder" style="background:${g[post.id % g.length]}"></div>`;
-    }
-
-    /* ══════════════════════════════════════════
-       MEDIA HTML — FEATURED CARD
-    ══════════════════════════════════════════ */
-    function featuredMedia(post) {
-      const ytId = getYouTubeId(post.link);
-
-      if (post.type === 'photo' && post.image) {
-        return `<img src="${post.image}" alt="${post.title}" loading="lazy" />`;
-      }
-
-      if (post.type === 'video' && ytId) {
-        return `
-          <div class="featured-yt-thumb">
-            <img src="${ytThumbUrl(ytId)}" alt="${post.title}" loading="lazy" />
-            <div class="yt-play-overlay">
-              <div class="play-btn"><div class="play-arrow"></div></div>
-            </div>
-          </div>
-          <div class="media-badge"><i class="fab fa-youtube"></i> VIDEO</div>`;
-      }
-
-      if (post.type === 'video') {
-        return `
-          <div class="featured-media-placeholder">
-            <div class="play-btn"><div class="play-arrow"></div></div>
-          </div>
-          <div class="media-badge">▶ VIDEO</div>`;
-      }
-
-      return `<div class="featured-media-placeholder" style="background:linear-gradient(135deg,#b8dfc6,#d6ede0)"></div>`;
-    }
-
     const arrow = `<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
 
-    /* ══════════════════════════════════════════
-       OPEN / CLOSE DETAIL PANEL
-    ══════════════════════════════════════════ */
+    const bgs = [
+      'linear-gradient(135deg,#b8dfc6,#d6ede0)',
+      'linear-gradient(135deg,#d5e8d4,#e6f4e5)',
+      'linear-gradient(135deg,#c8e8d2,#ddf5e7)',
+      'linear-gradient(135deg,#d0ead8,#e8f5ed)',
+    ];
+
+    /* ── CARD MEDIA ── */
+    function cardMedia(post) {
+      const ytId = getYouTubeId(post.link);
+      if (post.type === 'photo' && post.image) return `<img src="${post.image}" alt="${post.title}" loading="lazy">`;
+      if (post.type === 'video' && ytId) return `
+        <div class="card-yt-thumb">
+          <img src="${ytThumbUrl(ytId)}" alt="${post.title}" loading="lazy">
+          <div class="yt-play-overlay"><div class="card-play"><div class="card-play-arrow"></div></div></div>
+        </div>
+        <span class="card-badge"><i class="fab fa-youtube"></i> VIDEO</span>`;
+      if (post.type === 'video') return `
+        <div class="card-media-placeholder" style="background:linear-gradient(135deg,var(--green-deeper),var(--green))">
+          <div class="card-play"><div class="card-play-arrow"></div></div>
+        </div><span class="card-badge">▶ VIDEO</span>`;
+      return `<div class="card-media-placeholder" style="background:${bgs[post.id % bgs.length]}"></div>`;
+    }
+
+    /* ── FEATURED MEDIA ── */
+    function featuredMedia(post) {
+      const ytId = getYouTubeId(post.link);
+      if (post.type === 'photo' && post.image) return `<img src="${post.image}" alt="${post.title}" loading="lazy">`;
+      if (post.type === 'video' && ytId) return `
+        <div class="featured-yt-thumb">
+          <img src="${ytThumbUrl(ytId)}" alt="${post.title}" loading="lazy">
+          <div class="yt-play-overlay"><div class="play-btn"><div class="play-arrow"></div></div></div>
+        </div>
+        <div class="media-badge"><i class="fab fa-youtube"></i> VIDEO</div>`;
+      if (post.type === 'video') return `
+        <div class="featured-media-placeholder"><div class="play-btn"><div class="play-arrow"></div></div></div>
+        <div class="media-badge">▶ VIDEO</div>`;
+      return `<div class="featured-media-placeholder" style="background:${bgs[post.id % bgs.length]}"></div>`;
+    }
+
+    /* ── DETAIL PANEL ── */
     function openDetail(postId) {
-      const post  = posts.find(p => p.id === postId);
+      const post = posts.find(p => p.id === postId);
       if (!post) return;
-
-      const ytId  = getYouTubeId(post.link);
-      const panel = document.getElementById('detail-panel');
-      const overlay = document.getElementById('detail-overlay');
-
-      // ── Hero ──
+      const ytId = getYouTubeId(post.link);
       let heroHTML = '';
       if (post.type === 'video' && ytId) {
         heroHTML = `<iframe src="${ytEmbedUrl(ytId)}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
       } else if (post.type === 'photo' && post.image) {
-        heroHTML = `<img src="${post.image}" alt="${post.title}" />`;
-      } else if (post.type === 'video') {
-        // non-YouTube video: just a green placeholder with a link
-        heroHTML = `<div class="detail-hero-placeholder">
-                      <div class="play-btn" style="width:80px;height:100px;"><div class="play-arrow" style="border-left-width:24px;border-top-width:14px;border-bottom-width:14px;"></div></div>
-                    </div>`;
+        heroHTML = `<img src="${post.image}" alt="${post.title}">`;
       } else {
-        const g = ['linear-gradient(135deg,#b8dfc6,#d6ede0)','linear-gradient(135deg,#d5e8d4,#e6f4e5)'];
-        heroHTML = `<div class="detail-hero-placeholder" style="background:${g[post.id%2]}"></div>`;
+        heroHTML = `<div class="detail-hero-placeholder" style="background:${bgs[post.id % bgs.length]}"></div>`;
       }
       document.getElementById('detail-hero').innerHTML =
-        `${heroHTML}<button class="detail-close" onclick="closeDetail()" aria-label="Close">✕</button>`;
-
-      // ── Tags ──
+        `${heroHTML}<button class="detail-close" onclick="closeDetail()">✕</button>`;
       document.getElementById('detail-tags').innerHTML = formatTags(post.tags);
-
-      // ── Title ──
       document.getElementById('detail-title').textContent = post.title;
-
-      // ── Meta ──
       document.getElementById('detail-meta').innerHTML =
         `<span>${post.date}</span><span class="meta-dot"></span><span>${post.duration}</span>`;
-
-      // ── Body text ──
       const bodyText = post.body || post.description;
       document.getElementById('detail-content').innerHTML =
         bodyText.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('');
-
-      // ── Actions ──
       let actionsHTML = '';
-      // Watch on YouTube button (for non-embedded or as fallback)
       if (post.type === 'video' && post.link && post.link !== '#') {
-        actionsHTML += `<a href="${post.link}" target="_blank" rel="noopener" class="yt-btn">
-                          <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>`;
+        actionsHTML += `<a href="${post.link}" target="_blank" rel="noopener" class="yt-btn"><i class="fab fa-youtube"></i> Watch on YouTube</a>`;
       }
-      // Donate CTA on posts that mention support / donations
       if (post.tags.includes('Community') || post.tags.includes('Events')) {
         actionsHTML += `
           <div class="donate-cta">
@@ -822,30 +756,21 @@
           </div>`;
       }
       document.getElementById('detail-actions').innerHTML = actionsHTML;
-
-      // ── Open panel ──
-      overlay.classList.add('open');
-      panel.classList.add('open');
-      panel.scrollTop = 0;
-      document.body.style.overflow = 'hidden'; // prevent background scroll
+      document.getElementById('detail-overlay').classList.add('open');
+      document.getElementById('detail-panel').classList.add('open');
+      document.getElementById('detail-panel').scrollTop = 0;
+      document.body.style.overflow = 'hidden';
     }
 
     function closeDetail() {
       document.getElementById('detail-panel').classList.remove('open');
       document.getElementById('detail-overlay').classList.remove('open');
       document.body.style.overflow = '';
-      // Stop any playing video by clearing the hero iframe
-      setTimeout(() => {
-        document.getElementById('detail-hero').innerHTML = '';
-      }, 400);
+      setTimeout(() => { document.getElementById('detail-hero').innerHTML = ''; }, 400);
     }
-
-    // Close on Escape key
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
-    /* ══════════════════════════════════════════
-       RENDER FEATURED
-    ══════════════════════════════════════════ */
+    /* ── RENDER FEATURED ── */
     function renderFeatured(post) {
       const el = document.getElementById('featured-section');
       if (!post) { el.style.display = 'none'; return; }
@@ -856,7 +781,7 @@
           <div class="featured-body">
             <div class="tag-row">${formatTags(post.tags)}</div>
             <h2>${post.title}</h2>
-            <p class="excerpt">${post.description.replace(/\n/g, ' ')}</p>
+            <p class="excerpt">${post.description.replace(/\n/g,' ')}</p>
             <div class="post-meta">
               <span>${post.date}</span><span class="meta-dot"></span><span>${post.duration}</span>
             </div>
@@ -867,26 +792,21 @@
         </div>`;
     }
 
-    /* ══════════════════════════════════════════
-       RENDER GRID
-    ══════════════════════════════════════════ */
+    /* ── RENDER GRID ── */
     function renderGrid(list) {
       const grid    = document.getElementById('posts-grid');
       const heading = document.getElementById('section-heading');
       const counter = document.getElementById('post-count');
       const empty   = document.getElementById('empty-state');
-
       if (!list.length) {
         grid.innerHTML = '';
         heading.style.display = 'none';
         empty.style.display = 'block';
         return;
       }
-
       empty.style.display = 'none';
       heading.style.display = 'flex';
       counter.textContent = `${list.length} post${list.length !== 1 ? 's' : ''}`;
-
       grid.innerHTML = list.map((p, i) => `
         <div class="post-card" style="animation-delay:${i * 0.07}s" onclick="openDetail(${p.id})">
           <div class="card-media">${cardMedia(p)}</div>
@@ -896,23 +816,18 @@
             <p>${p.description.replace(/\n/g,' ')}</p>
             <div class="card-footer-row">
               <span>${p.date}</span>
-              <span class="card-footer-link">
-                ${p.type === 'video' ? 'Watch' : 'Read more'} ${arrow}
-              </span>
+              <span class="card-footer-link">${p.type === 'video' ? 'Watch' : 'Read more'} ${arrow}</span>
             </div>
           </div>
         </div>`).join('');
-
-      const obs = new IntersectionObserver(entries =>
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }),
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }),
         { threshold: 0.08 }
       );
       grid.querySelectorAll('.post-card').forEach(c => obs.observe(c));
     }
 
-    /* ══════════════════════════════════════════
-       FILTER
-    ══════════════════════════════════════════ */
+    /* ── FILTER ── */
     function filterPosts(category, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -924,12 +839,11 @@
       renderGrid(gp);
     }
 
-    /* ══════════════════════════════════════════
-       INIT
-    ══════════════════════════════════════════ */
+    /* ── INIT ── */
     const fp = posts.find(p => p.featured) || posts[0];
     renderFeatured(fp);
     renderGrid(posts.filter(p => p !== fp));
   </script>
+
 </body>
 </html>

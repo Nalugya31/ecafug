@@ -1,174 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sponsor a Child – ECAOUG</title>
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Site CSS -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsor a Child — Exodus Community Awakening Organisation Uganda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="images/fevicon.png" type="image/gif">
 
   <style>
-    /* ════════════════════════════════════════
-       VARIABLES
-    ════════════════════════════════════════ */
+    /* ── TOKENS ── */
     :root {
-      --green:        #1a5c2a;
+      --green:        #188354;
+      --green-dark:   #0f5c39;
+      --green-deeper: #0a3d25;
+      --green-light:  #2aab72;
+      --green-pale:   #eefbf3;
       --green-mid:    #2d7a3e;
-      --green-light:  #d6ede0;
-      --green-pale:   #eef7f1;
-      --orange:       #e07c2a;
-      --orange-light: #fdeee7;
-      --text:         #1a2e1e;
-      --muted:        #506058;
-      --border:       #d0e4d6;
+      --white:        #ffffff;
+      --off-white:    #f7fdf9;
+      --charcoal:     #1a1a1a;
+      --muted:        #4d6358;
+      --border:       #c8e8d8;
+      --shadow:       0 4px 24px rgba(24,131,84,.10);
+      --shadow-lg:    0 12px 48px rgba(24,131,84,.16);
+      --radius-sm:    8px;
+      --radius-md:    16px;
       --card-r:       14px;
-      --font-head:    'DM Serif Display', Georgia, serif;
-      --font-body:    'DM Sans', sans-serif;
       --ease:         cubic-bezier(.22,.68,0,1.2);
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: #f4f9f5;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { text-decoration: none; color: inherit; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; -webkit-font-smoothing: antialiased; }
     img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
 
-    /* ════════════════════════════════════════
-       TOP CONTACT BAR
-    ════════════════════════════════════════ */
-    .header_top_section { background: var(--green); padding: 8px 0; }
-    .header_top_main {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 15px; flex-wrap: nowrap;
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 8px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .header_top_left { display: flex; align-items: center; gap: 20px; }
-    .header_top_right { display: flex; align-items: center; gap: 14px; }
-    .call_text a, .call_text_2 a {
-      color: rgba(255,255,255,.88); font-size: 13px;
-      display: inline-flex; align-items: center; gap: 6px; transition: color .2s;
-    }
-    .call_text a:hover, .call_text_2 a:hover { color: #fff; }
+    .topbar a { color: var(--white); opacity: .85; transition: opacity .2s; }
+    .topbar a:hover { opacity: 1; }
+    .topbar-left { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
     .btn-donate-top {
-      background: #fff; color: var(--green); border: 1.5px solid rgba(255,255,255,.7);
-      font-size: 13px; font-weight: 600; padding: 5px 16px; border-radius: 50px;
-      cursor: pointer; transition: background .2s, color .2s; white-space: nowrap;
+      background: var(--white); color: var(--green-dark) !important;
+      font-weight: 700; padding: 6px 18px; border-radius: 40px;
+      font-size: 13px; opacity: 1 !important;
+      transition: background .2s, transform .2s;
     }
-    .btn-donate-top:hover { background: var(--green-light); }
+    .btn-donate-top:hover { background: var(--green-pale); transform: scale(1.04); }
 
-    /* ════════════════════════════════════════
-       NAVBAR
-    ════════════════════════════════════════ */
-    .navbar { padding: 6px 0; border-bottom: 1px solid var(--border); background: #fff !important; }
-    .navbar-brand img { height: 150px; width: auto; }
-    .navbar-nav .nav-link {
-      font-family: var(--font-body); font-size: 14px; font-weight: 500;
-      color: var(--text) !important; padding: 8px 14px !important;
-      transition: color .2s; position: relative;
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--white);
+      border-bottom: 2px solid var(--green-pale);
+      padding: 14px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(24,131,84,.08);
     }
-    .navbar-nav .nav-link:hover { color: var(--green) !important; }
-    .navbar-nav .nav-link.page-active { color: var(--green) !important; }
-    .navbar-nav .nav-link.page-active::after {
-      content: ''; position: absolute; bottom: 0; left: 14px; right: 14px;
-      height: 2px; background: var(--green); border-radius: 2px;
+    .navbar-logo img { height: 102px; width: auto; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--charcoal);
+      position: relative; padding-bottom: 3px; transition: color .2s;
     }
-    .dropdown-menu {
-      border: 0.5px solid var(--border); border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: 6px 0;
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px; background: var(--green); transition: width .25s;
     }
-    .dropdown-item { font-size: 13px; padding: 8px 18px; color: var(--text); }
-    .dropdown-item:hover { background: var(--green-pale); color: var(--green); }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--green); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { cursor: pointer; user-select: none; }
+    .nav-dropdown > a::after { content: none !important; }
+    .dropdown-menu-custom {
+      display: none; position: absolute;
+      top: calc(100% + 10px); left: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); min-width: 180px;
+      box-shadow: var(--shadow); overflow: hidden; z-index: 200;
+    }
+    .nav-dropdown.open .dropdown-menu-custom { display: block; }
+    .dropdown-menu-custom li a {
+      display: block; padding: 10px 18px;
+      font-size: 13.5px; color: var(--charcoal); transition: background .15s;
+    }
+    .dropdown-menu-custom li a:hover { background: var(--green-pale); color: var(--green-dark); }
+    .dropdown-menu-custom li a::after { display: none !important; }
+    .hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; }
 
-    /* ════════════════════════════════════════
-       PAGE HERO
-    ════════════════════════════════════════ */
+    /* ── PAGE HERO ── */
     .page-hero {
       background:
-        linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.45) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,.38) 0%, rgba(0,0,0,.50) 100%),
         url('images/sponsor_children.jpeg') center center / cover no-repeat;
-      /*
-        BACKGROUND IMAGE:
-        Replace  images/sponsor-hero-bg.jpg  with your photo path
-        e.g.  images/children-group.jpg
-        The light dark overlay keeps text readable without hiding the photo.
-      */
-      color: #fff;
-      padding: 110px 32px 90px; 
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      min-height: 800px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: #fff; padding: 110px 32px 90px;
+      position: relative; overflow: hidden;
+      text-align: center; min-height: 680px;
+      display: flex; align-items: center; justify-content: center;
     }
-    .page-hero::before { display: none; }
-    .page-hero::after  { display: none; }
     .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
     .hero-label {
-      display: inline-block; font-size: 13px; letter-spacing: 1px;
-      font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: 10px;
-      text-transform: none;
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.75); margin-bottom: 14px;
     }
     .page-hero h1 {
-      font-family: var(--font-head);
-      font-size: clamp(48px, 8vw, 80px);
-      font-weight: 700;
-      line-height: 1.05;
-      margin-bottom: 18px;
-      color: #fff;
-      text-shadow: 0 2px 12px rgba(0,0,0,.4);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 4.5rem);
+      font-weight: 900; line-height: 1.08;
+      color: #fff; margin-bottom: 18px;
+      text-shadow: 0 2px 16px rgba(0,0,0,.4);
     }
-    .page-hero h1 em { font-style: italic; color: #fff; }
+    .page-hero h1 em { font-style: italic; }
     .page-hero .scripture {
-      font-size: 15px;
-      font-style: italic;
-      color: rgba(255,255,255,.85);
-      line-height: 1.6;
-      margin-bottom: 28px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .page-hero p {
-      font-size: 16px; color: rgba(255,255,255,.85); line-height: 1.7;
-      margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto;
+      font-size: 15px; font-style: italic;
+      color: rgba(255,255,255,.82); line-height: 1.65;
+      margin: 0 auto 28px; max-width: 520px;
     }
     .hero-donate-btn {
-      display: inline-block;
-      background: var(--green);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 14px 40px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); color: var(--green-dark);
+      font-size: 15px; font-weight: 700;
+      padding: 14px 40px; border-radius: 40px;
+      border: none; cursor: pointer; margin-bottom: 36px;
       transition: background .2s, transform .15s var(--ease);
-      margin-bottom: 36px;
     }
-    .hero-donate-btn:hover {
-      background: var(--green-mid);
-      color: #fff;
-      transform: translateY(-2px);
-    }
+    .hero-donate-btn:hover { background: var(--green-pale); transform: translateY(-2px); }
     .hero-stats {
       display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
       margin-top: 28px; padding-top: 28px;
@@ -176,115 +152,131 @@
     }
     .hero-stat { text-align: center; }
     .hero-stat .num {
-      font-family: var(--font-head); font-size: 36px; font-weight: 700;
-      color: #fff; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,.3);
+      font-family: 'Playfair Display', serif; font-size: 36px;
+      font-weight: 700; color: #fff; line-height: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,.3);
     }
-    .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,.8); margin-top: 4px; }
+    .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,.78); margin-top: 4px; }
 
-    /* ════════════════════════════════════════
-       FILTER + SEARCH BAR
-    ════════════════════════════════════════ */
+    /* ── ABOUT SECTION ── */
+    .about-sponsor {
+      background: var(--green-pale);
+      padding: 72px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-sponsor-inner { max-width: 1200px; margin: 0 auto; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+    }
+    .about-grid h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--green-dark); font-size: clamp(1.4rem,2.5vw,1.9rem);
+      font-weight: 700; margin-bottom: 12px;
+    }
+    .about-grid p { color: var(--muted); font-size: 15px; line-height: 1.85; margin-bottom: 16px; }
+    .about-grid ul { padding: 0; margin: 0 0 20px; }
+    .about-grid ul li {
+      font-size: 15px; line-height: 1.9; color: var(--charcoal);
+      padding-left: 20px; position: relative; margin-bottom: 2px;
+    }
+    .about-grid ul li::before {
+      content: '→'; color: var(--green);
+      position: absolute; left: 0; font-weight: 700;
+    }
+    .extra-content { display: none; }
+    .extra-content.open { display: block; }
+    .read-toggle {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      border: none; padding: 12px 28px; border-radius: 40px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: background .2s; margin-top: 8px;
+    }
+    .read-toggle:hover { background: var(--green-dark); }
+    .price-pills { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0 8px; }
+    .price-pill {
+      background: var(--white); color: var(--green);
+      border: 2px solid var(--green); border-radius: 40px;
+      padding: 8px 22px; font-size: 15px; font-weight: 700;
+    }
+    blockquote.scripture-quote {
+      border-left: 4px solid var(--green); margin: 16px 0;
+      padding: 10px 0 10px 16px; color: var(--muted);
+      font-size: 14px; line-height: 1.8;
+    }
+    .reg-box {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px 20px;
+      font-size: 14px; line-height: 1.9; color: var(--muted); margin-top: 16px;
+    }
+    .reg-box strong { color: var(--charcoal); }
+
+    /* ── FILTER / SEARCH ── */
     .controls-bar {
-      background: #fff; border-bottom: 1px solid var(--border);
-      padding: 14px 32px; display: flex; align-items: center;
-      gap: 12px; flex-wrap: wrap;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 14px 32px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     }
     .filter-chips { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
     .chip {
-      padding: 6px 16px; border-radius: 50px; font-size: 13px; font-family: var(--font-body);
-      border: 1px solid var(--border); background: #fff; color: var(--muted);
-      cursor: pointer; transition: all .18s;
+      padding: 6px 16px; border-radius: 50px; font-size: 13px;
+      border: 1px solid var(--border); background: var(--white);
+      color: var(--muted); cursor: pointer; transition: all .18s;
     }
     .chip:hover { border-color: var(--green); color: var(--green); }
     .chip.active { background: var(--green); border-color: var(--green); color: #fff; font-weight: 500; }
     .search-box {
       display: flex; align-items: center; gap: 8px;
       border: 1px solid var(--border); border-radius: 50px;
-      padding: 7px 16px; background: #fff; min-width: 200px;
+      padding: 7px 16px; background: var(--white); min-width: 200px;
     }
     .search-box i { color: var(--muted); font-size: 13px; }
     .search-box input {
-      border: none; outline: none; font-family: var(--font-body);
-      font-size: 13px; color: var(--text); width: 100%; background: transparent;
+      border: none; outline: none; font-family: 'Inter', sans-serif;
+      font-size: 13px; color: var(--charcoal); width: 100%; background: transparent;
     }
     .search-box input::placeholder { color: #aab5ae; }
 
-    /* ════════════════════════════════════════
-       MAIN CONTENT
-    ════════════════════════════════════════ */
-    .content { max-width: 1100px; margin: 0 auto; padding: 40px 24px 100px; }
-
-    .results-info {
-      font-size: 13px; color: var(--muted); margin-bottom: 24px;
-    }
-    .results-info strong { color: var(--text); }
-
-    /* ════════════════════════════════════════
-       CHILD CARDS — 3 per row
-    ════════════════════════════════════════ */
-    .children-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+    /* ── CHILDREN GRID ── */
+    .content { max-width: 1200px; margin: 0 auto; padding: 40px 32px 100px; }
+    .results-info { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .results-info strong { color: var(--charcoal); }
+    .children-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
     .child-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--card-r);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateY(16px);
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--card-r); overflow: hidden;
+      display: flex; flex-direction: column;
+      opacity: 0; transform: translateY(16px);
       transition: border-color .2s, box-shadow .25s, transform .25s var(--ease);
     }
     .child-card.visible { animation: fadeUp .45s var(--ease) forwards; }
     .child-card:hover {
-      border-color: #9dc9a8;
-      box-shadow: 0 8px 32px rgba(26,92,42,.1);
-      transform: translateY(-4px);
+      border-color: var(--border); cursor: pointer;
+      box-shadow: 0 8px 32px rgba(24,131,84,.12); transform: translateY(-4px);
     }
-
-    /* Photo area */
-    .child-photo {
-      position: relative;
-      height: 400px;
-      overflow: hidden;
-      background: var(--green-light);
-      flex-shrink: 0;
-    }
-    .child-photo img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform .5s ease;
-    }
-    .child-card:hover .child-photo img { transform: scale(1.06); }
-
-    /* Photo placeholder when no image */
+    .child-photo { position: relative; height: 320px; overflow: hidden; background: var(--green-pale); flex-shrink: 0; }
+    .child-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .child-card:hover .child-photo img { transform: scale(1.05); }
     .child-photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px;
+      width: 100%; height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
     }
     .child-photo-placeholder .avatar-ring {
       width: 72px; height: 72px; border-radius: 50%;
-      background: rgba(26,92,42,.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 28px;
+      background: rgba(24,131,84,.15);
+      display: flex; align-items: center; justify-content: center; font-size: 28px;
     }
     .child-photo-placeholder span { font-size: 13px; color: var(--muted); }
 
-    /* Status badge */
     .status-badge {
       position: absolute; top: 12px; left: 12px;
       font-size: 11px; font-weight: 600; letter-spacing: .4px;
       padding: 4px 12px; border-radius: 50px;
     }
-    .status-needs-sponsor  { background: #fff3cd; color: #856404; }
-    .status-sponsored      { background: #d1e7dd; color: #0a5c36; }
-    .status-urgent         { background: #f8d7da; color: #842029; }
+    .status-needs-sponsor { background: #fff3cd; color: #856404; }
+    .status-sponsored     { background: #d1e7dd; color: #0a5c36; }
+    .status-urgent        { background: #f8d7da; color: #842029; }
 
-    /* Age bubble */
     .age-bubble {
       position: absolute; bottom: 12px; right: 12px;
       width: 40px; height: 40px; border-radius: 50%;
@@ -295,20 +287,10 @@
     }
     .age-bubble small { font-size: 9px; font-weight: 400; opacity: .85; }
 
-    /* Card body */
-    .child-info { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 0; }
-
-    .child-name {
-      font-family: var(--font-head); font-size: 20px; font-weight: 400;
-      color: var(--text); margin-bottom: 4px; line-height: 1.2;
-    }
-    .child-sub {
-      font-size: 12px; color: var(--muted); margin-bottom: 12px;
-      display: flex; align-items: center; gap: 6px;
-    }
+    .child-info { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+    .child-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; line-height: 1.2; }
+    .child-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
     .child-sub i { font-size: 11px; color: var(--green); }
-
-    /* Info pills row */
     .info-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
     .pill {
       display: inline-flex; align-items: center; gap: 5px;
@@ -316,194 +298,166 @@
       background: var(--green-pale); color: var(--green);
     }
     .pill i { font-size: 10px; }
-    .pill.orange { background: var(--orange-light); color: var(--orange); }
-
-    /* Story snippet */
+    .pill.orange { background: #fdeee7; color: #e07c2a; }
     .child-story {
       font-size: 13px; color: var(--muted); line-height: 1.65;
       margin-bottom: 16px; flex: 1;
       display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
     }
-
-    /* Needs list */
-    .needs-list {
-      display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px;
-    }
-    .need-tag {
-      font-size: 11px; padding: 3px 9px; border-radius: 4px;
-      background: #fff3cd; color: #856404; border: 1px solid #fce8a6;
-    }
-
-    /* Sponsor button */
+    .needs-list { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+    .need-tag { font-size: 11px; padding: 3px 9px; border-radius: 4px; background: #fff3cd; color: #856404; border: 1px solid #fce8a6; }
     .sponsor-btn {
-      width: 100%; padding: 12px;
-      background: var(--green); color: #fff;
-      border: none; border-radius: 8px;
-      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      width: 100%; padding: 12px; background: var(--green); color: #fff;
+      border: none; border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
       cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
-      transition: background .2s, transform .15s var(--ease);
-      margin-top: auto;
+      transition: background .2s, transform .15s var(--ease); margin-top: auto;
     }
-    .sponsor-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
-    .sponsor-btn.sponsored {
-      background: #d1e7dd; color: #0a5c36; cursor: default;
-    }
+    .sponsor-btn:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .sponsor-btn.sponsored { background: #d1e7dd; color: #0a5c36; cursor: default; }
     .sponsor-btn.sponsored:hover { transform: none; }
-    .sponsor-btn i { font-size: 15px; }
 
-    /* ════════════════════════════════════════
-       DETAIL MODAL
-    ════════════════════════════════════════ */
+    /* ── MODAL ── */
     .modal-overlay {
       display: none; position: fixed; inset: 0;
-      background: rgba(10,30,15,.6); z-index: 1050;
+      background: rgba(10,30,15,.6); z-index: 2000;
       backdrop-filter: blur(4px); align-items: center; justify-content: center;
     }
     .modal-overlay.open { display: flex; }
-
     .modal-box {
-      background: #fff; border-radius: 18px;
+      background: var(--white); border-radius: 18px;
       width: min(700px, 94vw); max-height: 90vh;
       overflow-y: auto; position: relative;
       animation: popIn .3s var(--ease) forwards;
       display: flex; flex-direction: column;
     }
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(.93) translateY(12px); }
-      to   { opacity: 1; transform: scale(1)  translateY(0); }
-    }
-
-    /*.modal-hero {
-      width: 100%; height: 300px; position: relative;
-      overflow: hidden; border-radius: 18px 18px 0 0; flex-shrink: 0;
-    }*/
-    .modal-hero {
-  width: 100%; height: 620px;}
-
-    /*.modal-hero img { width: 100%; height: 100%; object-fit: cover; }*/
-  .modal-hero img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-
-
+    @keyframes popIn { from { opacity: 0; transform: scale(.93) translateY(12px); } to { opacity: 1; transform: none; } }
+    .modal-hero { width: 100%; height: 420px; overflow: hidden; border-radius: 18px 18px 0 0; flex-shrink: 0; position: relative; }
+    .modal-hero img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
     .modal-hero-placeholder {
       width: 100%; height: 100%;
-      background: linear-gradient(135deg, #1a5c2a, #2d7a3e);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 64px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      display: flex; align-items: center; justify-content: center; font-size: 64px;
     }
     .modal-close {
       position: absolute; top: 14px; right: 14px;
       width: 36px; height: 36px; border-radius: 50%;
       background: rgba(0,0,0,.5); border: none; color: #fff;
       font-size: 17px; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; backdrop-filter: blur(4px); transition: background .2s;
+      cursor: pointer; transition: background .2s; z-index: 10;
     }
     .modal-close:hover { background: rgba(0,0,0,.75); }
-
     .modal-body { padding: 28px 32px 36px; }
-    .modal-body h2 {
-      font-family: var(--font-head); font-size: 28px; font-weight: 400;
-      color: var(--text); margin-bottom: 6px;
-    }
+    .modal-body h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
     .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
     .modal-sub i { color: var(--green); }
-
     .modal-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-
-    .modal-section-label {
-      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--green); font-weight: 600; margin-bottom: 8px;
-    }
-    .modal-story {
-      font-size: 15px; color: var(--muted); line-height: 1.8;
-      margin-bottom: 24px; white-space: pre-line;
-    }
+    .modal-section-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 8px; }
+    .modal-story { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; white-space: pre-line; }
     .modal-needs { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
-
     .modal-sponsor-btn {
-      width: 100%; padding: 15px;
-      background: var(--green); color: #fff; border: none; border-radius: 10px;
-      font-family: var(--font-body); font-size: 15px; font-weight: 600;
+      width: 100%; padding: 15px; background: var(--green); color: #fff;
+      border: none; border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
       cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
       transition: background .2s, transform .15s var(--ease);
     }
-    .modal-sponsor-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
-    .modal-note {
-      text-align: center; font-size: 12px; color: var(--muted); margin-top: 10px;
-    }
+    .modal-sponsor-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .modal-note { text-align: center; font-size: 12px; color: var(--muted); margin-top: 10px; }
 
-    /* ════════════════════════════════════════
-       EMPTY STATE
-    ════════════════════════════════════════ */
-    .empty-state {
-      text-align: center; padding: 80px 24px; color: var(--muted); display: none;
-    }
+    /* ── EMPTY STATE ── */
+    .empty-state { text-align: center; padding: 80px 24px; color: var(--muted); display: none; }
     .empty-state i { font-size: 48px; color: var(--border); margin-bottom: 16px; }
     .empty-state p { font-size: 15px; }
 
-    /* ════════════════════════════════════════
-       FLOATING DONATE BUTTON
-    ════════════════════════════════════════ */
+    /* ── FLOATING DONATE ── */
     .float-donate {
       position: fixed; top: 50%; right: 0;
-      transform: translateY(-50%);
-      z-index: 1040; display: flex; align-items: center; gap: 10px;
-      background: var(--green); color: #fff; text-decoration: none;
-      border-radius: 50px 0 0 50px; padding: 13px 18px 13px 16px;
-      font-size: 14px; font-weight: 600; font-family: var(--font-body);
-      box-shadow: -3px 4px 18px rgba(26,92,42,.38);
-      transition: background .2s, transform .2s, box-shadow .2s;
+      transform: translateY(-50%); z-index: 1900;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--green-dark); color: var(--white);
+      border-radius: 50px 0 0 50px; padding: 14px 18px 14px 16px;
+      font-size: 14px; font-weight: 600;
+      box-shadow: -3px 4px 18px rgba(15,92,57,.38);
+      transition: background .2s, transform .2s;
     }
-    .float-donate:hover {
-      background: var(--green-mid); color: #fff;
-      transform: translateY(-50%) translateX(-4px);
-      box-shadow: -5px 8px 28px rgba(26,92,42,.45);
-    }
+    .float-donate:hover { background: var(--green); transform: translateY(-50%) translateX(-4px); }
     .float-donate .fd-icon {
-      width: 24px; height: 24px; background: rgba(255,255,255,.2);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 13px; flex-shrink: 0;
-    }
-    .float-donate .fd-pulse {
-      position: absolute; inset: 0; border-radius: 50px 0 0 50px;
-      border: 2px solid rgba(26,92,42,.45);
-      animation: fd-pulse 2.2s ease-out infinite; pointer-events: none;
-    }
-    @keyframes fd-pulse {
-      0%   { transform: scale(1);    opacity: .7; }
-      100% { transform: scale(1.12); opacity: 0; }
-    }
-    @media (max-width: 480px) {
-      .float-donate span { display: none; }
-      .float-donate { padding: 14px 12px; }
+      width: 26px; height: 26px; background: rgba(255,255,255,.2);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;
     }
 
-    /* ════════════════════════════════════════
-       ANIMATIONS
-    ════════════════════════════════════════ */
+    /* ── FOOTER ── */
+    .footer { background: var(--green-deeper); color: rgba(255,255,255,.78); padding: 64px 32px 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 320px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-socials a {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.7); font-size: 14px;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .footer-socials a:hover { border-color: var(--green-light); color: var(--white); background: rgba(24,131,84,.3); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,.6); transition: color .2s; display: flex; align-items: center; gap: 6px; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-links a i { font-size: 10px; }
+    .footer-contact-list { display: flex; flex-direction: column; gap: 14px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.65); }
+    .footer-contact-item i { color: var(--green-light); margin-top: 2px; }
+    .footer-newsletter input {
+      width: 100%; padding: 12px 16px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-sm); color: var(--white);
+      font-size: 14px; margin-bottom: 10px; outline: none; font-family: 'Inter', sans-serif;
+    }
+    .footer-newsletter input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-newsletter input:focus { border-color: var(--green-light); }
+    .btn-subscribe { width: 100%; padding: 12px; background: var(--green); color: var(--white); border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; }
+    .btn-subscribe:hover { background: var(--green-light); }
+    .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
+
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════ */
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) { .children-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 900px) {
-      .children-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 580px) {
+    @media (max-width: 640px) {
+      .topbar { justify-content: center; text-align: center; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--white); box-shadow: var(--shadow);
+        padding: 12px 0; z-index: 200;
+      }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; }
+      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
+      .hamburger { display: flex; }
       .children-grid { grid-template-columns: 1fr; }
-      .controls-bar { padding: 12px 16px; }
-      .page-hero { padding: 40px 20px 36px; }
+      .footer-top { grid-template-columns: 1fr; }
       .content { padding: 24px 16px 80px; }
-      .modal-body { padding: 20px 20px 28px; }
+      .about-sponsor { padding: 48px 20px; }
+      .float-donate span { display: none; }
       .hero-stats { gap: 24px; }
-      .header_top_main { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ════════════════════════════════════════
-       CHILD DETAIL MODAL
-  ════════════════════════════════════════ -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
     <div class="modal-box" id="modal-box">
       <div class="modal-hero" id="modal-hero"></div>
@@ -516,368 +470,153 @@
         <div class="modal-section-label">Needs Support With</div>
         <div class="modal-needs" id="modal-needs"></div>
         <button class="modal-sponsor-btn" onclick="window.location.href='donation.html'">
-          <i class="fa fa-heart"></i> Sponsor This Child
+          <i class="fas fa-heart"></i> Sponsor This Child
         </button>
         <p class="modal-note">You will be redirected to our secure donation page.</p>
       </div>
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════
-       TOP CONTACT BAR
-  ════════════════════════════════════════ -->
-  <div class="header_top_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="header_top_main">
-            <div class="header_top_left">
-              <div class="call_text">
-                <a href="tel:+256200991484"><i class="fa fa-phone" aria-hidden="true"></i> +256 200991484</a>
-              </div>
-              <div class="call_text_2">
-                <a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" aria-hidden="true"></i> info.ecafug@yahoo.com</a>
-              </div>
-            </div>
-            <div class="header_top_right">
-              <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color:white;"></i></a>
-              <a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color:white;"></i></a>
-              <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color:white;"></i></a>
-              <a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color:white;"></i></a>
-              <button type="button" onclick="window.location.href='https://www.paypal.me/ecafug256'" class="btn btn-success">Donate Now</button>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:+256200991484"><i class="fa fa-phone-alt" style="margin-right:6px;"></i>+256 200 991 484</a>
+      <a href="mailto:info.ecafug@yahoo.com"><i class="fa fa-envelope" style="margin-right:6px;"></i>info.ecafug@yahoo.com</a>
+    </div>
+    <div class="topbar-right">
+      <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank" style="margin-right:12px;"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ecaoug" target="_blank" style="margin-right:12px;"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank" style="margin-right:12px;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank" style="margin-right:16px;"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.paypal.me/ecafug256" target="_blank" class="btn-donate-top">Donate Now</a>
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════
-       NAVBAR
-  ════════════════════════════════════════ -->
-  <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">
-        <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAOUG Logo" class="img-fluid" />
-      </a>
-      <button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" data-bs-target="#mainNav"
-        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="container">
-        <div class="collapse navbar-collapse text-center" id="mainNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">Causes</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="service.html">Causes</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">Get Involved</a>
-            
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="donation.html">Donation</a></li>
-                <li><a class="dropdown-item" href="volunteer.html">Be a Volunteer</a></li>
-                 <li><a class="dropdown-item" href="Sponsor.html">Sponsor a Child </a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-           
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html"><img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda"></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Causes <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="service.html">All Causes</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="#" onclick="return false;">Get Involved <i class="fas fa-chevron-down" style="font-size:10px; margin-left:4px;"></i></a>
+        <ul class="dropdown-menu-custom">
+          <li><a href="donation.html">Donate</a></li>
+          <li><a href="volunteer.html">Volunteer</a></li>
+          <li><a href="Sponsor.html" class="active">Sponsor a Child</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-  <!-- ════════════════════════════════════════
-       PAGE HERO
-  ════════════════════════════════════════ -->
+  <!-- PAGE HERO -->
   <header class="page-hero">
     <div class="hero-inner">
-      <div class="hero-label">Small Help Can Make Change</div>
+      <div class="hero-label">Small Help Can Make a Change</div>
       <h1>Sponsor a Child,<br><em>Change a Life</em></h1>
       <p class="scripture">"Carry each other's burdens, and in this way, you will fulfill the law of Christ." — Galatians 6:2</p>
-      <a href="donation.html" class="hero-donate-btn">Donate Now</a>
+      <a href="donation.html" class="hero-donate-btn"><i class="fas fa-heart"></i> Donate Now</a>
       <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num" id="stat-total">—</div>
-          <div class="lbl">Children in our care</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num" id="stat-needs">—</div>
-          <div class="lbl">Awaiting a sponsor</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num" id="stat-sponsored">—</div>
-          <div class="lbl">Already sponsored</div>
-        </div>
+        <div class="hero-stat"><div class="num" id="stat-total">—</div><div class="lbl">Children in our care</div></div>
+        <div class="hero-stat"><div class="num" id="stat-needs">—</div><div class="lbl">Awaiting a sponsor</div></div>
+        <div class="hero-stat"><div class="num" id="stat-sponsored">—</div><div class="lbl">Already sponsored</div></div>
       </div>
     </div>
   </header>
 
+  <!-- ABOUT SPONSOR PROGRAM -->
+  <div class="about-sponsor">
+    <div class="about-sponsor-inner">
+      <div class="about-grid">
 
-\<!-- ABOUT / SPONSORSHIP SECTION -->
-<div class="about_section layout_padding" id="about" style="background-color: #eefbf3; padding: 60px 0;">
-  <div class="container">
+        <!-- LEFT -->
+        <div>
+          <h2>Sponsor a Child Program — ECAOUg</h2>
+          <p style="font-weight:600; color:var(--charcoal);">An Opportunity to Invest in Potential. A Chance to Change a Life.</p>
+          <p>Sponsoring a child through Exodus Community Awakening Organization (ECAOUg) is more than helping a child survive — it's investing in a future leader, a world-changer, and a child full of God-given potential.</p>
 
-    <!-- TWO-COLUMN GRID -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
-
-      <!-- ===== LEFT COLUMN ===== -->
-      <div>
-
-        <!-- Intro (always visible) -->
-        <h1 style="color: #188354; font-size: 28px; font-weight: 700; margin: 0 0 12px;">
-          Sponsor a Child Program – ECAOUg
-        </h1>
-
-        <p style="font-size: 16px; font-weight: 600; margin: 0 0 12px; color: #222;">
-          An Opportunity to Invest in Potential. A Chance to Change a Life.
-        </p>
-
-        <p style="font-size: 15px; line-height: 1.8; color: #333; margin: 0 0 24px;">
-          Sponsoring a child through Exodus Community Awakening Organization (ECAOUg)
-          is more than helping a child survive — it's investing in a future leader,
-          a world-changer, and a child full of God-given potential.
-        </p>
-
-        <!-- Read More Button (left column) -->
-        <button
-          onclick="toggleContent()"
-          id="read-more-btn"
-          style="
-            background: #188354;
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
-          "
-          onmouseover="this.style.background='#0f5e3a'"
-          onmouseout="this.style.background='#188354'"
-        >
-          Read More <span id="btn-arrow" style="font-size: 16px;">↓</span>
-        </button>
-
-        <!-- HIDDEN LEFT CONTENT -->
-        <div id="extra-left" style="display: none; margin-top: 28px;">
-
-          <hr style="border: none; border-top: 1px solid #c2e8d4; margin: 0 0 24px;">
-
-          <!-- What ECAOUg Is Doing -->
-          <h2 style="color: #188354; font-size: 20px; font-weight: 700; margin: 0 0 10px;">
-            What ECAOUg Is Doing To Help
-          </h2>
-
-          <p style="font-size: 15px; line-height: 1.8; color: #333; margin: 0 0 10px;">
-            We carefully and prayerfully select each child in this program.
-            These are children who have lost hope of continuing school due to:
-          </p>
-
-          <ul style="padding: 0; margin: 0 0 12px; list-style: none;">
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Loss of parents
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Extreme vulnerability
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Lack of school fees and essential supplies
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Risk of dropping out of school
-            </li>
-          </ul>
-
-          <p style="font-size: 15px; line-height: 1.8; color: #333; margin: 0 0 6px;">
-            Many of these children face difficult circumstances including loss of parents to AIDS,
-            abusive environments, exploitation, neglect, and poverty.
-          </p>
-
-          <p style="font-size: 15px; font-weight: 700; color: #188354; margin: 0 0 24px;">
-            That's where you come in.
-          </p>
-
-          <hr style="border: none; border-top: 1px solid #c2e8d4; margin: 0 0 24px;">
-
-          <!-- What Children Receive -->
-          <h2 style="color: #188354; font-size: 20px; font-weight: 700; margin: 0 0 10px;">
-            What Sponsored Children Receive
-          </h2>
-
-          <p style="font-size: 15px; line-height: 1.8; color: #333; margin: 0 0 10px;">
-            All sponsored children live at the ECAOUg children's home or are part of our
-            outreach program, where they receive:
-          </p>
-
-          <ul style="padding: 0; margin: 0; list-style: none;">
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Three nutritious meals every day
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> A safe, healthy, Christ-centered environment
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> A proper bed and bedding
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Academic support and tutoring
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Leadership and spiritual growth opportunities
-            </li>
-          </ul>
-
-        </div>
-        <!-- END HIDDEN LEFT CONTENT -->
-
-      </div>
-
-      <!-- ===== RIGHT COLUMN ===== -->
-      <div>
-
-        <!-- Sponsorship Details (always visible) -->
-        <h2 style="color: #188354; font-size: 20px; font-weight: 700; margin: 0 0 10px;">
-          Sponsorship Details
-        </h2>
-
-        <p style="font-size: 15px; line-height: 1.8; color: #333; margin: 0 0 14px;">
-          Your sponsorship provides everything a child needs to succeed:
-        </p>
-
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;">
-          <span style="background: #ffffff; color: #188354; border: 1.5px solid #188354; border-radius: 40px; padding: 8px 20px; font-size: 15px; font-weight: 700;">
-            $40 / month
-          </span>
-          <span style="background: #ffffff; color: #188354; border: 1.5px solid #188354; border-radius: 40px; padding: 8px 20px; font-size: 15px; font-weight: 700;">
-            $370 / year
-          </span>
-        </div>
-
-        <p style="font-size: 13px; color: #555; margin: 0 0 8px;">
-          Annual payments are discounted to reduce processing fees associated with monthly giving.
-        </p>
-
-        <!-- HIDDEN RIGHT CONTENT -->
-        <div id="extra-right" style="display: none; margin-top: 16px;">
-
-          <hr style="border: none; border-top: 1px solid #c2e8d4; margin: 0 0 24px;">
-
-          <!-- What Sponsorship Provides -->
-          <h2 style="color: #188354; font-size: 20px; font-weight: 700; margin: 0 0 10px;">
-            Your Sponsorship Provides
-          </h2>
-
-          <ul style="padding: 0; margin: 0 0 24px; list-style: none;">
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Three meals a day
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Safe housing and care in a Christ-centered home
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> School books and supplies
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> Quality education
-            </li>
-            <li style="font-size: 15px; line-height: 1.9; color: #333; padding-left: 20px; position: relative;">
-              <span style="color: #188354; position: absolute; left: 0;">→</span> A nurturing and loving environment
-            </li>
-          </ul>
-
-          <hr style="border: none; border-top: 1px solid #c2e8d4; margin: 0 0 24px;">
-
-          <!-- Impact -->
-          <h2 style="color: #188354; font-size: 20px; font-weight: 700; margin: 0 0 10px;">
-            The Impact of Your Support
-          </h2>
-
-          <p style="font-size: 15px; line-height: 1.8; color: #333; margin: 0 0 10px;">
-            When you sponsor a child through ECAOUg's Sponsor a Child Program,
-            you're not just meeting needs — you're unlocking potential.
-            You're giving a child the opportunity to become everything God created them to be.
-          </p>
-
-          <blockquote style="border-left: 4px solid #188354; margin: 0 0 16px; padding: 10px 0 10px 16px; color: #444; font-size: 14px; line-height: 1.8;">
-            "Religion that God our Father accepts as pure and faultless is this:
-            to look after orphans and widows in their distress."<br>
-            <strong>– James 1:27</strong>
-          </blockquote>
-
-          <p style="font-size: 15px; line-height: 1.9; color: #333; margin: 0 0 24px;">
-            Your investment creates real impact.<br>
-            Your support changes a life.<br>
-            Your sponsorship helps a child find hope, love, and a future.
-          </p>
-
-          <blockquote style="border-left: 4px solid #188354; margin: 0 0 24px; padding: 10px 0 10px 16px; color: #444; font-size: 14px; line-height: 1.8;">
-            "Let the little children come to me."<br>
-            <strong>– Matthew 19:14</strong>
-          </blockquote>
-
-          <!-- Org Info -->
-          <div style="background: #ffffff; border: 1px solid #c2e8d4; border-radius: 10px; padding: 16px 20px; font-size: 14px; line-height: 1.9; color: #555;">
-            <strong style="color: #222;">Exodus Community Awakening Organization (ECAOUg)</strong><br>
-            UG Reg No. 80034820673224<br>
-            2.7km off Bujjuko Mityana Road,<br>
-            Magoma Village, Uganda
+          <div id="about-left-extra" class="extra-content">
+            <h2 style="margin-top:24px;">What ECAOUg Is Doing To Help</h2>
+            <p>We carefully and prayerfully select each child in this program. These are children who have lost hope of continuing school due to:</p>
+            <ul>
+              <li>Loss of parents</li>
+              <li>Extreme vulnerability</li>
+              <li>Lack of school fees and essential supplies</li>
+              <li>Risk of dropping out of school</li>
+            </ul>
+            <p>Many of these children face difficult circumstances including loss of parents to AIDS, abusive environments, exploitation, neglect, and poverty.</p>
+            <p style="font-weight:700; color:var(--green);">That's where you come in.</p>
+            <h2 style="margin-top:24px;">What Sponsored Children Receive</h2>
+            <p>All sponsored children live at the ECAOUg children's home or are part of our outreach program, where they receive:</p>
+            <ul>
+              <li>Three nutritious meals every day</li>
+              <li>A safe, healthy, Christ-centered environment</li>
+              <li>A proper bed and bedding</li>
+              <li>Academic support and tutoring</li>
+              <li>Leadership and spiritual growth opportunities</li>
+            </ul>
           </div>
 
+          <button class="read-toggle" onclick="toggleAbout(this)" id="about-toggle">
+            Read More <i class="fas fa-chevron-down" style="font-size:12px;"></i>
+          </button>
         </div>
-        <!-- END HIDDEN RIGHT CONTENT -->
+
+        <!-- RIGHT -->
+        <div>
+          <h2>Sponsorship Details</h2>
+          <p>Your sponsorship provides everything a child needs to succeed:</p>
+          <div class="price-pills">
+            <span class="price-pill">$40 / month</span>
+            <span class="price-pill">$370 / year</span>
+          </div>
+          <p style="font-size:13px; color:var(--muted);">Annual payments are discounted to reduce processing fees associated with monthly giving.</p>
+
+          <div id="about-right-extra" class="extra-content">
+            <h2 style="margin-top:24px;">Your Sponsorship Provides</h2>
+            <ul>
+              <li>Three meals a day</li>
+              <li>Safe housing and care in a Christ-centered home</li>
+              <li>School books and supplies</li>
+              <li>Quality education</li>
+              <li>A nurturing and loving environment</li>
+            </ul>
+            <h2 style="margin-top:24px;">The Impact of Your Support</h2>
+            <p>When you sponsor a child through ECAOUg's program, you're not just meeting needs — you're unlocking potential. You're giving a child the opportunity to become everything God created them to be.</p>
+            <blockquote class="scripture-quote">
+              "Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress."<br>
+              <strong>— James 1:27</strong>
+            </blockquote>
+            <p>Your investment creates real impact. Your support changes a life. Your sponsorship helps a child find hope, love, and a future.</p>
+            <blockquote class="scripture-quote">
+              "Let the little children come to me." <strong>— Matthew 19:14</strong>
+            </blockquote>
+            <div class="reg-box">
+              <strong>Exodus Community Awakening Organization (ECAOUg)</strong><br>
+              UG Reg No. 80034820673224<br>
+              2.7km off Bujjuko Mityana Road, Magoma Village, Uganda
+            </div>
+          </div>
+        </div>
 
       </div>
-      <!-- END RIGHT COLUMN -->
-
     </div>
-    <!-- END GRID -->
-
   </div>
-</div>
 
-<!-- Responsive: stack to single column on small screens -->
-<style>
-  @media (max-width: 768px) {
-    #about .container > div {
-      grid-template-columns: 1fr !important;
-      gap: 32px !important;
-    }
-  }
-</style>
-
-<script>
-  function toggleContent() {
-    var left  = document.getElementById('extra-left');
-    var right = document.getElementById('extra-right');
-    var btn   = document.getElementById('read-more-btn');
-    var arrow = document.getElementById('btn-arrow');
-    var isHidden = left.style.display === 'none';
-
-    left.style.display  = isHidden ? 'block' : 'none';
-    right.style.display = isHidden ? 'block' : 'none';
-    btn.childNodes[0].textContent = isHidden ? 'Read Less ' : 'Read More ';
-    arrow.textContent = isHidden ? '↑' : '↓';
-  }
-</script>
-
-
-  <!-- ════════════════════════════════════════
-       FILTER + SEARCH
-  ════════════════════════════════════════ -->
+  <!-- FILTER + SEARCH -->
   <div class="controls-bar">
     <div class="filter-chips">
       <button class="chip active" onclick="filterChildren('all', this)">All Children</button>
@@ -886,455 +625,175 @@
       <button class="chip" onclick="filterChildren('sponsored', this)">Sponsored</button>
     </div>
     <div class="search-box">
-      <i class="fa fa-search"></i>
-      <input type="text" placeholder="Search by name…" id="search-input" oninput="handleSearch()" />
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search by name…" id="search-input" oninput="handleSearch()">
     </div>
   </div>
 
-  <!-- ════════════════════════════════════════
-       MAIN CONTENT
-  ════════════════════════════════════════ -->
+  <!-- CHILDREN GRID -->
   <main class="content">
     <p class="results-info" id="results-info"></p>
     <div class="children-grid" id="children-grid"></div>
     <div class="empty-state" id="empty-state">
-      <i class="fa fa-child"></i>
+      <i class="fas fa-child"></i>
       <p>No children found matching your search.</p>
     </div>
   </main>
 
-  <!-- ════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════ -->
-  <div class="footer_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="location_text">
-            <ul>
-              <li>
-                <a href="tel:+256200991484">
-                  <span class="padding_15"><i class="fa fa-mobile" aria-hidden="true"></i></span><br>
-                  Call +256 200991484
-                </a>
-              </li>
-              <li class="active">
-                <a href="mailto:info.ecafug@yahoo.com">
-                  <span class="padding_15"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                  info.ecafug@yahoo.com
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer_section_2">
-        <div class="row">
-          <div class="col-md-4">
-            <h2 class="useful_text">QUICK LINKS</h2>
-            <div class="footer_menu">
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="service.html">Causes</a></li>
-                <li><a href="donation.html">Get Involved</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="sponsor.html">Sponsor a Child</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <h2 class="useful_text">SIGN UP TO OUR NEWSLETTER</h2>
-            <form action="https://formspree.io/f/mnqelgaq" method="POST">
-              <div class="form-group">
-                <textarea class="update_mail" placeholder="Enter Your Email" rows="5" name="email"></textarea>
-                <div class="subscribe_bt">
-                  <button type="submit" class="btn btn-success">Subscribe</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-md-4">
-            <div class="social_icon">
-              <ul>
-                <li><a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f" style="color:white;padding-right:20px;"></i></a></li>
-                <li><a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin" style="color:white;padding-right:20px;"></i></a></li>
-                <li><a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp" style="color:white;padding-right:20px;"></i></a></li>
-                <li><a href="https://www.instagram.com/ecaoug?igsh=bGU5c3c1anpsb3A2&utm_source=qr" target="_blank"><i class="fab fa-instagram" style="color:white;padding-right:20px;"></i></a></li>
-                <li><a href="https://youtube.com/@exoduscommunityawakeningorg?si=4lTpUb7okIYEQivC" target="_blank"><i class="fab fa-youtube" style="color:white;padding-right:20px;"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-btm py-4">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <div class="copyright text-center" style="color:white;">
-              &copy; Designed by Vanessa Suzan Nalugya 2026
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════════════════
-       FLOATING DONATE BUTTON
-  ════════════════════════════════════════ -->
+  <!-- FLOATING DONATE -->
   <a href="donation.html" class="float-donate">
-    <div class="fd-pulse"></div>
-    <div class="fd-icon">♥</div>
+    <div class="fd-icon"><i class="fas fa-heart"></i></div>
     <span>Donate Now</span>
   </a>
 
-  
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda" style="height:48px; filter:brightness(0) invert(1); opacity:.85;">
+          <p>Restoring hope and transforming the lives of orphaned, abandoned, and vulnerable children in Uganda — one family at a time.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/ecaoug" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/exodus-community-awakening-organisation-ug/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com/@exoduscommunityawakeningorg" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/256200991484" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fas fa-chevron-right"></i> Home</a>
+            <a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a>
+            <a href="service.html"><i class="fas fa-chevron-right"></i> Our Causes</a>
+            <a href="donation.html"><i class="fas fa-chevron-right"></i> Donate</a>
+            <a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a>
+            <a href="Sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a>
+            <a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a>
+            <a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+256200991484" style="color:inherit;">+256 200 991 484</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:info.ecafug@yahoo.com" style="color:inherit;">info.ecafug@yahoo.com</a></span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bujjuuko, Uganda</span>
+            </div>
+          </div>
+          <div class="footer-newsletter" style="margin-top:24px;">
+            <h4 style="margin-bottom:12px;">Newsletter</h4>
+            <form action="https://formspree.io/f/mnqelgaq" method="POST">
+              <input type="email" name="email" placeholder="Enter your email address">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Exodus Community Awakening Organisation Uganda. Designed by Vanessa Suzan Nalugya.
+      </div>
+    </div>
+  </footer>
 
   <script>
-    /* ══════════════════════════════════════════════════════════
-       CHILDREN DATA
-       ────────────────────────────────────────────────────────
-       HOW TO ADD A CHILD:
-       1. Copy one { ... } block and paste at the TOP of the list
-       2. Fill in all fields
-       3. image: "images/child-photo.jpg"  ← put the photo in
-               your images folder and paste the path here
-               Leave "" for a placeholder avatar
-       4. status: "needs-sponsor" | "sponsored" | "urgent"
-       5. Save and upload sponsor.html to your server
+    /* ── NAVBAR ── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parent = this.closest('.nav-dropdown');
+        const isOpen = parent.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+        if (!isOpen) parent.classList.add('open');
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
 
-       needs: array of short strings e.g.
-              ["School fees","Food","Medication","Clothing"]
-    ══════════════════════════════════════════════════════════ */
-const children = [
-  {
-    id: 1,
-    name: "Tracy N",
-    age: 4,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Middle Class",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Tracy_Nansanga.jpeg",
-    emoji: "👧",
-    story: `We will never forget the evening Tracy came to our care. She arrived on 29th June 2023, silent and trembling, carrying a story that made our hearts ache.
+    /* ── ABOUT TOGGLE ── */
+    function toggleAbout(btn) {
+      const left  = document.getElementById('about-left-extra');
+      const right = document.getElementById('about-right-extra');
+      const isOpen = left.classList.contains('open');
+      left.classList.toggle('open');
+      right.classList.toggle('open');
+      btn.innerHTML = isOpen
+        ? 'Read More <i class="fas fa-chevron-down" style="font-size:12px;"></i>'
+        : 'Read Less <i class="fas fa-chevron-up" style="font-size:12px;"></i>';
+    }
 
-We learned that her mother had passed away in a domestic violence case, and the weight of that reality hit us like a wave. Tracy is an orphan, but to us — and to God — that label means nothing compared to the truth: this child is chosen.
-
-We have wept over her, prayed, and held her through the darkest nights. And now, by God's grace, we are watching her bloom. She prays with us, smiles more each day, and is beginning to understand that she is not forgotten — she is fiercely loved by a Father who never leaves.
-
-We are not just caregivers; we are witnesses to a miracle unfolding.`,
-    needs: ["Wheelchair", "School fees", "Food", "Medication", "Clothing"]
-  },
-  {
-    id: 2,
-    name: "Jackline N",
-    age: 4,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Middle Class",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Jackline_Namuyomba.jpeg",
-    emoji: "👧",
-    story: `When Jackie was referred to us, we were nervous. She had lost both parents to HIV and was severely malnourished by then — we knew the road ahead would be hard.
-
-But something miraculous happened. Our other children didn't see a stranger. They saw a sibling. They wrapped her in hugs, shared their toys, and whispered, "You're safe now."
-
-We couldn't believe it — because that's the Kingdom, where orphans find brothers and sisters, where the lonely are given a tribe. We didn't just gain a child that day; our whole family grew by one more heart.
-
-We thank God every night for the holy chaos Jackie has brought into our home.`,
-    needs: ["School fees", "Food", "Clothing", "Healthcare"]
-  },
-  {
-    id: 3,
-    name: "Jovan K",
-    age: 6,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Top Class",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Jovan_katana.jpeg",
-    emoji: "👦",
-    story: `We first met Jovan in January 2022. He came to us from the local authority after they determined his family could no longer provide a safe environment for him due to alcoholism.
-
-After learning his story, we knew we could offer him a safe home. Today, Jovan is growing, learning, and healing with us — and he looks forward to becoming a pilot one day.
-
-Support his studies through our sponsor a child program.`,
-    needs: ["School fees", "Food", "School supplies", "Clothing"]
-  },
-  {
-    id: 4,
-    name: "Ann Marie N",
-    age: 5,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Top Class",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Ann_Marie.jpeg",
-    emoji: "👧",
-    story: `Annet was admitted to our program in February 2024. She was identified through the village chairperson.
-
-Following a thorough assessment, it was determined that Annet is an orphan — one parent is living but unable to provide care due to illness, and she had been abandoned.
-
-We are currently providing education, medical, and emotional support through our residents program.`,
-    needs: ["Food", "Clothing", "Healthcare"]
-  },
-  {
-    id: 5,
-    name: "William S",
-    age: 4,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Middle Class",
-    status: "needs-sponsor",
-    image: "/images/Abaana/William.jpeg",
-    emoji: "👦",
-    story: `This resilient 4-year-old lost his biological parents at a young age and was brought to our center by a local community worker.
-
-Today, he is thriving in a stable foster family environment, but he needs a sponsor to help cover his upcoming school tuition and school requirement costs.`,
-    needs: ["School fees", "Food", "Healthcare", "School supplies"]
-  },
-  {
-    id: 6,
-    name: "Valentine N",
-    age: 7,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Primary 1",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Valentine.jpeg",
-    emoji: "👧",
-    story: `Valentine joined our care program after losing both of her parents at a young age. She was living with her vulnerable grandmother, who struggled to provide for the family's daily needs.
-
-Despite these challenges, Valentine is a bright and determined student who dreams of becoming a teacher.
-
-Your support helps provide her with education, healthcare, and the opportunity for a brighter future.`,
-    needs: ["Medication", "School fees", "Food", "Healthcare", "Clothing"]
-  },
-  {
-    id: 7,
-    name: "Israel K",
-    age: 6,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Top Class",
-    status: "needs-sponsor",
-    image: "/images/Abaana/israel2.jpeg",
-    emoji: "👦",
-    story: `Israel came into our care a year ago after his grandmother said she could no longer care for him — he had been abandoned at just one day old. With no extended family able to take him in, our local community center became his safe haven.
-
-Today, Israel lives in our group home environment where he is surrounded by a supportive community.
-
-Your sponsorship will ensure he can start his education, receive regular medical checkups, and have the tools he needs to fulfill his dream of becoming a better person.`,
-    needs: ["Secondary school fees", "School supplies", "Food", "Clothing"]
-  },
-  {
-    id: 8,
-    name: "Kauthara N",
-    age: 6,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Primary 1",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Kauthra.jpeg",
-    emoji: "👧",
-    story: `Dear Kauthara,
-
-You came to us carrying a story we could barely hear without weeping. We learned that your guardian couldn't care for you, and that you are an orphan.
-
-But here's what we want you to know: that label has no power over you. The God who knit you together in the dark knows your name. When you cried, He heard. When you felt invisible, He saw. And when you walked through our door, He was already there, whispering, "This one is mine."
-
-We are not your rescuers — we are your witnesses. We are here to remind you every single day that you were never abandoned. You were always being carried toward love.`,
-    needs: ["School fees", "Food", "Clothing", "Healthcare"]
-  },
-  {
-    id: 9,
-    name: "Stuart W",
-    age: 11,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Primary 5",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Walusimbi.jpeg",
-    emoji: "👦",
-    story: `Stuart came into our care five years ago after our director found him wandering on the street. He shared that he had lost both of his parents in an accident and had no one left.
-
-He currently lives in our community home, where his bright smile and love for art bring joy to everyone around him. He is a talented footballer who also loves gardening, and dreams of one day having a big garden to provide food for the homeless.
-
-Support his journey to become a well-trained agriculturalist.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 10,
-    name: "Sheila N",
-    age: 9,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Primary 2",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Sheila.jpeg",
-    emoji: "👧",
-    story: `Some children come to us through tragedy. Sheila came to us through divine intervention. When we learned that she had lost the care of her family, our team was deeply moved — but our faith rose like the sun.
-
-Sheila is an orphan by the world's standards, but in God's eyes, she is a daughter of the King. We don't just support this child — we hold her, we pray over her, and we thank God every morning for the miracle of her presence in our lives.
-
-She is a caring and friendly girl who loves cooking and looking after the youngest children at the orphanage. Your support will help her achieve more in her journey towards success.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 11,
-    name: "Trevor S",
-    age: 10,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Primary 5",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Ssekatawa.jpeg",
-    emoji: "👦",
-    story: `Trevor came to us in 2020 with a past that could have defined him. He is not a full orphan, but after losing one parent and being abandoned by his father, he was left with no one.
-
-We refuse to let that be his identity. Trevor is a gifted footballer and a caring soul. We see something greater — a future leader, a healer through his story, a storyteller of God's goodness.
-
-We see a child who will one day look back and say, "I should have been broken, but I wasn't — because God placed me in a home that believed in me."
-
-We are not just giving Trevor support today. We are investing in a destiny. You can be part of his story by investing in his education and his talent for soccer ⚽`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 12,
-    name: "Umar K",
-    age: 13,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Senior 1",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Umar.jpeg",
-    emoji: "👦",
-    story: `Umar was placed in our support program after his single mother became too ill to provide full-time care.
-
-Through your support, Umar receives daily nutritious meals, medical checkups, and a safe space to attend school — while his family also receives community assistance.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 13,
-    name: "Christine N",
-    age: 13,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Senior 1",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Nakayaga.jpeg",
-    emoji: "👧",
-    story: `Every child is a seed. But some seeds are planted in rocky soil. When Christine came to us, she had been through a season of drought. Her parents were unable to care for her, and she was out of school by then.
-
-But God is the Gardener, and we are simply the soil. We have watered her with consistency, sunlit her with affection, and pulled out the weeds of fear with prayer.
-
-Slowly — so slowly at first — we saw new growth. A shy smile. A trusting glance. A whispered "thank you."
-
-Today, Christine is blooming. Not perfectly. Not quickly. But beautifully — because God's timing is always right.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 14,
-    name: "Joseph K",
-    age: 9,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Primary 2",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Kisaakye.jpeg",
-    emoji: "👦",
-    story: `Joseph joined our care program after being abandoned at a young age by his father who went missing. He was then left with his vulnerable mother and four siblings, with the family struggling to meet their daily needs.
-
-We decided to welcome Joseph into our family when he was just 5 years old. Despite living among others in our care, he lacks school requirements and tuition support.
-
-Joseph is a bright and determined student who dreams of becoming an engineer. Your support helps provide him with education, healthcare, and the opportunity for a brighter future.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 15,
-    name: "Maria N",
-    age: 2,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Not in school",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Nakamatte.jpeg",
-    emoji: "👧",
-    story: `Maria came to us in March 2025, brought by her mother who was unable to care for her. Her father had passed away from illness, and her mother, though living, faces severe financial difficulties.
-
-Maria is not an orphan, but she needed a safe place to grow. Since arriving, she has joined our programs and is making new friends every day. We are so proud of her resilience.
-
-She will be starting school soon after turning 3, and you can support her journey through this program.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 16,
-    name: "Hilary S",
-    age: 12,
-    gender: "Boy",
-    location: "Orphanage",
-    school: "Primary 6",
-    status: "sponsored",
-    image: "/images/Abaana/Hilary.jpeg",
-    emoji: "👦",
-    story: `Hilary lived with his mother and three older siblings. His mother worked incredibly hard selling vegetables at a local market, but after Hilary's father left, the family's income became too stretched to cover basic necessities like school fees and daily nutritious meals.
-
-Hilary is not an orphan, but his family needs a helping hand to break the cycle of poverty.
-
-By sponsoring Hilary, you take the financial burden off his mother's shoulders — ensuring he stays in school, receives daily meals at our center, and gets a fair shot at a bright future.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  },
-  {
-    id: 17,
-    name: "Juliet N",
-    age: 12,
-    gender: "Girl",
-    location: "Orphanage",
-    school: "Primary 5",
-    status: "needs-sponsor",
-    image: "/images/Abaana/Juliet2.jpeg",
-    emoji: "👧",
-    story: `Juliet is a jolly and caring young girl who comes from a vulnerable family facing significant financial hardship with more than five siblings in the home.
-
-Although she was living with her single mother, limited resources have made it difficult for her to access education and other basic necessities.
-
-Through our program, Juliet receives support that helps her stay in school and work toward her goals.`,
-    needs: ["Food", "Art supplies", "School fees"]
-  }
-];
+    /* ── CHILDREN DATA ── */
+    const children = [
+      { id:1,  name:"Tracy N",     age:4,  gender:"Girl", location:"Orphanage", school:"Middle Class", status:"needs-sponsor", image:"/images/Abaana/Tracy_Nansanga.jpeg",  emoji:"👧", story:`We will never forget the evening Tracy came to our care. She arrived on 29th June 2023, silent and trembling, carrying a story that made our hearts ache.\n\nWe learned that her mother had passed away in a domestic violence case, and the weight of that reality hit us like a wave. Tracy is an orphan, but to us — and to God — that label means nothing compared to the truth: this child is chosen.\n\nWe have wept over her, prayed, and held her through the darkest nights. And now, by God's grace, we are watching her bloom.`, needs:["Wheelchair","School fees","Food","Medication","Clothing"] },
+      { id:2,  name:"Jackline N",  age:4,  gender:"Girl", location:"Orphanage", school:"Middle Class", status:"needs-sponsor", image:"/images/Abaana/Jackline_Namuyomba.jpeg", emoji:"👧", story:`When Jackie was referred to us, we were nervous. She had lost both parents to HIV and was severely malnourished.\n\nBut something miraculous happened. Our other children didn't see a stranger. They saw a sibling. They wrapped her in hugs, shared their toys, and whispered, "You're safe now."\n\nWe couldn't believe it — because that's the Kingdom, where orphans find brothers and sisters, where the lonely are given a tribe.`, needs:["School fees","Food","Clothing","Healthcare"] },
+      { id:3,  name:"Jovan K",     age:6,  gender:"Boy",  location:"Orphanage", school:"Top Class",    status:"needs-sponsor", image:"/images/Abaana/Jovan_katana.jpeg",       emoji:"👦", story:`We first met Jovan in January 2022. He came to us from the local authority after they determined his family could no longer provide a safe environment for him due to alcoholism.\n\nToday, Jovan is growing, learning, and healing with us — and he looks forward to becoming a pilot one day.`, needs:["School fees","Food","School supplies","Clothing"] },
+      { id:4,  name:"Ann Marie N", age:5,  gender:"Girl", location:"Orphanage", school:"Top Class",    status:"needs-sponsor", image:"/images/Abaana/Ann_Marie.jpeg",           emoji:"👧", story:`Annet was admitted to our program in February 2024. She was identified through the village chairperson.\n\nFollowing a thorough assessment, it was determined that Annet is an orphan — one parent is living but unable to provide care due to illness, and she had been abandoned.\n\nWe are currently providing education, medical, and emotional support through our residents program.`, needs:["Food","Clothing","Healthcare"] },
+      { id:5,  name:"William S",   age:4,  gender:"Boy",  location:"Orphanage", school:"Middle Class", status:"needs-sponsor", image:"/images/Abaana/William.jpeg",             emoji:"👦", story:`This resilient 4-year-old lost his biological parents at a young age and was brought to our center by a local community worker.\n\nToday, he is thriving in a stable foster family environment, but he needs a sponsor to help cover his upcoming school tuition and school requirement costs.`, needs:["School fees","Food","Healthcare","School supplies"] },
+      { id:6,  name:"Valentine N", age:7,  gender:"Girl", location:"Orphanage", school:"Primary 1",    status:"needs-sponsor", image:"/images/Abaana/Valentine.jpeg",           emoji:"👧", story:`Valentine joined our care program after losing both of her parents at a young age. She was living with her vulnerable grandmother, who struggled to provide for the family's daily needs.\n\nDespite these challenges, Valentine is a bright and determined student who dreams of becoming a teacher.`, needs:["Medication","School fees","Food","Healthcare","Clothing"] },
+      { id:7,  name:"Israel K",    age:6,  gender:"Boy",  location:"Orphanage", school:"Top Class",    status:"needs-sponsor", image:"/images/Abaana/israel2.jpeg",             emoji:"👦", story:`Israel came into our care a year ago after his grandmother said she could no longer care for him — he had been abandoned at just one day old.\n\nToday, Israel lives in our group home environment where he is surrounded by a supportive community.\n\nYour sponsorship will ensure he can start his education, receive regular medical checkups, and have the tools he needs to fulfill his dream.`, needs:["Secondary school fees","School supplies","Food","Clothing"] },
+      { id:8,  name:"Kauthara N",  age:6,  gender:"Girl", location:"Orphanage", school:"Primary 1",    status:"needs-sponsor", image:"/images/Abaana/Kauthra.jpeg",            emoji:"👧", story:`Dear Kauthara, you came to us carrying a story we could barely hear without weeping.\n\nBut here's what we want you to know: the God who knit you together in the dark knows your name. When you cried, He heard. When you felt invisible, He saw. And when you walked through our door, He was already there.\n\nWe are not your rescuers — we are your witnesses.`, needs:["School fees","Food","Clothing","Healthcare"] },
+      { id:9,  name:"Stuart W",    age:11, gender:"Boy",  location:"Orphanage", school:"Primary 5",    status:"needs-sponsor", image:"/images/Abaana/Walusimbi.jpeg",           emoji:"👦", story:`Stuart came into our care five years ago after our director found him wandering on the street. He had lost both of his parents in an accident and had no one left.\n\nHe is a talented footballer who also loves gardening, and dreams of one day having a big garden to provide food for the homeless.`, needs:["Food","Art supplies","School fees"] },
+      { id:10, name:"Sheila N",    age:9,  gender:"Girl", location:"Orphanage", school:"Primary 2",    status:"needs-sponsor", image:"/images/Abaana/Sheila.jpeg",              emoji:"👧", story:`Some children come to us through tragedy. Sheila came to us through divine intervention.\n\nSheila is a caring and friendly girl who loves cooking and looking after the youngest children at the orphanage. Your support will help her achieve more in her journey towards success.`, needs:["Food","Art supplies","School fees"] },
+      { id:11, name:"Trevor S",    age:10, gender:"Boy",  location:"Orphanage", school:"Primary 5",    status:"needs-sponsor", image:"/images/Abaana/Ssekatawa.jpeg",           emoji:"👦", story:`Trevor came to us in 2020 with a past that could have defined him. He is not a full orphan, but after losing one parent and being abandoned by his father, he was left with no one.\n\nTrevor is a gifted footballer and a caring soul. We see a child who will one day look back and say, "I should have been broken, but I wasn't — because God placed me in a home that believed in me."`, needs:["Food","Art supplies","School fees"] },
+      { id:12, name:"Umar K",      age:13, gender:"Boy",  location:"Orphanage", school:"Senior 1",     status:"needs-sponsor", image:"/images/Abaana/Umar.jpeg",                emoji:"👦", story:`Umar was placed in our support program after his single mother became too ill to provide full-time care.\n\nThrough your support, Umar receives daily nutritious meals, medical checkups, and a safe space to attend school — while his family also receives community assistance.`, needs:["Food","Art supplies","School fees"] },
+      { id:13, name:"Christine N", age:13, gender:"Girl", location:"Orphanage", school:"Senior 1",     status:"needs-sponsor", image:"/images/Abaana/Nakayaga.jpeg",            emoji:"👧", story:`Every child is a seed. But some seeds are planted in rocky soil. When Christine came to us, she had been through a season of drought.\n\nSlowly, we saw new growth. A shy smile. A trusting glance. A whispered "thank you."\n\nToday, Christine is blooming. Not perfectly. Not quickly. But beautifully — because God's timing is always right.`, needs:["Food","Art supplies","School fees"] },
+      { id:14, name:"Joseph K",    age:9,  gender:"Boy",  location:"Orphanage", school:"Primary 2",    status:"needs-sponsor", image:"/images/Abaana/Kisaakye.jpeg",            emoji:"👦", story:`Joseph joined our care program after being abandoned at a young age. He was then left with his vulnerable mother and four siblings.\n\nJoseph is a bright and determined student who dreams of becoming an engineer. Your support helps provide him with education, healthcare, and the opportunity for a brighter future.`, needs:["Food","Art supplies","School fees"] },
+      { id:15, name:"Maria N",     age:2,  gender:"Girl", location:"Orphanage", school:"Not in school", status:"needs-sponsor", image:"/images/Abaana/Nakamatte.jpeg",          emoji:"👧", story:`Maria came to us in March 2025, brought by her mother who was unable to care for her. Her father had passed away from illness.\n\nSince arriving, she has joined our programs and is making new friends every day. She will be starting school soon after turning 3, and you can support her journey through this program.`, needs:["Food","Art supplies","School fees"] },
+      { id:16, name:"Hilary S",    age:12, gender:"Boy",  location:"Orphanage", school:"Primary 6",    status:"sponsored",     image:"/images/Abaana/Hilary.jpeg",              emoji:"👦", story:`Hilary lived with his mother and three older siblings. His mother worked incredibly hard selling vegetables at a local market, but after Hilary's father left, the family's income became too stretched to cover basic necessities.\n\nBy sponsoring Hilary, you take the financial burden off his mother's shoulders — ensuring he stays in school and gets a fair shot at a bright future.`, needs:["Food","Art supplies","School fees"] },
+      { id:17, name:"Juliet N",    age:12, gender:"Girl", location:"Orphanage", school:"Primary 5",    status:"needs-sponsor", image:"/images/Abaana/Juliet2.jpeg",             emoji:"👧", story:`Juliet is a jolly and caring young girl who comes from a vulnerable family facing significant financial hardship with more than five siblings in the home.\n\nThrough our program, Juliet receives support that helps her stay in school and work toward her goals.`, needs:["Food","Art supplies","School fees"] }
+    ];
 
     /* ── State ── */
     let activeFilter = 'all';
     let searchQuery  = '';
 
-    /* ── Update hero stats ── */
+    /* ── Stats ── */
     function updateStats() {
       document.getElementById('stat-total').textContent     = children.length;
       document.getElementById('stat-needs').textContent     = children.filter(c => c.status !== 'sponsored').length;
       document.getElementById('stat-sponsored').textContent = children.filter(c => c.status === 'sponsored').length;
     }
 
-    /* ── Status helpers ── */
+    /* ── Helpers ── */
     const statusLabel = { 'needs-sponsor':'Needs Sponsor', 'sponsored':'Sponsored', 'urgent':'Urgent' };
     const statusClass = { 'needs-sponsor':'status-needs-sponsor', 'sponsored':'status-sponsored', 'urgent':'status-urgent' };
 
-    /* ── Sponsor button click ── */
-    function handleSponsorClick(status) {
-      if (status !== 'sponsored') {
-        window.location.href = 'donation.html';
-      }
+    function placeholderBg(id) {
+      const bgs = [
+        'linear-gradient(135deg,#b8dfc6,#d6ede0)',
+        'linear-gradient(135deg,#fde8d8,#fef5e7)',
+        'linear-gradient(135deg,#d5e8d4,#e6f4e5)',
+        'linear-gradient(135deg,#dde8fd,#edf3fe)',
+        'linear-gradient(135deg,#f5d8fd,#faeffe)',
+        'linear-gradient(135deg,#fdfdd8,#fefee8)',
+      ];
+      return bgs[id % bgs.length];
     }
 
-    /* ── Render grid ── */
+    function handleSponsorClick(status) {
+      if (status !== 'sponsored') window.location.href = 'donation.html';
+    }
+
+    /* ── Render ── */
     function renderGrid() {
       let list = children;
       if (activeFilter !== 'all') list = list.filter(c => c.status === activeFilter);
-      if (searchQuery)            list = list.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      if (searchQuery) list = list.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
       const grid  = document.getElementById('children-grid');
       const empty = document.getElementById('empty-state');
@@ -1351,45 +810,42 @@ Through our program, Juliet receives support that helps her stay in school and w
       info.innerHTML = `Showing <strong>${list.length}</strong> child${list.length !== 1 ? 'ren' : ''}`;
 
       grid.innerHTML = list.map((c, i) => `
-        <div class="child-card" style="animation-delay:${i * 0.08}s" onclick="openModal(${c.id})">
+        <div class="child-card" style="animation-delay:${i * 0.07}s" onclick="openModal(${c.id})">
           <div class="child-photo">
             ${c.image
-              ? `<img src="${c.image}" alt="${c.name}" loading="lazy" />`
+              ? `<img src="${c.image}" alt="${c.name}" loading="lazy">`
               : `<div class="child-photo-placeholder" style="background:${placeholderBg(c.id)}">
                    <div class="avatar-ring">${c.emoji}</div>
                    <span>Photo coming soon</span>
-                 </div>`
-            }
+                 </div>`}
             <div class="status-badge ${statusClass[c.status]}">${statusLabel[c.status]}</div>
             <div class="age-bubble">${c.age}<small>yrs</small></div>
           </div>
           <div class="child-info">
             <div class="child-name">${c.name}</div>
             <div class="child-sub">
-              <i class="fa fa-map-marker-alt"></i> ${c.location}
+              <i class="fas fa-map-marker-alt"></i> ${c.location}
               &nbsp;·&nbsp;
-              <i class="fa fa-graduation-cap"></i> ${c.school}
+              <i class="fas fa-graduation-cap"></i> ${c.school}
             </div>
             <div class="info-pills">
-              <span class="pill"><i class="fa fa-${c.gender==='Boy'?'mars':'venus'}"></i> ${c.gender}</span>
-              <span class="pill"><i class="fa fa-birthday-cake"></i> Age ${c.age}</span>
-              ${c.status === 'urgent' ? `<span class="pill orange"><i class="fa fa-exclamation-circle"></i> Urgent</span>` : ''}
+              <span class="pill"><i class="fas fa-${c.gender==='Boy'?'mars':'venus'}"></i> ${c.gender}</span>
+              <span class="pill"><i class="fas fa-birthday-cake"></i> Age ${c.age}</span>
+              ${c.status === 'urgent' ? `<span class="pill orange"><i class="fas fa-exclamation-circle"></i> Urgent</span>` : ''}
             </div>
             <p class="child-story">${c.story.replace(/\n/g,' ')}</p>
             <div class="needs-list">
               ${c.needs.slice(0,3).map(n => `<span class="need-tag">${n}</span>`).join('')}
-              ${c.needs.length > 3 ? `<span class="need-tag">+${c.needs.length - 3} more</span>` : ''}
+              ${c.needs.length > 3 ? `<span class="need-tag">+${c.needs.length-3} more</span>` : ''}
             </div>
             <button class="sponsor-btn ${c.status==='sponsored'?'sponsored':''}" onclick="event.stopPropagation(); handleSponsorClick('${c.status}')">
               ${c.status === 'sponsored'
-                ? '<i class="fa fa-check-circle"></i> Already Sponsored'
-                : `<i class="fa fa-heart"></i> Sponsor ${c.name.split(' ')[0]}`
-              }
+                ? '<i class="fas fa-check-circle"></i> Already Sponsored'
+                : `<i class="fas fa-heart"></i> Sponsor ${c.name.split(' ')[0]}`}
             </button>
           </div>
         </div>`).join('');
 
-      /* Stagger fade-in */
       const obs = new IntersectionObserver(
         entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }),
         { threshold: 0.06 }
@@ -1397,59 +853,39 @@ Through our program, Juliet receives support that helps her stay in school and w
       grid.querySelectorAll('.child-card').forEach(c => obs.observe(c));
     }
 
-    /* ── Placeholder backgrounds ── */
-    function placeholderBg(id) {
-      const bgs = [
-        'linear-gradient(135deg,#b8dfc6,#d6ede0)',
-        'linear-gradient(135deg,#fde8d8,#fef5e7)',
-        'linear-gradient(135deg,#d5e8d4,#e6f4e5)',
-        'linear-gradient(135deg,#dde8fd,#edf3fe)',
-        'linear-gradient(135deg,#f5d8fd,#faeffe)',
-        'linear-gradient(135deg,#fdfdd8,#fefee8)',
-      ];
-      return bgs[id % bgs.length];
-    }
-
-    /* ── Filter ── */
+    /* ── Filter / Search ── */
     function filterChildren(filter, btn) {
       activeFilter = filter;
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
       renderGrid();
     }
-
-    /* ── Search ── */
     function handleSearch() {
       searchQuery = document.getElementById('search-input').value;
       renderGrid();
     }
 
-    /* ── Open modal ── */
+    /* ── Modal ── */
     function openModal(childId) {
       const c = children.find(ch => ch.id === childId);
       if (!c) return;
 
-      /* Hero */
       document.getElementById('modal-hero').innerHTML = c.image
-        ? `<img src="${c.image}" alt="${c.name}" />
-           <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>`
-        : `<div class="modal-hero-placeholder" style="background:${placeholderBg(c.id)}">${c.emoji}
-           </div>
-           <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>`;
+        ? `<img src="${c.image}" alt="${c.name}">
+           <button class="modal-close" onclick="closeModal()">✕</button>`
+        : `<div class="modal-hero-placeholder" style="background:${placeholderBg(c.id)}">${c.emoji}</div>
+           <button class="modal-close" onclick="closeModal()">✕</button>`;
 
       document.getElementById('modal-name').textContent = c.name;
       document.getElementById('modal-sub').innerHTML =
-        `<i class="fa fa-map-marker-alt"></i> ${c.location} &nbsp;·&nbsp;
-         <i class="fa fa-graduation-cap"></i> ${c.school} &nbsp;·&nbsp;
+        `<i class="fas fa-map-marker-alt"></i> ${c.location} &nbsp;·&nbsp;
+         <i class="fas fa-graduation-cap"></i> ${c.school} &nbsp;·&nbsp;
          <span class="status-badge ${statusClass[c.status]}" style="position:static;">${statusLabel[c.status]}</span>`;
-
       document.getElementById('modal-pills').innerHTML =
-        `<span class="pill"><i class="fa fa-${c.gender==='Boy'?'mars':'venus'}"></i> ${c.gender}</span>
-         <span class="pill"><i class="fa fa-birthday-cake"></i> Age ${c.age}</span>
-         <span class="pill"><i class="fa fa-map-marker-alt"></i> ${c.location}</span>`;
-
+        `<span class="pill"><i class="fas fa-${c.gender==='Boy'?'mars':'venus'}"></i> ${c.gender}</span>
+         <span class="pill"><i class="fas fa-birthday-cake"></i> Age ${c.age}</span>
+         <span class="pill"><i class="fas fa-map-marker-alt"></i> ${c.location}</span>`;
       document.getElementById('modal-story').textContent = c.story;
-
       document.getElementById('modal-needs').innerHTML =
         c.needs.map(n => `<span class="need-tag" style="font-size:13px;padding:5px 12px;">${n}</span>`).join('');
 
@@ -1461,11 +897,9 @@ Through our program, Juliet receives support that helps her stay in school and w
       document.getElementById('modal-overlay').classList.remove('open');
       document.body.style.overflow = '';
     }
-
     function handleOverlayClick(e) {
       if (e.target === document.getElementById('modal-overlay')) closeModal();
     }
-
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
     /* ── Init ── */
