@@ -386,6 +386,66 @@
     }
     .footer-newsletter input::placeholder { color: rgba(255,255,255,.35); }
     .footer-newsletter input:focus { border-color: var(--green-light); }
+
+    /* ── IMPACT STATS ── */
+    .impact-strip {
+      background: linear-gradient(135deg, var(--green-deeper) 0%, var(--green-dark) 60%, var(--green) 100%);
+      padding: 72px 32px;
+    }
+    .impact-strip-inner { max-width: 1200px; margin: 0 auto; }
+    .impact-strip-header { text-align: center; margin-bottom: 52px; }
+    .impact-strip-header .impact-label-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,.65);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-bottom: 12px;
+    }
+    .impact-strip-header .impact-label-eyebrow::before,
+    .impact-strip-header .impact-label-eyebrow::after {
+      content: ''; display: inline-block; width: 24px; height: 2px;
+      background: rgba(255,255,255,.4);
+    }
+    .impact-strip-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+      font-weight: 700; color: var(--white); margin-top: 8px;
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .impact-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius-md);
+      padding: 44px 24px 36px;
+      text-align: center;
+      transition: background .25s, transform .25s;
+    }
+    .impact-card:hover { background: rgba(255,255,255,.15); transform: translateY(-6px); }
+    .impact-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 24px; color: var(--white);
+    }
+    .impact-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4.2rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1; margin-bottom: 10px;
+    }
+    .impact-desc {
+      font-size: 14px; font-weight: 600;
+      color: rgba(255,255,255,.75);
+      text-transform: uppercase; letter-spacing: 1.2px; line-height: 1.4;
+    }
+    @media (max-width: 640px) {
+      .impact-grid { grid-template-columns: 1fr; gap: 16px; }
+      .impact-strip { padding: 56px 20px; }
+    }
+
     .btn-subscribe { width: 100%; padding: 12px; background: var(--green); color: var(--white); border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; transition: background .2s; }
     .btn-subscribe:hover { background: var(--green-light); }
     .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
@@ -476,6 +536,40 @@
     <span class="eyebrow">What We Do</span>
     <h1>Our Recent Causes</h1>
     <p>Serving the most vulnerable in our community — through food, water, education, shelter, and love.</p>
+  </div>
+
+
+  <!-- IMPACT STATS -->
+  <div class="impact-strip">
+    <div class="impact-strip-inner">
+      <div class="impact-strip-header">
+        <p class="impact-label-eyebrow">Our Reach</p>
+        <h2>The Impact We've Made Together</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="impact-number">
+            <span class="count-up" data-target="3" data-suffix="">0</span>
+          </div>
+          <p class="impact-desc">Communities Impacted</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon"><i class="fas fa-home"></i></div>
+          <div class="impact-number">
+            <span class="count-up" data-target="20" data-suffix="">0</span>
+          </div>
+          <p class="impact-desc">Homes Impacted</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon"><i class="fas fa-child"></i></div>
+          <div class="impact-number">
+            <span class="count-up" data-target="100" data-suffix="+">0</span>
+          </div>
+          <p class="impact-desc">Children Impacted</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ── CAUSES BATCH 1 ── -->
@@ -713,6 +807,34 @@
         btn.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
       }
     }
+
+    // Animated count-up for impact stats
+    function animateCountUp(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const steps = Math.max(target, 1);
+      const interval = Math.floor(duration / steps);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += 1;
+        el.textContent = current + suffix;
+        if (current >= target) {
+          el.textContent = target + suffix;
+          clearInterval(timer);
+        }
+      }, interval);
+    }
+
+    const countObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.count-up').forEach(animateCountUp);
+          countObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.impact-card').forEach(card => countObserver.observe(card));
 
     // Scroll fade-up
     const observer = new IntersectionObserver(entries => {
