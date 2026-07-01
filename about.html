@@ -76,7 +76,7 @@
       justify-content: space-between;
       box-shadow: 0 2px 12px rgba(24,131,84,.08);
     }
-    .navbar-logo img { height: 102px; width: auto; }
+    .navbar-logo img { height: 150px; width: auto; }
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a {
       font-size: 14px;
@@ -318,7 +318,8 @@
       margin: 0 auto 56px;
       border: 3px solid var(--border);
     }
-    .team-photo img { width: 100%; height: 450px; object-fit: cover; }
+    .team-photo img { width: 100%; height: 700px; object-fit: cover; }
+
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -334,7 +335,7 @@
     }
     .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .team-card-img-wrap { position: relative; overflow: hidden; }
-    .team-card-img-wrap img { width: 100%; height: 380px; object-fit: cover; transition: transform .4s; }
+    .team-card-img-wrap img { width: 100%; height: 400px; object-fit: cover; transition: transform .4s; }
     .team-card:hover .team-card-img-wrap img { transform: scale(1.05); }
     .team-card-overlay {
       position: absolute;
@@ -349,7 +350,7 @@
     }
     .team-card:hover .team-card-overlay { opacity: 1; }
     .team-card-overlay a {
-      width: 36px; height: 50px;
+      width: 36px; height: 36px;
       border-radius: 50%;
       background: rgba(255,255,255,.15);
       border: 1px solid rgba(255,255,255,.35);
@@ -402,7 +403,7 @@
     .intl-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .intl-card-avatar {
       width: 100%;
-      height: 300px;
+      height: 400px;
       background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
       display: flex; align-items: center; justify-content: center;
     }
@@ -416,7 +417,29 @@
       color: var(--green-dark);
       margin-bottom: 4px;
     }
-    .intl-role { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+    .intl-role {
+      font-size: 13px; color: var(--muted); margin-bottom: 6px;
+      line-height: 1.65;
+    }
+    .intl-role-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: all .3s;
+    }
+    .intl-role-text.expanded {
+      display: block;
+      -webkit-line-clamp: unset;
+    }
+    .intl-read-more {
+      background: none; border: none; padding: 0;
+      color: var(--green); font-size: 12px; font-weight: 600;
+      cursor: pointer; margin-top: 4px; margin-bottom: 6px;
+      display: inline-flex; align-items: center; gap: 4px;
+      transition: color .2s;
+    }
+    .intl-read-more:hover { color: var(--green-dark); }
     .intl-country { font-size: 12px; color: var(--green); font-weight: 600; margin-bottom: 8px; }
     .intl-country i { margin-right: 4px; }
     .intl-join-note {
@@ -561,7 +584,7 @@
     }
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; }
-      .about-img img { height: 400px; }
+      .about-img img { height: 300px; }
       .footer-top { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
@@ -822,58 +845,59 @@
         <p>We are blessed to have the support of committed partners and friends from around the world who share our vision for Uganda's children and help extend our reach globally.</p>
       </div>
       <div class="intl-grid">
+
+        <!-- Advisor 1 -->
         <div class="intl-card fade-up">
           <div class="intl-card-avatar">
-            <!-- Replace src with your advisor's photo e.g. src="images/advisor1.jpeg" -->
             <img src="images/Abaana/Richard.jpeg" alt="Advisor 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <i class="fas fa-user" style="display:none;"></i>
           </div>
           <div class="intl-card-body">
-            <h4>To Be Announced</h4>
-            <p class="intl-role">International Partner</p>
+            <h4>Richard B</h4>
+            <p class="intl-role">
+              <span class="intl-role-text" id="intl-text-1">"And let us not grow weary of doing good, for in due season we will reap, if we do not give up. So then, as we have opportunity, let us do good to everyone, and especially to those who are the household of faith." — Gal 6:9-10</span>
+              <button class="intl-read-more" onclick="toggleIntl('intl-text-1', this)">Read more <i class="fas fa-chevron-down" style="font-size:10px;"></i></button>
+            </p>
             <p class="intl-country"><i class="fas fa-map-marker-alt"></i> Country</p>
             <span class="team-advisor-tag">Advisor</span>
           </div>
         </div>
+
+        <!-- Advisor 2 -->
         <div class="intl-card fade-up">
           <div class="intl-card-avatar">
-            <!-- Replace src with your advisor's photo e.g. src="images/advisor2.jpeg" -->
-            <img src="" alt="Advisor 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="images/Abaana/penny.jpeg" alt="Advisor 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <i class="fas fa-user" style="display:none;"></i>
           </div>
           <div class="intl-card-body">
-            <h4>To Be Announced</h4>
-            <p class="intl-role">International Partner</p>
+            <h4>Penny R</h4>
+            <p class="intl-role">
+              <span class="intl-role-text" id="intl-text-2">"But seek first his kingdom and his righteousness, and all these things will be given to you as well." — Matthew 6:33</span>
+              <button class="intl-read-more" onclick="toggleIntl('intl-text-2', this)">Read more <i class="fas fa-chevron-down" style="font-size:10px;"></i></button>
+            </p>
             <p class="intl-country"><i class="fas fa-map-marker-alt"></i> Country</p>
             <span class="team-advisor-tag">Advisor</span>
           </div>
         </div>
+
+        <!-- Advisor 3 — long prayer with read more -->
         <div class="intl-card fade-up">
           <div class="intl-card-avatar">
-            <!-- Replace src with your advisor's photo e.g. src="images/advisor3.jpeg" -->
-            <img src="" alt="Advisor 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <img src="images/Abaana/georgious.jpeg" alt="Advisor 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <i class="fas fa-user" style="display:none;"></i>
           </div>
           <div class="intl-card-body">
-            <h4>To Be Announced</h4>
-            <p class="intl-role">International Partner</p>
+            <h4>Goergeuos G</h4>
+            <p class="intl-role">
+              <span class="intl-role-text" id="intl-text-3">Heavenly Father, You are the One who sees every child, especially those who feel forgotten or alone. You promised to be "a Father to the fatherless," and we ask You to draw near to every child who has been abandoned, neglected, or left without the love they deserve. Lord Jesus, You welcomed the little ones and held them close. Hold these children in Your arms today. Protect their hearts from fear, from loneliness, and from the lie that they are unwanted. Let them know they are precious in Your sight, created with purpose, and loved beyond measure. Holy Spirit, bring comfort where there is pain, healing where there are wounds, and hope where there has been despair. Surround each child with people who will care for them with gentleness, wisdom, and compassion. Father, restore what has been broken. Replace every memory of abandonment with the certainty of Your presence. Guide these children into futures filled with joy, stability, and peace. Let them grow in strength, in courage, and in the knowledge that they are never alone — for You are with them always. In Jesus' name, Amen.</span>
+              <button class="intl-read-more" onclick="toggleIntl('intl-text-3', this)">Read more <i class="fas fa-chevron-down" style="font-size:10px;"></i></button>
+            </p>
             <p class="intl-country"><i class="fas fa-map-marker-alt"></i> Country</p>
             <span class="team-advisor-tag">Advisor</span>
           </div>
         </div>
-        <div class="intl-card fade-up">
-          <div class="intl-card-avatar">
-            <!-- Replace src with your advisor's photo e.g. src="images/advisor4.jpeg" -->
-            <img src="" alt="Advisor 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <i class="fas fa-user" style="display:none;"></i>
-          </div>
-          <div class="intl-card-body">
-            <h4>To Be Announced</h4>
-            <p class="intl-role">International Partner</p>
-            <p class="intl-country"><i class="fas fa-map-marker-alt"></i> Country</p>
-            <span class="team-advisor-tag">Advisor</span>
-          </div>
-        </div>
+
+
       </div>
       <div class="intl-join-note">
         <i class="fas fa-info-circle"></i>
@@ -900,7 +924,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda" style="height:48px; filter:brightness(0) invert(1); opacity:.85;">
+          <img src="images/Exodus-Logo-BLACK-2.png" alt="ECAO Uganda" style="height:150px; filter:brightness(0) invert(1); opacity:.85;">
           <p>Restoring hope and transforming the lives of orphaned, abandoned, and vulnerable children in Uganda — one family at a time.</p>
           <div class="footer-socials">
             <a href="https://www.facebook.com/share/vZDymcbrAhjv1woK/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -975,6 +999,16 @@
         document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
       }
     });
+
+    // International team read-more toggle
+    function toggleIntl(id, btn) {
+      const el = document.getElementById(id);
+      const isExpanded = el.classList.contains('expanded');
+      el.classList.toggle('expanded');
+      btn.innerHTML = isExpanded
+        ? 'Read more <i class="fas fa-chevron-down" style="font-size:10px;"></i>'
+        : 'Read less <i class="fas fa-chevron-up" style="font-size:10px;"></i>';
+    }
 
     // Read more toggle
     function toggleBlock(id, btn) {
