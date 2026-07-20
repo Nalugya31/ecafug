@@ -29,7 +29,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; overflow-x: hidden; }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -341,7 +341,7 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .how-step-text { font-size: 14px; color: var(--muted); line-height: 1.7; padding-top: 4px; }
+    .how-step-text { font-size: 14px; color: var(--muted); line-height: 1.7; padding-top: 4px; word-break: break-word; }
     .how-step-text strong { color: var(--charcoal); }
     .how-highlight {
       margin-top: 20px;
@@ -434,28 +434,96 @@
     .btn-subscribe:hover { background: var(--green-light); }
     .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════════════
+       RESPONSIVE  (progressive breakpoints)
+       ══════════════════════════════════════════════ */
+
+    /* ≤1180px — hide inline contact block; shrink nav links so the
+       centred menu never crushes the logo */
+    @media (max-width: 1180px) {
+      .navbar { gap: 14px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 17px; }
+      .dropdown-menu-custom li a { font-size: 16px; }
+      .navbar-contact { display: none; }
+    }
+
+    /* ≤1024px — hide socials, tighten the impact strip a touch */
+    @media (max-width: 1024px) {
+      .navbar-socials { display: none; }
+    }
+
+    /* ≤900px — switch nav to the mobile hamburger drawer; stack how-grid */
     @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--white);
+        box-shadow: var(--shadow);
+        padding: 8px 0;
+        z-index: 300;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > li { width: 100%; }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; font-size: 18px; }
+      .nav-links .nav-dropdown { position: static; }
+      .nav-links .dropdown-menu-custom {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: var(--green-pale);
+        min-width: 0;
+        width: 100%;
+      }
+      .nav-links .dropdown-menu-custom li a { padding-left: 40px; font-size: 16px; }
+      .hamburger { display: flex; }
+      .navbar { justify-content: space-between; }
+      .navbar-right { gap: 12px; }
+
       .how-grid { grid-template-columns: 1fr; }
       .impact-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
+
+    /* ≤768px — tighten spacing, hero, impact numbers */
+    @media (max-width: 768px) {
+      .section { padding: 64px 24px; }
+      .page-hero { padding: 64px 24px; }
+      .impact-strip { padding: 44px 24px; }
+      .impact-item strong { font-size: 2rem; }
+      .how-card { padding: 28px 24px; }
+    }
+
+    /* ≤640px — single-column, compact everything */
     @media (max-width: 640px) {
-      .topbar { justify-content: center; text-align: center; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column; gap: 0;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--white); box-shadow: var(--shadow);
-        padding: 12px 0; z-index: 200;
-      }
-      .nav-links.open > li > a { padding: 12px 24px; display: block; }
-      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
-      .hamburger { display: flex; }
+      .navbar { padding: 10px 18px; }
+      .navbar-logo img { height: 52px; }
+      .btn-donate-nav { padding: 8px 14px; font-size: 12px; }
+
+      .section { padding: 48px 18px; }
+      .section-title { margin-bottom: 32px; }
+      .page-hero { padding: 56px 20px; }
+
       .footer-top { grid-template-columns: 1fr; }
-      .impact-strip-inner { grid-template-columns: repeat(2, 1fr); }
-      .section { padding: 56px 20px; }
+      .impact-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .cta-banner { padding: 56px 20px; }
+
       .float-donate span { display: none; }
+      .float-donate { padding: 12px; }
+    }
+
+    /* ≤400px — narrowest phones: single-column impact stats */
+    @media (max-width: 400px) {
+      .impact-strip-inner { grid-template-columns: 1fr; gap: 28px; }
+      .donate-card { padding: 28px 22px; }
     }
 
     .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
