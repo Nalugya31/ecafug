@@ -30,7 +30,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; overflow-x: hidden; }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -517,9 +517,6 @@
     .intl-join-note i { color: var(--green); margin-right: 6px; }
     .intl-join-note a { color: var(--green); font-weight: 600; text-decoration: underline; }
 
-    @media (max-width: 1024px) { .intl-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px)  { .intl-grid { grid-template-columns: 1fr 1fr; } }
-
     .btn-green {
       display: inline-flex;
       align-items: center;
@@ -636,33 +633,112 @@
     .btn-subscribe:hover { background: var(--green-light); }
     .footer-bottom { text-align: center; padding: 20px; font-size: 13px; color: rgba(255,255,255,.35); }
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════════════
+       RESPONSIVE  (progressive breakpoints)
+       ══════════════════════════════════════════════ */
+
+    /* ≤1180px — hide the inline contact block, keep socials + donate,
+       start showing the hamburger a little earlier so the centred
+       nav links never crush the logo. */
+    @media (max-width: 1180px) {
+      .navbar { gap: 14px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 17px; }
+      .dropdown-menu-custom li a { font-size: 16px; }
+      .navbar-contact { display: none; }
+    }
+
+    /* ≤1024px — collapse 4-up grids to 2-up, tighten spacing */
     @media (max-width: 1024px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .intl-grid { grid-template-columns: repeat(2, 1fr); }
       .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .navbar-socials { display: none; }
+      .team-photo img { height: 520px; }
     }
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .about-img img { height: 300px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .topbar { justify-content: center; text-align: center; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column; gap: 0;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--white); box-shadow: var(--shadow);
-        padding: 12px 0; z-index: 200;
+
+    /* ≤900px — switch nav to the mobile hamburger drawer */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--white);
+        box-shadow: var(--shadow);
+        padding: 8px 0;
+        z-index: 300;
+        align-items: stretch;
+        justify-content: flex-start;
       }
-      .nav-links.open > li > a { padding: 12px 24px; display: block; }
-      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
+      .nav-links.open { display: flex; }
+      .nav-links > li { width: 100%; }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; font-size: 18px; }
+      .nav-links .nav-dropdown { position: static; }
+      .nav-links .dropdown-menu-custom {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: var(--green-pale);
+        min-width: 0;
+        width: 100%;
+      }
+      .nav-links .dropdown-menu-custom li a { padding-left: 40px; font-size: 16px; }
       .hamburger { display: flex; }
-      .footer-top { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr 1fr; }
+      .navbar { justify-content: space-between; }
+      .navbar-right { gap: 12px; }
+    }
+
+    /* ≤768px — stack the about grid + footer, shrink tall images */
+    @media (max-width: 768px) {
+      .section { padding: 64px 24px; }
+      .page-hero { padding: 64px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-img img { height: 320px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .team-photo img { height: 420px; }
+      .reg-banner { padding: 40px 28px; }
+    }
+
+    /* ≤640px — single-column everything, compact hero + cards */
+    @media (max-width: 640px) {
+      .navbar { padding: 10px 18px; }
+      .navbar-logo img { height: 52px; }
+      .btn-donate-nav { padding: 8px 14px; }
+      .btn-donate-nav span,
+      .btn-donate-nav { font-size: 12px; }
+
+      .section { padding: 48px 18px; }
+      .page-hero { padding: 56px 20px; }
+
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .intl-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .values-grid { grid-template-columns: 1fr; }
-      .section { padding: 56px 20px; }
+
+      .team-card-img-wrap img { height: 240px; }
+      .intl-card-avatar { height: 240px; }
+      .team-photo img { height: 300px; }
+
+      /* touch devices: reveal social overlay without hover */
+      .team-card-overlay { opacity: 0; }
+
+      .reg-banner { padding: 32px 20px; }
+      .cta-banner { padding: 56px 20px; }
+
       .float-donate span { display: none; }
+      .float-donate { padding: 12px; }
+    }
+
+    /* ≤400px — narrowest phones: give the team cards a bit more room */
+    @media (max-width: 400px) {
+      .team-grid,
+      .intl-grid { grid-template-columns: 1fr; }
+      .team-card-img-wrap img { height: 300px; }
+      .intl-card-avatar { height: 300px; }
     }
 
     /* ── FADE-UP ── */
