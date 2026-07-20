@@ -33,7 +33,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--charcoal); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -491,30 +491,109 @@
     /* ── ANIMATIONS ── */
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) { .children-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 36px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+    /* ══════════════════════════════════════════════
+       RESPONSIVE  (progressive breakpoints)
+       ══════════════════════════════════════════════ */
+
+    /* ≤1180px — hide inline contact block; shrink nav links so the
+       centred menu never crushes the logo */
+    @media (max-width: 1180px) {
+      .navbar { gap: 14px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 17px; }
+      .dropdown-menu-custom li a { font-size: 16px; }
+      .navbar-contact { display: none; }
     }
-    @media (max-width: 640px) {
-      .topbar { justify-content: center; text-align: center; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column; gap: 0;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--white); box-shadow: var(--shadow);
-        padding: 12px 0; z-index: 200;
+
+    /* ≤1024px — 3-up children grid to 2-up, hide socials */
+    @media (max-width: 1024px) {
+      .children-grid { grid-template-columns: repeat(2, 1fr); }
+      .navbar-socials { display: none; }
+    }
+
+    /* ≤900px — hamburger drawer; stack about grid + footer */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--white);
+        box-shadow: var(--shadow);
+        padding: 8px 0;
+        z-index: 300;
+        align-items: stretch;
+        justify-content: flex-start;
       }
-      .nav-links.open > li > a { padding: 12px 24px; display: block; }
-      .nav-links.open .dropdown-menu-custom { position: static; box-shadow: none; border: none; background: var(--green-pale); }
+      .nav-links.open { display: flex; }
+      .nav-links > li { width: 100%; }
+      .nav-links.open > li > a { padding: 12px 24px; display: block; font-size: 18px; }
+      .nav-links .nav-dropdown { position: static; }
+      .nav-links .dropdown-menu-custom {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: var(--green-pale);
+        min-width: 0;
+        width: 100%;
+      }
+      .nav-links .dropdown-menu-custom li a { padding-left: 40px; font-size: 16px; }
       .hamburger { display: flex; }
-      .children-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .content { padding: 24px 16px 80px; }
-      .about-sponsor { padding: 48px 20px; }
-      .float-donate span { display: none; }
+      .navbar { justify-content: space-between; }
+      .navbar-right { gap: 12px; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ≤768px — tighten hero + section spacing, shorten hero height,
+       shrink the tall modal hero image so the story is reachable */
+    @media (max-width: 768px) {
+      .page-hero { min-height: 560px; padding: 88px 24px 72px; }
+      .about-sponsor { padding: 56px 24px; }
+      .controls-bar { padding: 14px 24px; }
+      .content { padding: 32px 24px 80px; }
+      .modal-hero { height: 320px; }
+      .modal-body { padding: 24px 24px 32px; }
+      .footer { padding: 56px 24px 0; }
+      .footer-brand img { height: 140px !important; }
+    }
+
+    /* ≤640px — single-column grid + everything compact */
+    @media (max-width: 640px) {
+      .navbar { padding: 10px 18px; }
+      .navbar-logo img { height: 52px; }
+      .btn-donate-nav { padding: 8px 14px; font-size: 12px; }
+
+      .page-hero { min-height: 480px; padding: 72px 20px 56px; }
       .hero-stats { gap: 24px; }
+      .hero-stat .num { font-size: 30px; }
+
+      .about-sponsor { padding: 48px 18px; }
+      .controls-bar { padding: 12px 18px; }
+      .search-box { width: 100%; min-width: 0; }
+      .content { padding: 28px 16px 72px; }
+      .children-grid { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; }
+      .footer { padding: 48px 18px 0; }
+      .footer-brand img { height: 120px !important; }
+
+      .modal-hero { height: 260px; }
+      .modal-body { padding: 20px 20px 28px; }
+      .modal-body h2 { font-size: 1.4rem; }
+
+      .float-donate span { display: none; }
+      .float-donate { padding: 12px; }
+    }
+
+    /* ≤400px — narrowest phones: shorter child photos */
+    @media (max-width: 400px) {
+      .child-photo { height: 260px; }
     }
   </style>
 </head>
